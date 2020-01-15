@@ -1,0 +1,11 @@
+templateScript: /spa-lm/webresources/index.html
+renderType: headless
+visible: true
+parameters:
+  restEndpoint: pages
+areas:
+  main:
+    title: Main Area
+    availableComponents:
+      Paragraph:
+        id: spa-lm:components/Paragraph

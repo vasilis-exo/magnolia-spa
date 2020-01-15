@@ -1,0 +1,17 @@
+templateScript: /spa-lm/webresources/index.html
+renderType: headless
+visible: true
+parameters:
+  restEndpoint: pages
+areas:
+  main:
+    title: Main Area
+    availableComponents:
+      Header:
+        id: spa-lm:components/Header
+      Image:
+        id: spa-lm:components/Image
+      Paragraph:
+        id: spa-lm:components/Paragraph
+      List:
+        id: spa-lm:components/List
