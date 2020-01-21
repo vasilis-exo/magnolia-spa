@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from 'react-magnolia';
+import { Area } from '@magnolia/react-renderer';
 
 const Contact = props => {
   const { main } = props;
@@ -10,10 +10,11 @@ const Contact = props => {
 
   return (
     <div className="Contact">
+      <h2>(Contact Page)</h2>
       <div className="box" style={boxStyle}>
         <h1>Nulla vitae elit libero, a pharetra augue.</h1>
       </div>
-      {main && <Area {...main} />}
+      {main && <Area content={main} />}
     </div>
   );
 };

@@ -2,6 +2,7 @@ class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
 workspace: website
 depth: 10
 includeSystemProperties: true
+bypassWorkspaceAcls: true
 nodeTypes:
   - mgnl:page
 childNodeTypes:
