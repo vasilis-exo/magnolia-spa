@@ -10,7 +10,7 @@ jsPaths:
   - http://localhost:3000/static/js/0.chunk.js
   - http://localhost:3000/static/js/1.chunk.js
   - http://localhost:3000/static/js/main.chunk.js
-  - http://localhost:3000/main.2de2ab9edd4013053045.hot-update.js
+  - http://localhost:3000/main.3cf39b1a266c91aac009.hot-update.js
 cssPaths:
   - /spa-lm/webresources/react-minimal/static/css/main.css
 

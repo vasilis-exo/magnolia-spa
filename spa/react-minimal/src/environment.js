@@ -1,12 +1,12 @@
 // In this sample code, we use this file to configure server URLs
 
 const SERVER = 'http://localhost:8080';
-//const SERVER_PATH = '/magnoliaAuthor';
-const SERVER_PATH = '';
+const SERVER_PATH = '/magnoliaAuthor';
+//const SERVER_PATH = '';
 
 const ENVIRONMENT = {
     server: SERVER,
-    restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages/v1`,
+    restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages`,
     templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/templateDefinition/v1`,
     serverPath: SERVER_PATH,
     rootCmsPath: '/react-sample',

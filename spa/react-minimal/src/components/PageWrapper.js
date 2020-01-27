@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Area } from '@magnolia/react-renderer';
+import {Page} from '@magnolia/react-renderer';
 
 import ENVIRONMENT from '../environment';
 
@@ -9,96 +9,75 @@ import {
   removeExtension
 } from '../AppHelpers';
 
-//const isInAuthor = false;//window.self !== window.top && window.singlePageConfig;
-
 class PageWrapper extends React.Component {
-  // state = {
-  //   page: isInAuthor ? window.singlePageConfig.content : {}
-  // };
+
   state = {};
 
-  //debugger;
+  inAuthor = () => (window.parent.mgnlRefresh !== undefined)
 
+  getPagePath = () => {
+    let path = window.location.pathname.replace(ENVIRONMENT.serverPath, '');
+    path = removeExtension(path);
+    return path;
+  };
+
+  loadPage = async () => {
+    if (this.state.pathname === window.location.pathname) return;
+
+    const pagePath = this.getPagePath();
+    console.log('pagePath:' + pagePath);
+    this.loadedPath = window.location.pathname;
+
+    const pageResponse = await fetch(ENVIRONMENT.restUrlBase + pagePath);
+    const pageJson = await pageResponse.json();
+    console.log('page content: ', pageJson);
   
-  
-  async loadTemplateDefinitions(templateId) {
-    console.log('templateId', templateId);
-    
-    //const templateEndpointUrl = `${ENVIRONMENT.templateDefinitionBase}/${templateId}`;
-    //CLZ_ALERT
-    const templateEndpointUrl = `http://localhost:8080/magnoliaAuthor/.rest/templateDefinition/v1/${templateId}`;
+    const templateId = pageJson['mgnl:template'];
+    console.log('templateId:', templateId);
 
-
-    // Loads the single page config
-    const response = await fetch(templateEndpointUrl);
-    const json = await response.json();
-
-    console.log('Definition', json);
+    let templateJson = null;
+    if (this.inAuthor()) {
+      const templateResponse = await fetch(ENVIRONMENT.templateDefinitionBase + '/' + templateId);
+      templateJson = await templateResponse.json();
+      console.log('definition:', templateJson);
+    }
 
     this.setState({
-        init: true,
-        templateDefinitions: json
+      init: true,
+      content: pageJson,
+      templateDefinitions: templateJson,
+      pathname: window.location.pathname
     });
-  } 
-
-   getPage = async () => {
-    //if (isInAuthor || this.state.pathname === window.location.pathname) return;
-
-    
-    const path = window.location.pathname.replace('/magnoliaAuthor', '');
-    console.log('path:' + path)
-
-    // fetch('http://localhost:8080/magnoliaAuthor/.rest/pages' + path)
-    //   .then(res => res.json())
-    //   .then(json => this.setState({ page: json, pathname: window.location.pathname }));
-
-    //debugger;
-
-    //CLZ_ALERT
-    const fullURL = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pages' + removeExtension(path);
-      const response = await fetch(fullURL);
-
-        const json = await response.json();
-
-        //debugger;
-
-        console.log('CONTENT===', json);
-
-        this.setState({
-            content: json
-        }, () => this.loadTemplateDefinitions(json['mgnl:template']));
 
   };
 
   componentDidMount() {
-    this.getPage();
-    if (window.parent.mgnlRefresh !== undefined) {
+    this.loadPage();
+    if (this.inAuthor()) {
       window.parent.mgnlRefresh();
-  }
+    }
   }
 
   componentDidUpdate() {
-    //this.getPage();
-    if (window.parent.mgnlRefresh !== undefined) {
+    this.loadPage();
+    if (this.inAuthor()) {
       window.parent.mgnlRefresh();
-  }
+    }
   }
 
 
   render() {
-    //const { page } = this.state;
-    const page = this.state;
-    
-    
-    if (page.init){
+    console.log('RENDER');
 
-      const pageId = page.content['mgnl:template'];
-      const template = config[pageId];
+    if (this.state.init){
+
+      const templateId = this.state.content['mgnl:template'];
+      const template = config[templateId];
+      //const element = ;
 
       return (
-      <Page templateDefinitions={page.templateDefinitions} content={page.content} componentMappings={config} >
-        
-        {template ? React.createElement(template, page.content) : null}
+      <Page templateDefinitions={this.state.templateDefinitions} content={this.state.content} componentMappings={config} >
+        {template ? React.createElement(template, this.state.content) : <p>-</p>}
       </Page> 
       )
 
