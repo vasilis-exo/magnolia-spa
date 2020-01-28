@@ -6,7 +6,7 @@ const Default = props => {
 
   return (
     <div className="Default">
-      <h2>(Default Page )</h2>
+      <h2 className="hint">[Default Page]</h2>
       {main && <Area className="Area" content={main} />}
     </div>
   ) 

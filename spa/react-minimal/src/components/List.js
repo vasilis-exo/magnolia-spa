@@ -5,14 +5,15 @@ const List = props => {
 
   const { items } = props;
 
-  //return  <div>(DISABLED LIST)</div>
   return (
+    <>
+    <div className="hint">[LIST]</div>
     <ul className="List">
-    (LIST)
-    {items && <Area content={items} />}
+      {items && <Area content={items} />}
     </ul>
+    </>
+
   );
-  //return <ul className="List">{items && <Area {...items} />}</ul>;
 };
 
 export default List;

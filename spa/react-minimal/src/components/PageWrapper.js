@@ -9,6 +9,7 @@ import {
   removeExtension
 } from '../AppHelpers';
 
+
 class PageWrapper extends React.Component {
 
   state = {};
@@ -68,6 +69,7 @@ class PageWrapper extends React.Component {
 
   render() {
     console.log('RENDER');
+
 
     if (this.state.init){
 

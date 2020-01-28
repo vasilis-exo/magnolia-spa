@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-//import { BrowserRouter as Router,  Link } from 'react-router-dom';
 import PageWrapper from './components/PageWrapper';
 import './App.css';
 
@@ -10,12 +9,15 @@ import ENVIRONMENT from './environment';
 function App() {
 //    <Router basename="/magnoliaAuthor">
 
+  console.log('App');
+  
   let base = '';
   if (window.parent.mgnlRefresh !== undefined) {
     base = ENVIRONMENT.serverPath;
   }
 
   return (
+    
     <Router basename={base}>
       <header>
         <nav>

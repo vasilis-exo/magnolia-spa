@@ -6,11 +6,10 @@ const SERVER_PATH = '/magnoliaAuthor';
 
 const ENVIRONMENT = {
     server: SERVER,
+    serverPath: SERVER_PATH,
     restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages`,
     templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/templateDefinition/v1`,
-    serverPath: SERVER_PATH,
-    rootCmsPath: '/react-sample',
-
+    
     damUrl: SERVER + SERVER_PATH,
     staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`
 };

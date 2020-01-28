@@ -1,26 +1,18 @@
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 renderType: spa
 visible: true
-# parameters:
-#   restEndpoint: pages
 
 templateScript: /spa-lm/webresources/react-minimal/index.html
 jsPaths:
   - http://localhost:3000/static/js/bundle.js
-  - http://localhost:3000/static/js/0.chunk.js
   - http://localhost:3000/static/js/1.chunk.js
   - http://localhost:3000/static/js/main.chunk.js
-  - http://localhost:3000/main.3cf39b1a266c91aac009.hot-update.js
-cssPaths:
-  - /spa-lm/webresources/react-minimal/static/css/main.css
 
 # jsPaths:
 #   - /spa-lm/webresources/react-minimal/static/js/main.js
-# cssPaths:
-#   - /spa-lm/webresources/react-minimal/static/css/main.css
 
-
-
+cssPaths:
+  - /spa-lm/webresources/react-minimal/static/css/main.css
 
 
 areas:
@@ -33,11 +25,23 @@ areas:
         id: spa-lm:components/Image
       Paragraph:
         id: spa-lm:components/Paragraph
+      Expander:
+        id: spa-lm:components/Expander
       List:
         id: spa-lm:components/List
+
+  expanderItems:
+    title: Expander Area
+    availableComponents:
+      Item:
+        id: spa-lm:components/Item
+      Paragraph:
+        id: spa-lm:components/Paragraph
 
   items:
     title: List Items Area
     availableComponents:
       Item:
         id: spa-lm:components/Item
+
+

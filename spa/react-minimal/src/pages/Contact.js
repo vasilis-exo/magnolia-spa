@@ -10,7 +10,7 @@ const Contact = props => {
 
   return (
     <div className="Contact">
-      <h2>(Contact Page)</h2>
+      <h2  className="hint">[Contact Page]</h2>
       <div className="box" style={boxStyle}>
         <h1>Nulla vitae elit libero, a pharetra augue.</h1>
       </div>
