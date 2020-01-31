@@ -5,12 +5,15 @@ const SERVER_PATH = '/magnoliaAuthor';
 //const SERVER_PATH = '';
 
 const ENVIRONMENT = {
+    pathBase: '/react-sample',
+    
     server: SERVER,
     serverPath: SERVER_PATH,
     restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages`,
     templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/templateDefinition/v1`,
     
     damUrl: SERVER + SERVER_PATH,
+    navUrl: `${SERVER + SERVER_PATH}/.rest/delivery/pagenav`,
     staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`
 };
 

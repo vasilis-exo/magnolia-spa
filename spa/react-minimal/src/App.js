@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import PageWrapper from './components/PageWrapper';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import PageLoader from './components/PageLoader';
+import Navigation from './components/Navigation';
 import './App.css';
 
 import ENVIRONMENT from './environment';
@@ -10,6 +11,7 @@ function App() {
 //    <Router basename="/magnoliaAuthor">
 
   console.log('App');
+
   
   let base = '';
   if (window.parent.mgnlRefresh !== undefined) {
@@ -17,35 +19,27 @@ function App() {
   }
 
   return (
-    
-    <Router basename={base}>
+    <>
+
+    <BrowserRouter basename={base} forceRefresh={false}>
+      
       <header>
-        <nav>
-          <Link to="/react-sample">Home</Link>
-          <Link to="/react-sample/contact">Contact</Link>
-        </nav>
-      </header>
+        <Navigation />
+      </header>  
+      
       <div className="container">
-
         <Switch>
-          <Route path="/react-sample/contact">
-            <PageWrapper />
-          </Route>
-          <Route path="/react-sample">
-            <PageWrapper />
-          </Route>
-          <Route path="/">
-            <PageWrapper />
-          </Route>
+          <Route path="/:slug" component={PageLoader} />
         </Switch>
-
       </div>
+
       <footer>
         Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
         <br />
-        Copyright © 2019
+        Copyright © 2020
       </footer>
-    </Router>
+    </BrowserRouter>
+    </>
   );
 }
 

@@ -5,12 +5,10 @@ import ENVIRONMENT from '../environment';
 
 import config  from '../magnolia.config';
 
-import {
-  removeExtension
-} from '../AppHelpers';
+import {removeExtension } from '../AppHelpers';
 
 
-class PageWrapper extends React.Component {
+class PageLoader extends React.Component {
 
   state = {};
 
@@ -68,14 +66,12 @@ class PageWrapper extends React.Component {
 
 
   render() {
-    console.log('RENDER');
-
+    console.log('PageLoader Render');
 
     if (this.state.init){
 
       const templateId = this.state.content['mgnl:template'];
       const template = config[templateId];
-      //const element = ;
 
       return (
       <Page templateDefinitions={this.state.templateDefinitions} content={this.state.content} componentMappings={config} >
@@ -89,4 +85,4 @@ class PageWrapper extends React.Component {
   }
 }
 
-export default PageWrapper;
+export default PageLoader;
