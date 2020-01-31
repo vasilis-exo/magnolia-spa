@@ -6,7 +6,6 @@ class Expander extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isCollapsed: true};
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -39,8 +38,7 @@ class Expander extends React.Component {
             <div className="hint">[EXPANDER OPENED]</div>
             {expanderItems && <Area content={expanderItems} />}
           </div>
-        }
-        
+        }   
       </div>
     );
   }

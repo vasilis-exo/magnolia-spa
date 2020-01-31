@@ -1,20 +1,18 @@
-// In this sample code, we use this file to configure server URLs
 
-const SERVER = 'http://localhost:8080';
-const SERVER_PATH = '/magnoliaAuthor';
-//const SERVER_PATH = '';
+const HOST = 'http://localhost:8080';
+const MAGNOLIA_BASE = '/magnoliaAuthor';
+const APP_BASE = '/react-sample';
 
 const ENVIRONMENT = {
-    pathBase: '/react-sample',
-    
-    server: SERVER,
-    serverPath: SERVER_PATH,
-    restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages`,
-    templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/templateDefinition/v1`,
-    
-    damUrl: SERVER + SERVER_PATH,
-    navUrl: `${SERVER + SERVER_PATH}/.rest/delivery/pagenav`,
-    staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`
+    host: HOST,
+    magnoliaBase: MAGNOLIA_BASE,
+    appBase: APP_BASE,
+
+    contentUrl: `${HOST + MAGNOLIA_BASE}/.rest/delivery/pages`,
+    templateDefinitionUrl: `${HOST + MAGNOLIA_BASE}/.rest/templateDefinition/v1`,
+    damRawUrl: HOST,
+    navUrl: `${HOST + MAGNOLIA_BASE}/.rest/delivery/pagenav`,
+    staticFileUrl: `${HOST + MAGNOLIA_BASE}/.resources/webresources/static`
 };
 
 export default ENVIRONMENT;

@@ -5,3 +5,8 @@ export function removeExtension(path) {
     }
     return newPath;
 }
+
+export function inAuthor() {
+    return window.parent.mgnlRefresh !== undefined
+}
+

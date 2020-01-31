@@ -1,21 +1,16 @@
 import React from 'react';
 import {Page} from '@magnolia/react-renderer';
-
 import ENVIRONMENT from '../environment';
-
 import config  from '../magnolia.config';
-
-import {removeExtension } from '../AppHelpers';
+import {removeExtension, inAuthor } from '../AppHelpers';
 
 
 class PageLoader extends React.Component {
 
   state = {};
 
-  inAuthor = () => (window.parent.mgnlRefresh !== undefined)
-
   getPagePath = () => {
-    let path = window.location.pathname.replace(ENVIRONMENT.serverPath, '');
+    let path = window.location.pathname.replace(ENVIRONMENT.magnoliaBase, '');
     path = removeExtension(path);
     return path;
   };
@@ -25,9 +20,14 @@ class PageLoader extends React.Component {
 
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
-    this.loadedPath = window.location.pathname;
 
-    const pageResponse = await fetch(ENVIRONMENT.restUrlBase + pagePath);
+    let fullContentPath;
+    if (!inAuthor()){
+      fullContentPath = ENVIRONMENT.contentUrl + pagePath;
+    }else{
+      fullContentPath = ENVIRONMENT.contentUrl + ENVIRONMENT.appBase + pagePath
+    }
+    const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();
     console.log('page content: ', pageJson);
   
@@ -35,8 +35,8 @@ class PageLoader extends React.Component {
     console.log('templateId:', templateId);
 
     let templateJson = null;
-    if (this.inAuthor()) {
-      const templateResponse = await fetch(ENVIRONMENT.templateDefinitionBase + '/' + templateId);
+    if (inAuthor()) {
+      const templateResponse = await fetch(ENVIRONMENT.templateDefinitionUrl + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
     }
@@ -52,14 +52,14 @@ class PageLoader extends React.Component {
 
   componentDidMount() {
     this.loadPage();
-    if (this.inAuthor()) {
+    if (inAuthor()) {
       window.parent.mgnlRefresh();
     }
   }
 
   componentDidUpdate() {
     this.loadPage();
-    if (this.inAuthor()) {
+    if (inAuthor()) {
       window.parent.mgnlRefresh();
     }
   }

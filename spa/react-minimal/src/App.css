@@ -12,6 +12,10 @@ body {
   padding: 20px;
 }
 
+nav {
+  border-bottom: solid 1px #cccccc;
+}
+
 nav a {
   display: inline-block;
   padding: 10px;
@@ -22,6 +26,8 @@ nav a {
 nav a:hover {
   color: #00b39b;
 }
+
+
 
 img {
   max-width: 300px;

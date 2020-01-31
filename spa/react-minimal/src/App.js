@@ -3,24 +3,20 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageLoader from './components/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
-
 import ENVIRONMENT from './environment';
+import { inAuthor } from './AppHelpers';
 
 
 function App() {
-//    <Router basename="/magnoliaAuthor">
 
   console.log('App');
 
-  
   let base = '';
-  if (window.parent.mgnlRefresh !== undefined) {
-    base = ENVIRONMENT.serverPath;
+  if (!inAuthor()) {
+    base = ENVIRONMENT.magnoliaBase + ENVIRONMENT.appBase;
   }
 
   return (
-    <>
-
     <BrowserRouter basename={base} forceRefresh={false}>
       
       <header>
@@ -29,7 +25,7 @@ function App() {
       
       <div className="container">
         <Switch>
-          <Route path="/:slug" component={PageLoader} />
+          <Route path="/" component={PageLoader} />
         </Switch>
       </div>
 
@@ -39,7 +35,6 @@ function App() {
         Copyright © 2020
       </footer>
     </BrowserRouter>
-    </>
   );
 }
 

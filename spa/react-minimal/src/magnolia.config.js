@@ -8,7 +8,6 @@ import List from './components/List';
 import Item from './components/Item';
 
 const config = {
- 
     'spa-lm:pages/Default': Default,
     'spa-lm:pages/Contact': Contact,
     'spa-lm:components/Header': Header,
@@ -17,7 +16,6 @@ const config = {
     'spa-lm:components/Expander': Expander,
     'spa-lm:components/List': List,
     'spa-lm:components/Item': Item
-  
 };
 
 export default config;
