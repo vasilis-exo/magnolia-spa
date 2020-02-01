@@ -4,6 +4,7 @@ form:
     - name: tabMain
       fields:
         - name: text
+          label: Header Text
           fieldType: text
 
 actions:

@@ -4,4 +4,4 @@ areas:
     title: List Items Area
     availableComponents:
       Item:
-        id: spa-lm:components/Item
+        id: spa-lm:components/listItem

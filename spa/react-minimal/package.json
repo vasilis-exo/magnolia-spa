@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && node scripts/build-non-split.js --env=development",
-    "deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" ../../magnolia/light-modules/spa-lm/webresources/react-minimal && copyfiles -u 1 public/index.html ../../magnolia/light-modules/spa-lm/webresources/react-minimal",
+    "deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" ../../magnolia/light-modules/react-minimal-lm/webresources/react-minimal && copyfiles -u 1 public/index.html ../../magnolia/light-modules/react-minimal-lm/webresources/react-minimal",
     "build-rename": "npm run build-rename-js && npm run build-rename-css",
     "build-rename-js": "renamer --find \"/main.[^\\.]+.js/\" --replace \"main.js\" build/static/js/*.js",
     "build-rename-css": "renamer --find \"/main\\.[^\\.]+\\.css/\" --replace \"main.css\" build/static/css/*.css",

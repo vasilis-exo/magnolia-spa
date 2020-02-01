@@ -22,7 +22,7 @@ class PageLoader extends React.Component {
     console.log('pagePath:' + pagePath);
 
     let fullContentPath;
-    if (!inAuthor()){
+    if (inAuthor()){
       fullContentPath = ENVIRONMENT.contentUrl + pagePath;
     }else{
       fullContentPath = ENVIRONMENT.contentUrl + ENVIRONMENT.appBase + pagePath

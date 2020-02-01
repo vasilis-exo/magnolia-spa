@@ -4203,7 +4203,7 @@ __webpack_require__.r(__webpack_exports__);
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var SERVER = 'http://localhost:8080';
+var SERVER = 'http://localhost:8080/magnoliaAuthor';
 var environment = {
     server: SERVER,
     rootPath: '/angular-minimal',

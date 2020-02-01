@@ -1,0 +1,32 @@
+title: 'Angular: Basic'
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+renderType: spa
+visible: true
+
+templateScript: /angular-minimal-lm/webresources/angular-minimal/index.html
+
+jsPaths:
+  - /angular-minimal-lm/webresources/angular-minimal/main.js
+  - /angular-minimal-lm/webresources/angular-minimal/runtime.js
+  - /angular-minimal-lm/webresources/angular-minimal/polyfills-es5.js
+  - /angular-minimal-lm/webresources/angular-minimal/polyfills.js
+  - /angular-minimal-lm/webresources/angular-minimal/vendor.js
+  - /angular-minimal-lm/webresources/angular-minimal/styles.js
+cssPaths:
+  - /angular-minimal-lm/webresources/angular-minimal/styles.css
+
+
+areas:
+  main:
+    title: Main Area
+    availableComponents:
+      header:
+        id: spa-lm:components/header
+      Image:
+        id: spa-lm:components/Image
+      Paragraph:
+        id: spa-lm:components/Paragraph
+      Expander:
+        id: spa-lm:components/Expander
+      List:
+        id: spa-lm:components/list

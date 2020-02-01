@@ -5,7 +5,7 @@ areas:
 
     availableComponents:
       Item:
-        id: spa-lm:components/Item
+        id: spa-lm:components/listItem
 
 
       Image:
@@ -13,5 +13,5 @@ areas:
       Paragraph:
         id: spa-lm:components/Paragraph
       Header:
-        id: spa-lm:components/Header
+        id: spa-lm:components/header
 

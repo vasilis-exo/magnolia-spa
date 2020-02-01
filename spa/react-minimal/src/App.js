@@ -12,7 +12,7 @@ function App() {
   console.log('App');
 
   let base = '';
-  if (!inAuthor()) {
+  if (inAuthor()) {
     base = ENVIRONMENT.magnoliaBase + ENVIRONMENT.appBase;
   }
 
