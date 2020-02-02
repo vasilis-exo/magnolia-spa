@@ -6,8 +6,18 @@ const Basic = props => {
 
   return (
     <div className="Basic">
-      <h2 className="hint">[Basic Page]</h2>
-      {main && <Area className="Area" content={main} />}
+      <div className="hint">[Basic Page]</div>
+ 
+      <main>
+        <div className="hint">[Main Area]</div>         
+        {main && <Area className="Area" content={main} />}  
+      </main>
+
+      <footer >
+        <div className="hint">[Footer Area]</div>
+        {main && <Area className="Area" content={main} />}  
+        <button todoImplement>Contact</button>
+      </footer>    
     </div>
   ) 
 };

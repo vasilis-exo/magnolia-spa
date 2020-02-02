@@ -1,5 +1,0 @@
-<nav class="Navigation">
-    <ng-template ngFor let-item [ngForOf]="navItems">
-        <a [ngClass]="{'active': isActive(item)}" [routerLink]="getLink(item)">{{item.navigationTitle || item.title || item['@name']}}</a>
-    </ng-template>
-</nav>

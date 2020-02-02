@@ -1,0 +1,15 @@
+<div class="Basic">
+    <div class="hint">[Basic Page]</div>    
+    <h1>{{content?.title}}</h1>
+    
+    <main>
+        <div class="hint">[Main Area]</div>         
+        <div mgnl-area [name]="'main'" [content]="content"></div>  
+    </main>
+    
+    <footer >
+        <div class="hint">[Footer Area]</div>
+        <div mgnl-area [name]="'footer'" [content]="content"></div>
+        <button routerLink="/contact">Contact</button>
+    </footer>
+</div>

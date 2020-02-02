@@ -2,27 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { routing } from './app.routing';
+import { AppComponent } from './app.component';
+import { RootComponent } from './root.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+
+import { BasicComponent } from './pages/basic/basic.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ListComponent } from './components/list/list.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { ImageComponent } from './components/image/image.component';
+import { ParagraphComponent } from './components/paragraph/paragraph.component';
+import { ExpanderComponent } from './components/expander/expander.component';
 
 import { MagnoliaModule } from '@robsis/angular-renderer';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { BasicComponent } from './basic/basic.component';
-import { ContactComponent } from './contact/contact.component';
-
-import { TitleComponent } from './title/title.component';
-import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
-import { AboutComponent } from './about/about.component';
-import { RootComponent } from './root.component';
-import { NavigationComponent } from './navigation/navigation.component';
-
-import { HeaderComponent } from './header/header.component';
-import { ListComponent } from './list/list.component';
-import { ListItemComponent } from './list-item/list-item.component';
-import { ImageComponent } from './image/image.component';
-import { ParagraphComponent } from './paragraph/paragraph.component';
-import { ExpanderComponent } from './expander/expander.component';
+import { routing } from './app.routing';
 
 
 @NgModule({
@@ -35,38 +30,27 @@ import { ExpanderComponent } from './expander/expander.component';
   declarations: [
     AppComponent,
     RootComponent,
-    HomeComponent,
+    
     BasicComponent,
     ContactComponent,
-
-
-    TitleComponent,
-    AboutComponent,
-    ComponentWithAreaComponent,
-    NavigationComponent,
-    
     HeaderComponent,
     ListComponent,
     ListItemComponent,
     ImageComponent,
     ParagraphComponent,
     ExpanderComponent,
+    NavigationComponent,
   ],
   entryComponents: [
     BasicComponent,
     ContactComponent,
-    HomeComponent,
-    AboutComponent,
-    TitleComponent,
-    ComponentWithAreaComponent,
-    NavigationComponent,
-    
     HeaderComponent,
     ListComponent,
     ListItemComponent,
     ImageComponent,
     ParagraphComponent,
     ExpanderComponent,
+    NavigationComponent,
   ],
   bootstrap: [AppComponent]
 })
