@@ -1,4 +1,4 @@
-title: 'Angular: Basic'
+title: 'Angular: Contact'
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 renderType: spa
 visible: true
@@ -22,11 +22,7 @@ areas:
     availableComponents:
       header:
         id: spa-lm:components/header
-      Image:
-        id: spa-lm:components/image
       Paragraph:
         id: spa-lm:components/paragraph
       Expander:
         id: spa-lm:components/expander
-      List:
-        id: spa-lm:components/list

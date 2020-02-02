@@ -9,6 +9,8 @@ import { MagnoliaModule } from '@robsis/angular-renderer';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BasicComponent } from './basic/basic.component';
+import { ContactComponent } from './contact/contact.component';
+
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 import { AboutComponent } from './about/about.component';
@@ -18,6 +20,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { ImageComponent } from './image/image.component';
+import { ParagraphComponent } from './paragraph/paragraph.component';
+import { ExpanderComponent } from './expander/expander.component';
 
 
 @NgModule({
@@ -32,16 +37,24 @@ import { ListItemComponent } from './list-item/list-item.component';
     RootComponent,
     HomeComponent,
     BasicComponent,
+    ContactComponent,
+
+
     TitleComponent,
     AboutComponent,
     ComponentWithAreaComponent,
     NavigationComponent,
+    
     HeaderComponent,
     ListComponent,
     ListItemComponent,
+    ImageComponent,
+    ParagraphComponent,
+    ExpanderComponent,
   ],
   entryComponents: [
     BasicComponent,
+    ContactComponent,
     HomeComponent,
     AboutComponent,
     TitleComponent,
@@ -51,6 +64,9 @@ import { ListItemComponent } from './list-item/list-item.component';
     HeaderComponent,
     ListComponent,
     ListItemComponent,
+    ImageComponent,
+    ParagraphComponent,
+    ExpanderComponent,
   ],
   bootstrap: [AppComponent]
 })

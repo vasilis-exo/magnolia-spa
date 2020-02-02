@@ -4,6 +4,7 @@ form:
     - name: tabMain
       fields:
         - name: richText
+          label: Paragraph Text
           fieldType: richText
 
 actions:

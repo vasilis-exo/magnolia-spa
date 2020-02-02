@@ -21,23 +21,21 @@ areas:
     title: Main Area
     availableComponents:
       Header:
-        id: spa-lm:components/Header
+        id: spa-lm:components/header
       Image:
-        id: spa-lm:components/Image
+        id: spa-lm:components/image
       Paragraph:
-        id: spa-lm:components/Paragraph
+        id: spa-lm:components/paragraph
       Expander:
-        id: spa-lm:components/Expander
+        id: spa-lm:components/expander
       List:
-        id: spa-lm:components/List
+        id: spa-lm:components/list
 
   expanderItems:
     title: Expander Area
     availableComponents:
-      Item:
-        id: spa-lm:components/listItem
       Paragraph:
-        id: spa-lm:components/Paragraph
+        id: spa-lm:components/paragraph
 
   items:
     title: List Items Area

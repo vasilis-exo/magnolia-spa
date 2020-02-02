@@ -4,6 +4,7 @@ form:
     - name: tabMain
       fields:
         - name: image
+          label: Image
           fieldType: link
           targetWorkspace: dam
           appName: assets

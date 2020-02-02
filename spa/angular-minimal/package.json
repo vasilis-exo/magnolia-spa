@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
     "@robsis/angular-renderer": "1.0.0-beta1",
-    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",

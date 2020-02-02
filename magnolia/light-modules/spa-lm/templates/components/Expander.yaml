@@ -4,14 +4,10 @@ areas:
     title: Expander Area
 
     availableComponents:
-      Item:
-        id: spa-lm:components/listItem
-
-
       Image:
-        id: spa-lm:components/Image
+        id: spa-lm:components/image
       Paragraph:
-        id: spa-lm:components/Paragraph
+        id: spa-lm:components/paragraph
       Header:
         id: spa-lm:components/header
 

@@ -21,12 +21,12 @@ areas:
     title: Main Area
     availableComponents:
       Paragraph:
-        id: spa-lm:components/Paragraph
+        id: spa-lm:components/paragraph
       Expander:
-        id: spa-lm:components/Expander
+        id: spa-lm:components/expander
         
   expanderItems:
     title: Expander Area
     availableComponents:
-      Item:
-        id: spa-lm:components/listItem
+      Paragraph:
+        id: spa-lm:components/paragraph

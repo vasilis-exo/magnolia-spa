@@ -69,8 +69,9 @@ class PageLoader extends React.Component {
     console.log('PageLoader Render');
 
     if (this.state.init){
-
+      
       const templateId = this.state.content['mgnl:template'];
+      console.log("templateId:" + templateId)
       const template = config[templateId];
 
       return (
