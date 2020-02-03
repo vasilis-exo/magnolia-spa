@@ -12,7 +12,7 @@ https://jira.magnolia-cms.com/browse/MGNLFE-20
 # Biggest differences to Services library.
 * Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'.
 * You always get the template definitions from a new templateDefinitions endpoint.
-
+* Page Template definitions must specify the exact resources to include (no wildcards), this means that create-react-app projects need to be configured to create the same filenames everytime.
 
 
 # This README is a work in progress
