@@ -1,3 +1,20 @@
+# Workarounds until React Library is published and fixed.
+
+Clone React library locally, build it locally, - and point directly to it from the React project package.json
+https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-renderer
+
+
+React library has a bug. For now - all areas, from all components, need to also be 
+declared in the page template.
+https://jira.magnolia-cms.com/browse/MGNLFE-20
+
+
+# Biggest differences to Services library.
+* Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'.
+* You always get the template definitions from a new templateDefinitions endpoint.
+
+
+
 # This README is a work in progress
 
 ## Requirements
