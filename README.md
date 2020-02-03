@@ -1,4 +1,4 @@
-# This README is out of date.
+# This README is a work in progress
 
 ## Requirements
 
@@ -6,36 +6,22 @@
 
 - [Magnolia CLI](https://www.npmjs.com/package/@magnolia/cli) installed ([installation documentation](https://documentation.magnolia-cms.com/display/DOCS/Magnolia+CLI+v3))
 
-## Install Magnolia DX Core with Magnolia CLI
+## Install Magnolia with Magnolia CLI
 
-Navigate to a folder you would like to keep your Magnolia instance within (we will refer to this as
+In a terminal, navigate to the 'magnolia directory (we will refer to this as
 "MAGNOLIA_INSTANCE_FOLDER" within this document) and run:
 
 ```
 mgnl jumpstart
 ```
 
-Chose `magnolia-dx-core-webapp` as the version to install.
+Chose `magnolia-community-demo-webapp` as the version to install.
 
-> You will need your Magnolia account credentials to install this version. Enter them when prompted.
-
-Copy `magnolia-services-licence-1.0.2` and `magnolia-headless-rendering-1.0.5` to:
-
-```
-<MAGNOLIA_INSTANCE_FOLDER>/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/lib/
-```
 
 ## Add the demo light modules to Magnolia
 
-Clone this project to a folder of your choice.
-
-Create a symbolic link to this repository folder from within:
-
-```
-<MAGNOLIA_INSTANCE_FOLDER>/light-modules/
-```
-
-This will allow Magnolia to access the templates and config we have provided in both the React and Vue demo projects
+Nothing to do here!
+The Magnolia instance is pre-configured to access the existing 'light-modules' directory.
 
 ## Start Magnolia
 
@@ -51,24 +37,11 @@ In your browser open Magnolia at:
 http://localhost:8080/magnoliaAuthor/
 ```
 
-> You will need you Magnolia DX Core license to access the instance. Enter the licence key and owner when prompted.
-
 ## Accessing Magnolia
 You can log in to Magnolia using the credentials superuser/superuser.
 This will give you complete access to all content and configuration.
 
-To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right
-of the search bar.
-
-## Base URL set up
-
-In order to generate absolute URLs, Magnolia must know the domain on which it is running.
-
-### Configuring the base URL 
-Open the Configuration app, expend the `server` node and set the property `defaultBaseUrl` to the URL of
-your Magnolia instance (double click the text to edit).
-
-In this case use, `http://localhost:8080/magnoliaAuthor/`
+To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
 
 ## Security set up
 
@@ -110,57 +83,32 @@ request/response and with a Magnolia-provided AddHeadersFilter we can set a gene
 The AddHeadersFilter can be configured manually as [described in the documentation](https://documentation.magnolia-cms.com/display/DOCS61/Filters#Filters-AddingHTTPheaders)
 or via the [supplied Groovy script](add-cors-filter.groovy).
 
-### Configuring CORS
-1. Log in to Magnolia and open the Groovy app. (Grouped under "Dev")
-1. Click "Add script"
-1. Copy and paste the supplied script into the script field.
-1. Click the "Run" button.
-
-You should now see some simple, catch-all CORS headers in your responses. If this is not enough, you can edit the properties provided.
-
-As every request must go through the filter chain, this will add the headers to the REST endpoint's responses. This can be restricted to certain paths and types by use of the bypasses and voter mechanisms you will see in the existing filters and as documented.
-
 ## JavaScript front-end set up
 
 Each demo contains:
 
-- Default page template
+- Basic page template
 - Contact page template
 - Header component
 - Paragraph component
 - Image component
 - List component
 - Item component (available inside List component)
+- Expander component
 
 To see the headless rendering system in use, we must create some example content.
 
 ### Configuring React
 
-1. In the Pages app create a page called `spa-lm` with the `React: Default page` template.
+1. In the Pages app create a page called 'react-sample' with the `React: Basic page` template.
 
-1. In the Pages app, beneath `spa-lm`, create a page called `contact` with the `React: Contact page` template.
+1. In the Pages app, beneath 'react-sample', create a page called `contact` with the `React: Contact page` template.
 
 1. Add some components to the spa-lm page. 
 
-1. Build and start the React application inside `webresources-src` by first running `npm install` and then `npm start`.
+1. Build and start the React application inside `/spa/react-minimal` by first running `npm install` and then `npm start`.
 
-1. View your Magnolia-managed content via http://localhost:3000/spa-lm.
+1. View your Magnolia-managed content via http://localhost:3000/.
 
-> Source code for the app can be found in `webresources-src`.
-> Once built, resulting files need to be moved to the `webresources` folder.
-
-### Configuring Vue.js
-
-1. In the Pages app create a page called `vue-demo` with the `Vue: Default page` template.
-
-1. In the Pages app, under `vue-demo`, create a page called `contact` with the `Vue: Contact page` template.
-
-1. Add some components to the vue-demo page.
-
-1. Build and start the Vue.js application inside `webresources-src` by first running `npm install` and then
-`npm run-script serve`.
-
-1. View your Magnolia-managed content via http://localhost:8081/vue-demo
-
-> Source code for the app can be found in `webresources-src`.
-> Once built, resulting files need to be moved to the `webresources` folder.
+1. Deploy the React app to the magnolia light-development directory by running `npm run deploy`.
+> Once built, resulting files are moved to the `/magnolia/light-modules/react-minimal-lm/webresources/react-minimal` folder.
