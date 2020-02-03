@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import ENVIRONMENT from '../environment';
 
 function removeAppBase(path){
-    debugger;
     const base = ENVIRONMENT.appBase;
     if (base !== ''){
         if (base === path.substring(0, base.length)){

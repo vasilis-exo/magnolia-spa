@@ -30,8 +30,9 @@ areas:
         id: spa-lm:components/expander
       List:
         id: spa-lm:components/list
-  footer:
-    title: Footer Area
+        
+  secondary:
+    title: Secondary Area
     availableComponents:
       Paragraph:
         id: spa-lm:components/paragraph

@@ -2,7 +2,7 @@ import React from 'react';
 import { Area } from '@magnolia/react-renderer';
 
 const Basic = props => {
-  const { main } = props;
+  const { main, secondary } = props;
 
   return (
     <div className="Basic">
@@ -13,11 +13,11 @@ const Basic = props => {
         {main && <Area className="Area" content={main} />}  
       </main>
 
-      <footer >
-        <div className="hint">[Footer Area]</div>
-        {main && <Area className="Area" content={main} />}  
-        <button todoImplement>Contact</button>
-      </footer>    
+      <div className="Secondary" >
+        <div className="hint">[Sercondary Area]</div>
+        {secondary && <Area className="Area" content={secondary} />}  
+        <button>Contact</button>
+      </div>    
     </div>
   ) 
 };

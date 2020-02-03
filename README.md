@@ -1,11 +1,10 @@
+# This README is out of date.
+
 ## Requirements
 
-- [Magnolia CLI](https://www.npmjs.com/package/@magnolia/cli) installed ([installation documentation](https://documentation.magnolia-cms.com/display/DOCS/Magnolia+CLI+v3))
-- Magnolia account (Contact an account or customer success manager)
-- [magnolia-services-licence-1.0.2](https://nexus.magnolia-cms.com/service/local/repositories/magnolia.incubator.releases/content/info/magnolia/magnolia-services-licence/1.0.2/magnolia-services-licence-1.0.2.jar) module
-- [magnolia-headless-rendering-1.0.5](https://nexus.magnolia-cms.com/service/local/repositories/magnolia.incubator.releases/content/info/magnolia/rendering/magnolia-headless-rendering/1.0.5/magnolia-headless-rendering-1.0.5.jar) module
+- Java (JDK)
 
-> You will need your Magnolia account credentials to download modules.
+- [Magnolia CLI](https://www.npmjs.com/package/@magnolia/cli) installed ([installation documentation](https://documentation.magnolia-cms.com/display/DOCS/Magnolia+CLI+v3))
 
 ## Install Magnolia DX Core with Magnolia CLI
 
