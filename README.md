@@ -1,10 +1,12 @@
 # This README is a work in progress
 
+![The App](/_dev/README-screenshot-app.png?raw=true
+
 # Workarounds until React Library is published and fixed.
 
 ## Install helper libraries locally.
 Clone frontend-helpers project library locally.
-https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/
+https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/)
 
 Point the dependency in package.json of the react library (frontend-helpers/packages/react-renderer/package.json) at *local* template annotations:
 `    "@magnolia/template-annotations": "../template-annotations"`
@@ -48,7 +50,7 @@ In a terminal, navigate to the `magnolia` directory (we will refer to this as
 mgnl jumpstart -s
 ```
 
-Chose `magnolia-community-demo-webapp` as the version to download.
+Choose `magnolia-community-demo-webapp` as the version to download.
 
 (Magnolia is downloaded.)
 
@@ -79,45 +81,21 @@ This will give you complete access to all content and configuration.
 
 To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
 
-## Security set up
 
-By default, the author instance of Magnolia
-(see: [Instances](https://documentation.magnolia-cms.com/display/DOCS61/Instances)) is restricted to authorised users.
+### Configuring REST and DAM security
+Note: the app will have anonymous access to Magnolia REST endpoints with no additional configuration because:
+1. "Web access" is allowed, because the restEndpoint files are under the /delivery path
+1. "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
 
-For the purpose of this demo, we want to allow anonymous access to the REST endpoint describing the configured content.
-(see: [Security](https://documentation.magnolia-cms.com/display/DOCS61/Security))
-
-The endpoint is http://localhost:8080/magnoliaAuthor/.rest/pages.
+The primary endpoint is http://localhost:8080/magnoliaAuthor/.rest/delivery/pages/v1.
 Opening this while not logged in will produce the log in page.
 
-### Configuring security
-1. Open the "Security" app by clicking its icon.
+In order for image assets from the dam to be loaded and displayed, open the Security app, open the `Roles` tab, edit the `Anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
 
-1. Open the "Roles" tab inside the Security app and double click the "rest-anonymous" role to open it for editing.
+![The App](/_dev/README-security-anonymous.png?raw=true)
 
-1. Under the "Access control lists" tab, scroll down to "Website" and set the options to: ```Read-only```, ```Selected and sub nodes``` and enter a single slash, ```/```, in the text field.
-
-1. Under the "Web access" tab, add a new entry granting `Get` access to `/.rest/pages*`.
-
-1. Save your changes and try again with the endpoint URL. You should now see some JSON output.
 
 **NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
-
-## CORS set up
-
-By default, Magnolia does not add any [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers to its responses.
-
-However, as applications running on different ports are considered to be different origins and Magnolia will be on
-port 8080 with the example React application on port 3000, CORS must be configured.
-
-Magnolia allows you to configure any number of
-[Java servlet filters](https://www.oracle.com/technetwork/java/filters-137243.html) that can manipulate the HTTP
-request/response and with a Magnolia-provided AddHeadersFilter we can set a generic "use anywhere" CORS header for the purpose of this demo.
-
-**NOTE** As with the security config, such a wide-ranging approach to CORS may not be appropriate in production.
-
-The AddHeadersFilter can be configured manually as [described in the documentation](https://documentation.magnolia-cms.com/display/DOCS61/Filters#Filters-AddingHTTPheaders)
-or via the [supplied Groovy script](add-cors-filter.groovy).
 
 ## JavaScript front-end set up
 
@@ -136,15 +114,54 @@ To see the headless rendering system in use, we must create some example content
 
 ### Configuring React
 
-1. In the Pages app create a page called 'react-sample' with the `React: Basic page` template.
+Build and deploy the React app to Magnolia to make it available for editing. Go to  `/spa/react-minimal` on the terminal and run `npm install` and then `npm run deploy`.
+
+Once built, the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/`.
+
+In the Pages app, either use the 'Import' action (with nothing selected) and select the file in `/magnolia/content-importer/website.react-sample.yaml`, or create new content with the following steps.
+
+1. In the Pages app create a page called '*_react-sample_*' with the `React: Basic page` template.
 
 1. In the Pages app, beneath 'react-sample', create a page called `contact` with the `React: Contact page` template.
 
-1. Add some components to the spa-lm page. 
+1. Add some components to the pages. 
 
-1. Build and start the React application inside `/spa/react-minimal` by first running `npm install` and then `npm start`.
+Build and start the headless React application inside `/spa/react-minimal` by running `npm start`.
 
-1. View your Magnolia-managed content via http://localhost:3000/.
+View your Magnolia-managed content via http://localhost:3000/.
 
-1. Deploy the React app to the magnolia light-development directory by running `npm run deploy`.
-> Once built, resulting files are moved to the `/magnolia/light-modules/react-minimal-lm/webresources/react-minimal` folder.
+
+
+
+
+
+# MORE
+
+
+## CORS set up
+
+Because you installed the `magnolia-community-demo-webapp` bundle, CORS is already configured. Read on to learn how to configure it:
+----
+By default, Magnolia does not add any [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers to its responses.
+
+However, since Magnolia will be on port 8080 with the React dev server is on port 3000, CORS must be configured.
+
+Magnolia allows you to configure any number of
+[Java servlet filters](https://www.oracle.com/technetwork/java/filters-137243.html) that can manipulate the HTTP
+request/response and with a Magnolia-provided AddHeadersFilter we can set a generic "use anywhere" CORS header for the purpose of this demo.
+
+**NOTE** As with the security config, such a wide-ranging approach to CORS may not be appropriate in production.
+
+The AddHeadersFilter can be configured manually as [described in the documentation](https://documentation.magnolia-cms.com/display/DOCS61/Filters#Filters-AddingHTTPheaders)
+or via the [supplied Groovy script](add-cors-filter.groovy).
+
+## Security set up
+
+By default, the author instance of Magnolia
+(see: [Instances](https://documentation.magnolia-cms.com/display/DOCS61/Instances)) is restricted to authorised users.
+
+For the purpose of this demo, we want to allow anonymous access to the REST endpoint describing the configured content.
+(see: [Security](https://documentation.magnolia-cms.com/display/DOCS61/Security))
+
+The endpoint is http://localhost:8080/magnoliaAuthor/.rest/pages.
+Opening this while not logged in will produce the log in page.
