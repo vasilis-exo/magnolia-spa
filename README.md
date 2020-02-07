@@ -1,21 +1,34 @@
+# This README is a work in progress
+
 # Workarounds until React Library is published and fixed.
 
-Clone React library locally, build it locally, - and point directly to it from the React project package.json
-https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-renderer
+## Install helper libraries locally.
+Clone frontend-helpers project library locally.
+https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/
 
+Point the dependency in package.json of the react library (frontend-helpers/packages/react-renderer/package.json) at *local* template annotations:
+`    "@magnolia/template-annotations": "../template-annotations"`
+
+`npm install ` and `npm run build` in the 'teamplate-annotations' directory, and then in the 'react-renderer' directory.
+
+## Point SPA project at the local library.
+
+Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the local react-renderer package:
+ `   "@magnolia/react-renderer": "[YOUR FULL PATH]/frontend-helpers/react-renderer/",`
+
+## Notes
 
 React library has a bug. For now - all areas, from all components, need to also be 
 declared in the page template.
 https://jira.magnolia-cms.com/browse/MGNLFE-20
 
 
-# Biggest differences to Services library.
+# Biggest differences to Services PoC library.
 * Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'.
 * You always get the template definitions from a new templateDefinitions endpoint.
-* Page Template definitions must specify the exact resources to include (no wildcards), this means that create-react-app projects need to be configured to create the same filenames everytime.
+* Page Template definitions must specify the exact resources to include (no wildcards), this means that create-react-app projects need to be configured to create the same filenames everytime. (Have a look at the 'deploy' npm script to see how this is done now.)
 
 
-# This README is a work in progress
 
 ## Requirements
 
@@ -23,22 +36,26 @@ https://jira.magnolia-cms.com/browse/MGNLFE-20
 
 - [Magnolia CLI](https://www.npmjs.com/package/@magnolia/cli) installed ([installation documentation](https://documentation.magnolia-cms.com/display/DOCS/Magnolia+CLI+v3))
 
+## Clone this repository
+(Do it!)
+
 ## Install Magnolia with Magnolia CLI
 
-In a terminal, navigate to the 'magnolia directory (we will refer to this as
+In a terminal, navigate to the `magnolia` directory (we will refer to this as
 "MAGNOLIA_INSTANCE_FOLDER" within this document) and run:
 
 ```
-mgnl jumpstart
+mgnl jumpstart -s
 ```
 
-Chose `magnolia-community-demo-webapp` as the version to install.
+Chose `magnolia-community-demo-webapp` as the version to download.
 
+(Magnolia is downloaded.)
 
 ## Add the demo light modules to Magnolia
 
 Nothing to do here!
-The Magnolia instance is pre-configured to access the existing 'light-modules' directory.
+(The Magnolia instance is pre-configured to access the existing 'light-modules' directory.)
 
 ## Start Magnolia
 
@@ -48,14 +65,16 @@ From within your `MAGNOLIA_INSTANCE_FOLDER` start Magnolia with:
 mgnl start
 ```
 
-In your browser open Magnolia at:
+Once the terminal shows `Server startup in X ms`
+
+In your browser, open Magnolia at:
 
 ```
 http://localhost:8080/magnoliaAuthor/
 ```
 
 ## Accessing Magnolia
-You can log in to Magnolia using the credentials superuser/superuser.
+You can log in to Magnolia using the credentials `superuser/superuser`.
 This will give you complete access to all content and configuration.
 
 To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
