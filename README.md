@@ -1,6 +1,6 @@
 # This README is a work in progress
 
-![The App](/_dev/README-screenshot-app.png?raw=true
+![The App](_dev/README-screenshot-app.png)
 
 # Workarounds until React Library is published and fixed.
 
@@ -92,7 +92,7 @@ Opening this while not logged in will produce the log in page.
 
 In order for image assets from the dam to be loaded and displayed, open the Security app, open the `Roles` tab, edit the `Anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
 
-![The App](/_dev/README-security-anonymous.png?raw=true)
+![The App](_dev/README-security-anonymous.png)
 
 
 **NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
