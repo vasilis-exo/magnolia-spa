@@ -1,6 +1,5 @@
 import React from 'react';
 import {Page} from '@magnolia/react-renderer';
-import ENVIRONMENT from '../environment';
 import config  from '../magnolia.config';
 import {removeExtension, inAuthor } from '../AppHelpers';
 
@@ -10,7 +9,7 @@ class PageLoader extends React.Component {
   state = {};
 
   getPagePath = () => {
-    let path = window.location.pathname.replace(ENVIRONMENT.magnoliaBase, '');
+    let path = window.location.pathname.replace(process.env.REACT_APP_MGNL_BASE, '');
     path = removeExtension(path);
     return path;
   };
@@ -23,9 +22,9 @@ class PageLoader extends React.Component {
 
     let fullContentPath;
     if (inAuthor()){
-      fullContentPath = ENVIRONMENT.contentUrl + pagePath;
+      fullContentPath = process.env.REACT_APP_MGNL_API_PAGES + pagePath;
     }else{
-      fullContentPath = ENVIRONMENT.contentUrl + ENVIRONMENT.appBase + pagePath
+      fullContentPath = process.env.REACT_APP_MGNL_API_PAGES + process.env.REACT_APP_MGNL_APP_BASE + pagePath
     }
     const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();
@@ -36,7 +35,7 @@ class PageLoader extends React.Component {
 
     let templateJson = null;
     if (inAuthor()) {
-      const templateResponse = await fetch(ENVIRONMENT.templateDefinitionUrl + '/' + templateId);
+      const templateResponse = await fetch(process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
     }

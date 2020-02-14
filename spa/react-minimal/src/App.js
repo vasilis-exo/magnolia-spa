@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageLoader from './components/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
-import ENVIRONMENT from './environment';
 import { inAuthor } from './AppHelpers';
 
 
@@ -13,7 +12,8 @@ function App() {
 
   let base = '';
   if (inAuthor()) {
-    base = ENVIRONMENT.magnoliaBase + ENVIRONMENT.appBase;
+    base = process.env.REACT_APP_MGNL_BASE + process.env.REACT_APP_MGNL_APP_BASE;
+ 
   }
 
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import ENVIRONMENT from '../environment';
 
+//TODO - Is this still needed now that we use .env files?
 function removeAppBase(path){
-    const base = ENVIRONMENT.appBase;
+    const base = process.env.REACT_APP_MGNL_APP_BASE
     if (base !== ''){
         if (base === path.substring(0, base.length)){
             return path.substring(base.length);
@@ -19,7 +19,7 @@ function Navigation() {
     React.useEffect(() => {
 
         async function fetchNav() {
-            const url = ENVIRONMENT.navUrl + ENVIRONMENT.appBase;
+            const url = process.env.REACT_APP_MGNL_API_NAV + process.env.REACT_APP_MGNL_APP_BASE;
             console.log('NAV URL:' + url);
             const response = await fetch(url);
             const data = await response.json();
