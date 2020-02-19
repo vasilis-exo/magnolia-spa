@@ -25,12 +25,19 @@ declared in the page template.
 https://jira.magnolia-cms.com/browse/MGNLFE-20
 
 
-# Biggest differences to Services PoC library.
-* Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'.
+# If you previously used the Professional Services PoC library.
+
+You may have previously used the javascript libraries, and custom Java from Magnolia Professional Services department. If so, you may be interested in what has changed in the production implementation.
+
+### Biggest differences to Services PoC library.
+
+* Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'. (You don't need to drop in any additional JARS)
 * You always get the template definitions from a new templateDefinitions endpoint.
 * Page Template definitions must specify the exact resources to include (no wildcards), this means that create-react-app projects need to be configured to create the same filenames everytime. (Have a look at the 'deploy' npm script to see how this is done now.)
+* The Page component from the libraries does not automatically instantiate 'mapped' frontend component, you need to do it in your project code. 
 
 
+# Now, Get Started for Real!
 
 ## Requirements
 
