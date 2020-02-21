@@ -74,7 +74,7 @@ class PageLoader extends React.Component {
       const template = config[templateId];
 
       return (
-      <Page templateDefinitions={this.state.templateDefinitions} content={this.state.content} componentMappings={config} >
+      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
         {template ? React.createElement(template, this.state.content) : <p>-</p>}
       </Page> 
       )
