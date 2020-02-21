@@ -2,9 +2,8 @@ RETIRE
 apache-tomcat
 downloads
 
-/**/webresources/react-minimal/
-/**/webresources/vue-minimal/
-/**/webresources/angular-minimal/
+/**/webresources/build/
+
 
 /**/target
 *.jar

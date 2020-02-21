@@ -5,7 +5,6 @@ import Navigation from './components/Navigation';
 import './App.css';
 import { inAuthor } from './AppHelpers';
 
-
 function App() {
 
   console.log('App');
@@ -24,9 +23,13 @@ function App() {
       </header>  
       
       <div className="container">
+      
         <Switch>
+        
           <Route path="/" component={PageLoader} />
+        
         </Switch>
+        
       </div>
 
       <footer>

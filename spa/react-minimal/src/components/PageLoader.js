@@ -51,22 +51,20 @@ class PageLoader extends React.Component {
 
   componentDidMount() {
     this.loadPage();
-    if (inAuthor()) {
+    if (inAuthor() && window.parent.mgnlRefresh) {
       window.parent.mgnlRefresh();
     }
   }
 
   componentDidUpdate() {
     this.loadPage();
-    if (inAuthor()) {
+    if (inAuthor()  && window.parent.mgnlRefresh) {
       window.parent.mgnlRefresh();
     }
   }
 
 
   render() {
-    console.log('PageLoader Render');
-
     if (this.state.init){
       
       const templateId = this.state.content['mgnl:template'];

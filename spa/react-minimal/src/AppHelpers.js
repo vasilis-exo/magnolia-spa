@@ -7,6 +7,8 @@ export function removeExtension(path) {
 }
 
 export function inAuthor() {
-    return window.parent.mgnlRefresh !== undefined
+    //TODO, this should use the 'inEditor' library context value in the future.
+    const ia = Boolean(window.parent);
+    return ia;
 }
 
