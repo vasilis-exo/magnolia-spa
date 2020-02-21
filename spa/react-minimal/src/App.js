@@ -3,18 +3,20 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageLoader from './components/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
-import { inAuthor } from './AppHelpers';
+import { onMagnolia } from './AppHelpers';
 
 function App() {
 
-  console.log('App');
-
   let base = '';
-  if (inAuthor()) {
-    base = process.env.REACT_APP_MGNL_BASE + process.env.REACT_APP_MGNL_APP_BASE;
- 
+  
+  if (onMagnolia()) {
+    if (Boolean(process.env.REACT_APP_MGNL_IS_PREVIEW)){
+      base = process.env.REACT_APP_MGNL_BASE_AUTHOR + process.env.REACT_APP_MGNL_APP_BASE;
+    }else{
+      base = process.env.REACT_APP_MGNL_BASE_PUBLIC + process.env.REACT_APP_MGNL_APP_BASE;
+    }
   }
-
+ 
   return (
     <BrowserRouter basename={base} forceRefresh={false}>
       
@@ -23,13 +25,9 @@ function App() {
       </header>  
       
       <div className="container">
-      
         <Switch>
-        
-          <Route path="/" component={PageLoader} />
-        
-        </Switch>
-        
+          <Route path="/" component={PageLoader} />       
+        </Switch> 
       </div>
 
       <footer>

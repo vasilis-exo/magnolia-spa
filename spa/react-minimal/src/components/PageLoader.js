@@ -1,7 +1,7 @@
 import React from 'react';
 import {Page} from '@magnolia/react-renderer';
 import config  from '../magnolia.config';
-import {removeExtension, inAuthor } from '../AppHelpers';
+import {removeExtension, inAuthor, onMagnolia, getAPIBase} from '../AppHelpers';
 
 
 class PageLoader extends React.Component {
@@ -9,23 +9,28 @@ class PageLoader extends React.Component {
   state = {};
 
   getPagePath = () => {
-    let path = window.location.pathname.replace(process.env.REACT_APP_MGNL_BASE, '');
+    let path = window.location.pathname;
+    path = path.replace(process.env.REACT_APP_MGNL_BASE_AUTHOR, '');
+    path = path.replace(process.env.REACT_APP_MGNL_BASE_PUBLIC, '');
+
+    if (!onMagnolia()){
+      path = process.env.REACT_APP_MGNL_APP_BASE + path
+    }
+
     path = removeExtension(path);
     return path;
   };
 
   loadPage = async () => {
+    // Bail out if already loaded content.
     if (this.state.pathname === window.location.pathname) return;
+
+    let API_BASE = getAPIBase();
 
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
+    let fullContentPath = API_BASE + process.env.REACT_APP_MGNL_API_PAGES + pagePath;
 
-    let fullContentPath;
-    if (inAuthor()){
-      fullContentPath = process.env.REACT_APP_MGNL_API_PAGES + pagePath;
-    }else{
-      fullContentPath = process.env.REACT_APP_MGNL_API_PAGES + process.env.REACT_APP_MGNL_APP_BASE + pagePath
-    }
     const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();
     console.log('page content: ', pageJson);
@@ -35,7 +40,7 @@ class PageLoader extends React.Component {
 
     let templateJson = null;
     if (inAuthor()) {
-      const templateResponse = await fetch(process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
+      const templateResponse = await fetch(API_BASE + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
     }

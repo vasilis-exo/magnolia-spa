@@ -6,9 +6,32 @@ export function removeExtension(path) {
     return newPath;
 }
 
+/**
+ * Is in the actual editor
+ */
 export function inAuthor() {
     //TODO, this should use the 'inEditor' library context value in the future.
-    const ia = Boolean(window.parent);
+    const ia = Boolean(window.parent && window.parent.mgnlRefresh);
     return ia;
+}
+
+/**
+ * Is running on Magnolia server, either in editor or on public instance.
+ */
+export function onMagnolia() {
+    //TODO, this should use the 'inEditor' library context value in the future.
+    const ia = Boolean(window.parent && window.parent.mgnlRefresh);
+    return ia;
+}
+
+export function getAPIBase() {
+    let M;
+    if (Boolean(process.env.REACT_APP_MGNL_IS_PREVIEW)){
+      M = process.env.REACT_APP_MGNL_BASE_AUTHOR;
+    } else{
+      M = process.env.REACT_APP_MGNL_BASE_PUBLIC;
+    }
+    let API_BASE = process.env.REACT_APP_MGNL_HOST + M ;
+    return API_BASE;
 }
 
