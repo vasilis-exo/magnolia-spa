@@ -1,7 +1,7 @@
 import React from 'react';
-import {Page} from '@magnolia/react-renderer';
 import config  from '../magnolia.config';
-import {removeExtension, inAuthor, onMagnolia, getAPIBase} from '../AppHelpers';
+import {removeExtension, inAuthor, onMagnolia, getAPIBase} from './AppHelpers';
+import MgnlPage from '../utils/MgnlPage';
 
 
 class PageLoader extends React.Component {
@@ -72,14 +72,9 @@ class PageLoader extends React.Component {
   render() {
     if (this.state.init){
       
-      const templateId = this.state.content['mgnl:template'];
-      console.log("templateId:" + templateId)
-      const template = config[templateId];
-
       return (
-      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
-        {template ? React.createElement(template, this.state.content) : <p>-</p>}
-      </Page> 
+      <MgnlPage templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
+      </MgnlPage> 
       )
 
     }else{

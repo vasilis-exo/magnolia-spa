@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
-import PageLoader from './components/PageLoader';
+import PageLoader from './utils/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
-import { onMagnolia } from './AppHelpers';
+import { onMagnolia } from './utils/AppHelpers';
 
 function App() {
 

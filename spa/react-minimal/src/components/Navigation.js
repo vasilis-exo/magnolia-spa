@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {getAPIBase} from '../AppHelpers';
+import {getAPIBase} from '../utils/AppHelpers';
 
 //TODO - Is this still needed now that we use .env files?
 function removeAppBase(path){

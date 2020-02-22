@@ -19,7 +19,8 @@ export function inAuthor() {
  * Is running on Magnolia server, either in editor or on public instance.
  */
 export function onMagnolia() {
-    //TODO, this should use the 'inEditor' library context value in the future.
+    //TODO, this should somehow actually detect if running in a magnolia instance.
+    //Maybe just check path for existance of 'magnolia', or rely on an environment variable.
     const ia = Boolean(window.parent && window.parent.mgnlRefresh);
     return ia;
 }
