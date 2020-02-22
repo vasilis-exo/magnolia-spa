@@ -1,7 +1,7 @@
 import React from 'react';
 import config  from '../magnolia.config';
 import {removeExtension, inAuthor, onMagnolia, getAPIBase} from './AppHelpers';
-import MgnlPage from '../utils/MgnlPage';
+import MgnlPage from '../helpers/MgnlPage';
 
 
 class PageLoader extends React.Component {
@@ -25,11 +25,11 @@ class PageLoader extends React.Component {
     // Bail out if already loaded content.
     if (this.state.pathname === window.location.pathname) return;
 
-    let API_BASE = getAPIBase();
+    const apiBase = getAPIBase();
 
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
-    let fullContentPath = API_BASE + process.env.REACT_APP_MGNL_API_PAGES + pagePath;
+    let fullContentPath = apiBase + process.env.REACT_APP_MGNL_API_PAGES + pagePath;
 
     const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();
@@ -40,7 +40,7 @@ class PageLoader extends React.Component {
 
     let templateJson = null;
     if (inAuthor()) {
-      const templateResponse = await fetch(API_BASE + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
+      const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
     }

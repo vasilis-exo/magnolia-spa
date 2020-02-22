@@ -1,9 +1,7 @@
 title: 'React: Contact'
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
-renderType: spa
-visible: true
-
 templateScript: /react-minimal-lm/webresources/build/index.html
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 
 areas:
   main:

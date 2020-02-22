@@ -4,10 +4,6 @@ import config  from '../magnolia.config';
 
 
 const MgnlPage = props => {
-  // debugger;
-  // if (!props){
-  //   return null;
-  // }
 
   const {content} = props;
   const templateId = content['mgnl:template'];

@@ -1,0 +1,68 @@
+
+datasource:
+    workspace: trips
+    autoCreate: true
+
+model:
+    nodeType: trip
+    properties:
+    - name: name
+      label: Name
+      required: true
+      i18n: true
+
+    - name: description
+      label: Description
+      i18n: true
+
+    - name: isFeatured
+      label: Feature this item
+      type: Boolean  #Types 'Decimal', 'Long' and 'Double' are also available.    
+
+    - name: image
+      label: Image
+      type: reference:asset     
+
+    - name: tourTypes
+      label: Tour Types
+      type: reference:category    
+      multiple: true  
+
+    - name: location
+      label: Start City
+      i18n: true
+
+    - name: date
+      label: Date
+      type: Date
+
+    - name: duration
+      label: Tour Duration
+      type: Long
+      options:
+        '2':
+          value: 2
+          label: 2 days
+        '7':
+          value: 7
+          label: 7 days
+        '14':
+          value: 14
+          label: 14 days
+        '21':
+          value: 21
+          label: 21 days
+
+    - name: tourOperator
+      label: Tour Operator
+      i18n: true
+
+    - name: body
+      label: Body
+      type: richText
+      i18n: true
+
+    - name: member
+      label: Is a member
+      type: Boolean  #Types 'Decimal', 'Long' and 'Double' are also available.    
+
