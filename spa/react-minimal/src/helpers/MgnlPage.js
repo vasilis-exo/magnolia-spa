@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page} from '@magnolia/react-renderer';
+import {Page} from '@magnolia/react-editor';
 import config  from '../magnolia.config';
 
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import config  from '../magnolia.config';
 import {removeExtension, inAuthor, onMagnolia, getAPIBase} from './AppHelpers';
-import MgnlPage from '../helpers/MgnlPage';
+// import MgnlPage from '../helpers/MgnlPage';
 
+import {Page} from '@magnolia/react-editor';
 
 class PageLoader extends React.Component {
 
@@ -71,10 +72,13 @@ class PageLoader extends React.Component {
 
   render() {
     if (this.state.init){
-      
+      console.log('config:', config);
+      //const isDevMode = process.env.NODE_ENV === 'development';
+      console.log("n:" + process.env.NODE_ENV)
+
       return (
-      <MgnlPage templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
-      </MgnlPage> 
+      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
+      </Page> 
       )
 
     }else{

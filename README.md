@@ -8,15 +8,15 @@
 Clone frontend-helpers project library locally.
 https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/)
 
-Point the dependency in package.json of the react library (frontend-helpers/packages/react-renderer/package.json) at *local* template annotations:
+Point the dependency in package.json of the react library (frontend-helpers/packages/react-editor/package.json) at *local* template annotations:
 `    "@magnolia/template-annotations": "../template-annotations"`
 
-`npm install ` and `npm run build` in the 'template-annotations' directory, and then in the 'react-renderer' directory.
+`npm install ` and `npm run build` in the 'template-annotations' directory, and then in the 'react-editor' directory.
 
 ## Point SPA project at the local library.
 
-Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the locally installed react-renderer package:
- `   "@magnolia/react-renderer": "[YOUR FULL PATH]/frontend-helpers/packages/react-renderer/",`
+Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the locally installed react-editor package:
+ `   "@magnolia/react-editor": "[YOUR FULL PATH]/frontend-helpers/packages/react-editor/",`
 
 ## Notes
 

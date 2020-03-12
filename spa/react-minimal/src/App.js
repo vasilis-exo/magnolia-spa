@@ -18,7 +18,7 @@ function App() {
   }
  
   return (
-    <BrowserRouter basename={base} forceRefresh={false}>
+    <BrowserRouter basename={base} forceRefresh={true}>
       
       <header>
         <Navigation />

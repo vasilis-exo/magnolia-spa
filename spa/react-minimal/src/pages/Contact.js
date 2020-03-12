@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '@magnolia/react-renderer';
+import { Area } from '@magnolia/react-editor';
 
 const Contact = props => {
   const { main } = props;

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Area } from '@magnolia/react-renderer';
+import { Area } from '@magnolia/react-editor';
 
 const List = props => {
 
-  const { items } = props;
+  const { items} = props;
 
   return (
     <>
     <div className="hint">[LIST]</div>
     <ul className="List">
-      {items && <Area content={items} />}
+      {items && <Area content={items} parentTemplateId={props.metadata['mgnl:template']}/>}
     </ul>
     </>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '@magnolia/react-renderer';
+import { Area } from '@magnolia/react-editor';
 
 class Expander extends React.Component {
 
@@ -36,7 +36,7 @@ class Expander extends React.Component {
         {!this.state.isCollapsed &&
           <div>
             <div className="hint">[EXPANDER OPENED]</div>
-            {expanderItems && <Area content={expanderItems} />}
+            {expanderItems && <Area content={expanderItems}  parentTemplateId={this.props.metadata['mgnl:template']}/>}
           </div>
         }   
       </div>

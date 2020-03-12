@@ -10,7 +10,7 @@ export function removeExtension(path) {
  * Is in the actual editor
  */
 export function inAuthor() {
-    //TODO, this should use the 'inEditor' library context value in the future.
+    return true;
     const ia = Boolean(window.parent && window.parent.mgnlRefresh);
     return ia;
 }

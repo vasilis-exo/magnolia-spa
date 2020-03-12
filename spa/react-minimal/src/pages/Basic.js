@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '@magnolia/react-renderer';
+import { Area } from '@magnolia/react-editor';
 
 const Basic = props => {
   const { main, secondary } = props;
