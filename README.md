@@ -2,7 +2,7 @@
 
 ![The App](_dev/README-screenshot-app.png)
 
-# Workarounds until React Library is published and fixed.
+# Workarounds until React Library is published
 
 ## Install helper libraries locally.
 Clone frontend-helpers project library locally.
@@ -18,12 +18,6 @@ Point the dependency in package.json of the react library (frontend-helpers/pack
 Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the locally installed react-editor package:
  `   "@magnolia/react-editor": "[YOUR FULL PATH]/frontend-helpers/packages/react-editor/",`
 
-## Notes
-
-React library has a bug. For now - all areas, from all components, need to also be 
-declared in the page template.
-https://jira.magnolia-cms.com/browse/MGNLFE-20
-
 
 # If you previously used the Professional Services PoC library.
 
@@ -33,8 +27,7 @@ You may have previously used the javascript libraries, and custom Java from Magn
 
 * Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'. (You don't need to drop in any additional JARS)
 * You always get the template definitions from a new templateDefinitions endpoint.
-* Page Template definitions must specify the exact resources to include (no wildcards), this means that create-react-app projects need to be configured to create the same filenames everytime. (Have a look at the 'deploy' npm script to see how this is done now.)
-* The Page component from the libraries does not automatically instantiate 'mapped' frontend component, you need to do it in your project code. 
+* Any json property prefixed with `@`, `jcr:`, or `mgnl:` now comes in on a prop called `metadata`.
 
 
 # Now, Get Started for Real!
@@ -45,19 +38,15 @@ You may have previously used the javascript libraries, and custom Java from Magn
 
 - [Magnolia CLI](https://www.npmjs.com/package/@magnolia/cli) installed ([installation documentation](https://documentation.magnolia-cms.com/display/DOCS/Magnolia+CLI+v3))
 
-## Clone this repository
-(Do it!)
-
 ## Install Magnolia with Magnolia CLI
 
-In a terminal, navigate to the `magnolia` directory (we will refer to this as
-"MAGNOLIA_INSTANCE_FOLDER" within this document) and run:
+In a terminal, navigate to the `magnolia` directory and run:
 
 ```
 mgnl jumpstart -s
 ```
 
-Choose `magnolia-community-demo-webapp` as the version to download.
+Choose `magnolia-community-demo-webapp` or `magnolia-dx-core-demo-webapp` as the version to download.
 
 (Magnolia is downloaded.)
 
@@ -68,7 +57,7 @@ Nothing to do here!
 
 ## Start Magnolia
 
-From within your `MAGNOLIA_INSTANCE_FOLDER` start Magnolia with:
+From within the `magnolia` start Magnolia with:
 
 ```
 mgnl start
@@ -89,20 +78,28 @@ This will give you complete access to all content and configuration.
 To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
 
 
-### Configuring REST and DAM security
-Note: the app will have anonymous access to Magnolia REST endpoints with no additional configuration because:
-1. "Web access" is allowed, because the restEndpoint files are under the /delivery path
-1. "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
+## Configuring REST and DAM security
 
-The primary endpoint is http://localhost:8080/magnoliaAuthor/.rest/delivery/pages/v1.
-Opening this while not logged in will produce the log in page.
-
-In order for image assets from the dam to be loaded and displayed, open the Security app, open the `Roles` tab, edit the `Anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
+### DAM
+In order for images to be displayed:
+Open the Security app, open the `Roles` tab, edit the `anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
 
 ![Image Access for Anonymous](_dev/README-security-anonymous-dam.png)
 
+### TemplateDefinitions
+Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/templateDefinition*` set to GET.
+(Note: Only requried for debugging the editor features when running outside the PageEditor.)
+
+### Content endpoint permissions
+
+The app has anonymous access to Magnolia REST endpoints with no additional configuration because:
+* "Web access" is allowed, because the restEndpoint files are under the `/delivery` path
+* "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
 
 **NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
+
+
+
 
 ## JavaScript front-end set up
 
