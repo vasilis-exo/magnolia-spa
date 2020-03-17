@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -6,5 +6,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./image.component.scss'],
 })
 export class ImageComponent {
+  @Input() content: any;
   damUrl = environment.damRawUrl;
 }

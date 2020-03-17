@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent {
+  @Input() content: any;
 }

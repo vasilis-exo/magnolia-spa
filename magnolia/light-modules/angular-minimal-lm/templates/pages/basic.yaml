@@ -5,15 +5,15 @@ visible: true
 
 templateScript: /angular-minimal-lm/webresources/build/index.html
 
-jsPaths:
-  - /angular-minimal-lm/webresources/build/main.js
-  - /angular-minimal-lm/webresources/build/runtime.js
-  - /angular-minimal-lm/webresources/build/polyfills-es5.js
-  - /angular-minimal-lm/webresources/build/polyfills.js
-  - /angular-minimal-lm/webresources/build/vendor.js
-  - /angular-minimal-lm/webresources/build/styles.js
-cssPaths:
-  - /angular-minimal-lm/webresources/build/styles.css
+# jsPaths:
+#   - /angular-minimal-lm/webresources/build/main.js
+#   - /angular-minimal-lm/webresources/build/runtime.js
+#   - /angular-minimal-lm/webresources/build/polyfills-es5.js
+#   - /angular-minimal-lm/webresources/build/polyfills.js
+#   - /angular-minimal-lm/webresources/build/vendor.js
+#   - /angular-minimal-lm/webresources/build/styles.js
+# cssPaths:
+#   - /angular-minimal-lm/webresources/build/styles.css
 
 
 areas:
