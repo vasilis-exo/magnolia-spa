@@ -1,0 +1,175 @@
+'react-sample':
+  'jcr:primaryType': mgnl:page
+  'jcr:uuid': 066761ae-f69b-4029-9900-496259837d2d
+  'mgnl:created': 2020-02-01T07:45:49.952+01:00
+  'mgnl:createdBy': superuser
+  'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+  'mgnl:lastModifiedBy': superuser
+  'mgnl:template': react-minimal-lm:pages/basic
+  'main':
+    'jcr:primaryType': mgnl:area
+    'jcr:uuid': 1f38220d-7a22-4f1c-916c-9371798feea2
+    'mgnl:created': 2020-02-01T07:45:52.917+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+    'mgnl:lastModifiedBy': superuser
+    '0':
+      'jcr:primaryType': mgnl:component
+      'jcr:uuid': 5e292072-1d2e-4f52-a31b-3f4ff9897f26
+      'mgnl:created': 2020-02-01T08:12:22.611+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-01T08:12:22.611+01:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': spa-lm:components/header
+      'text': Heady
+    '00':
+      'image': jcr:090eb9c4-b35b-4869-a12f-6ea80292cba4
+      'jcr:primaryType': mgnl:component
+      'jcr:uuid': 4593caf4-1add-4b29-9793-cb4efa8dfad4
+      'mgnl:created': 2020-02-01T08:13:33.412+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-01T08:13:33.412+01:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': spa-lm:components/image
+    '01':
+      'jcr:primaryType': mgnl:component
+      'jcr:uuid': bb5f8114-352e-48e6-a299-2d0ffd6047ee
+      'mgnl:created': 2020-02-01T08:15:20.892+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-01T08:15:20.892+01:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': spa-lm:components/paragraph
+      'richText': '<p>Cool <strong>beans.</strong></p>
+
+        '
+    '02':
+      'jcr:primaryType': mgnl:component
+      'jcr:uuid': 10b32f00-7c02-407e-8f62-8e298655869a
+      'mgnl:created': 2020-02-01T08:15:29.754+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': spa-lm:components/list
+      'items':
+        'jcr:primaryType': mgnl:area
+        'jcr:uuid': 421b722a-718f-4651-b602-4b755e4e48a0
+        'mgnl:created': 2020-02-01T08:15:29.811+01:00
+        'mgnl:createdBy': superuser
+        'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+        'mgnl:lastModifiedBy': superuser
+        '0':
+          'jcr:primaryType': mgnl:component
+          'jcr:uuid': 5e61df57-c393-430d-87cc-e41f448f2ae9
+          'mgnl:created': 2020-02-01T08:15:38.747+01:00
+          'mgnl:createdBy': superuser
+          'mgnl:lastModified': 2020-02-01T08:15:38.747+01:00
+          'mgnl:lastModifiedBy': superuser
+          'mgnl:template': spa-lm:components/listItem
+          'text': Item 1
+        '00':
+          'jcr:primaryType': mgnl:component
+          'jcr:uuid': ed594824-a686-4e78-9a53-4dad85f88c78
+          'mgnl:created': 2020-02-01T08:15:45.177+01:00
+          'mgnl:createdBy': superuser
+          'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+          'mgnl:lastModifiedBy': superuser
+          'mgnl:template': spa-lm:components/listItem
+          'text': Item 2
+  'expanderItems':
+    'jcr:primaryType': mgnl:area
+    'jcr:uuid': 2d1341e8-b8f7-40e6-ae9c-d8ff857c2f33
+    'mgnl:created': 2020-02-01T07:45:52.919+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-01T07:45:52.919+01:00
+    'mgnl:lastModifiedBy': superuser
+  'items':
+    'jcr:primaryType': mgnl:area
+    'jcr:uuid': 7b32085d-474a-4616-a071-493bca9aefd3
+    'mgnl:created': 2020-02-01T07:45:52.921+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-01T07:45:52.921+01:00
+    'mgnl:lastModifiedBy': superuser
+  'Contacto':
+    'jcr:primaryType': mgnl:page
+    'jcr:uuid': c7c11927-7eca-4ac0-99e4-e1c02db22c74
+    'mgnl:created': 2020-02-01T08:16:19.204+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+    'mgnl:lastModifiedBy': superuser
+    'mgnl:template': react-minimal-lm:pages/contact
+    'main':
+      'jcr:primaryType': mgnl:area
+      'jcr:uuid': bbbe6c79-011e-48e4-964c-ffdf0c125eed
+      'mgnl:created': 2020-02-01T08:16:21.311+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+      'mgnl:lastModifiedBy': superuser
+      '0':
+        'jcr:primaryType': mgnl:component
+        'jcr:uuid': de70c3a3-93d0-41ab-977a-9e62a19045bb
+        'mgnl:created': 2020-02-01T08:16:29.423+01:00
+        'mgnl:createdBy': superuser
+        'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+        'mgnl:lastModifiedBy': superuser
+        'mgnl:template': spa-lm:components/expander
+        'expanderItems':
+          'jcr:primaryType': mgnl:area
+          'jcr:uuid': 96c40b85-4037-4450-b906-dcad64d058bc
+          'mgnl:created': 2020-02-01T08:16:29.475+01:00
+          'mgnl:createdBy': superuser
+          'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+          'mgnl:lastModifiedBy': superuser
+          '0':
+            'jcr:primaryType': mgnl:component
+            'jcr:uuid': c5aee0fb-0e49-4980-9d0d-1733cc991af1
+            'mgnl:created': 2020-02-01T08:18:25.953+01:00
+            'mgnl:createdBy': superuser
+            'mgnl:lastModified': 2020-02-01T08:18:25.953+01:00
+            'mgnl:lastModifiedBy': superuser
+            'mgnl:template': spa-lm:components/paragraph
+            'richText': '<p>Find us at the end of the road.</p>
+
+              '
+          '00':
+            'jcr:primaryType': mgnl:component
+            'jcr:uuid': e47270ba-6a16-4e41-9883-caf0fc1e709d
+            'mgnl:created': 2020-02-01T08:18:39.895+01:00
+            'mgnl:createdBy': superuser
+            'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+            'mgnl:lastModifiedBy': superuser
+            'mgnl:template': spa-lm:components/paragraph
+            'richText': '<p>There is a <em>sign over there</em>.</p>
+
+              '
+    'expanderItems':
+      'jcr:primaryType': mgnl:area
+      'jcr:uuid': 3bbd0819-f2d3-460d-9bbd-f0042a19fb15
+      'mgnl:created': 2020-02-01T08:16:21.311+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-01T08:16:21.311+01:00
+      'mgnl:lastModifiedBy': superuser
+  'secondary':
+    'jcr:primaryType': mgnl:area
+    'jcr:uuid': a826c0dc-eb44-4184-9048-332c5f790789
+    'mgnl:created': 2020-02-03T09:27:45.964+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+    'mgnl:lastModifiedBy': superuser
+    '0':
+      'jcr:primaryType': mgnl:component
+      'jcr:uuid': 671a74b5-d086-43d1-9e3b-43724cbf29a2
+      'mgnl:created': 2020-02-03T09:45:53.987+01:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': spa-lm:components/paragraph
+      'richText': '<p>A <em><strong>secondary</strong></em> paragraph.</p>
+
+        '
+  'footer':
+    'jcr:primaryType': mgnl:area
+    'jcr:uuid': ed079d30-56c1-4daa-8a65-2bf68e9a601f
+    'mgnl:created': 2020-02-03T09:44:43.457+01:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-02-03T09:44:43.457+01:00
+    'mgnl:lastModifiedBy': superuser
