@@ -37,7 +37,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "preserveSymlinks": true,
-            "outputPath": "../../magnolia/light-modules/angular-minimal-lm/webresources/angular-minimal",
+            "outputPath": "../../magnolia/light-modules/angular-minimal-lm/webresources/build",
  
              "index": "src/index.html",
             "main": "src/main.ts",
