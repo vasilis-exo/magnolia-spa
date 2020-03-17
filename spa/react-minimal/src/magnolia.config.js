@@ -8,15 +8,17 @@ import List from './components/List';
 import Item from './components/Item';
 
 const config = {
-    'react-minimal-lm:pages/basic': Basic,
-    'react-minimal-lm:pages/contact': Contact,
-
-    'spa-lm:components/header': Header,
-    'spa-lm:components/image': Image,
-    'spa-lm:components/paragraph': Paragraph,
-    'spa-lm:components/expander': Expander,
-    'spa-lm:components/list': List,
-    'spa-lm:components/listItem': Item
+    'componentMappings':{
+        'react-minimal-lm:pages/basic': Basic,
+        'react-minimal-lm:pages/contact': Contact,
+    
+        'spa-lm:components/header': Header,
+        'spa-lm:components/image': Image,
+        'spa-lm:components/paragraph': Paragraph,
+        'spa-lm:components/expander': Expander,
+        'spa-lm:components/list': List,
+        'spa-lm:components/listItem': Item
+    }
 };
 
 export default config;

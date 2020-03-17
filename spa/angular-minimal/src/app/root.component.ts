@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import { RendererContextService } from '@robsis/angular-renderer';
+import { RendererContextService } from '@magnolia/angular-editor';
 
 import { environment } from '../environments/environment';
 import { config } from './magnolia.config.js';
@@ -16,7 +16,7 @@ export class RootComponent {
   @Input() content: any;
 
   constructor(private http: HttpClient, private router: Router, private rendererContext: RendererContextService) {
-    this.rendererContext.setComponentMapping(config);
+    this.rendererContext.setComponentMapping(config.componentMapping);
 
     // refresh the content on navigation event
     this.router.events.subscribe((event) => {
@@ -26,15 +26,26 @@ export class RootComponent {
     });
   }
 
+  private inAuthor() {
+    const ia = this.rendererContext.inEditor();
+    return ia;
+}
+
   private getContent(url: string): void {
     // strip everything after '.html'
     url = url.replace(/\.html.*$/, '');
     this.http.get(`${environment.restUrlBase}${environment.rootPath}${url}`).subscribe(content => {
-      // request the template definitions for given page
-      this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
-        this.rendererContext.setTemplateDefinitions(definitions);
+      
+      if (!this.inAuthor()) {
         this.content = content;
-      });
+      }else{
+        // request the template definitions for given page
+        this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
+          this.rendererContext.setTemplateDefinitions(definitions);
+          this.content = content;
+        });
+      }
+      
     });
   }
 }

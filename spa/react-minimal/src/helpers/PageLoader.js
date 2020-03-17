@@ -39,7 +39,7 @@ class PageLoader extends React.Component {
     console.log('templateId:', templateId);
 
     let templateJson = null;
-    if (true || inAuthor()) {
+    if (inAuthor()) {
       const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
@@ -56,19 +56,27 @@ class PageLoader extends React.Component {
 
   componentDidMount() {
     this.loadPage();
+    if (inAuthor() && window.parent.mgnlRefresh) {
+      window.parent.mgnlRefresh();
+    }
   }
 
   componentDidUpdate() {
     this.loadPage();
+    if (inAuthor()  && window.parent.mgnlRefresh) {
+      window.parent.mgnlRefresh();
+    }
   }
 
 
   render() {
     if (this.state.init){
       console.log('config:', config);
+      //const isDevMode = process.env.NODE_ENV === 'development';
+      console.log("n:" + process.env.NODE_ENV)
 
       return (
-      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config} >
+      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config.componentMappings} >
       </Page> 
       )
 

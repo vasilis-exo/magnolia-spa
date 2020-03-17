@@ -3,6 +3,7 @@ apache-tomcat
 downloads
 
 /**/webresources/build/
+/**/angular-minimal-lm/webresources/
 
 
 /**/target

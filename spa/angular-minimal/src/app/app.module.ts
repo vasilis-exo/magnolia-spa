@@ -15,7 +15,7 @@ import { ImageComponent } from './components/image/image.component';
 import { ParagraphComponent } from './components/paragraph/paragraph.component';
 import { ExpanderComponent } from './components/expander/expander.component';
 
-import { MagnoliaModule } from '@robsis/angular-renderer';
+import { MagnoliaModule } from '@magnolia/angular-editor';
 
 import { routing } from './app.routing';
 

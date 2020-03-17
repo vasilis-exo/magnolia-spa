@@ -8,14 +8,16 @@ import { ImageComponent } from './components/image/image.component';
 import { ExpanderComponent } from './components/expander/expander.component';
 
 export const config = {
-    'angular-minimal-lm:pages/basic': BasicComponent,
-    'angular-minimal-lm:pages/contact': ContactComponent,
+    'componentMapping': {
+      'angular-minimal-lm:pages/basic': BasicComponent,
+      'angular-minimal-lm:pages/contact': ContactComponent,
 
-    'spa-lm:components/header': HeaderComponent,
-    'spa-lm:components/list': ListComponent,
-    'spa-lm:components/listItem': ListItemComponent,
-    'spa-lm:components/paragraph': ParagraphComponent,
-    'spa-lm:components/image': ImageComponent,
-    'spa-lm:components/expander': ExpanderComponent,
+      'spa-lm:components/header': HeaderComponent,
+      'spa-lm:components/list': ListComponent,
+      'spa-lm:components/listItem': ListItemComponent,
+      'spa-lm:components/paragraph': ParagraphComponent,
+      'spa-lm:components/image': ImageComponent,
+      'spa-lm:components/expander': ExpanderComponent
+    }
   };
 
