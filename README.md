@@ -1,33 +1,64 @@
-# This README is a work in progress
+# Minimal Headless SPA Demos
+
+The new Visual SPA Editor allows authors to edit your SPA, reducing your ongoing maintenance duties. (win!) But you get to keep everything fully headless.
+
+This demo shows you how to use the basic features for both React and Angular. 
 
 ![The App](_dev/README-screenshot-app.png)
 
-# Workarounds until React Library is published
+
+## Pages and Components
+
+The demo contains:
+
+- Basic page template
+- Contact page template
+
+- Header component
+- Paragraph component
+- Image component
+- List component
+- Item component (available inside List component)
+- Expander component
+
+- Navigation component
+
+
+# Workarounds until React & Angular Libraries are published to NPM
 
 ## Install helper libraries locally.
 Clone frontend-helpers project library locally.
 https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/)
 
+`npm install ` and `npm run build` in the 'template-annotations', 'react-editor' and 'angular-editor directories.
+
+## For React
+
 Point the dependency in package.json of the react library (frontend-helpers/packages/react-editor/package.json) at *local* template annotations:
 `    "@magnolia/template-annotations": "../template-annotations"`
 
-`npm install ` and `npm run build` in the 'template-annotations' directory, and then in the 'react-editor' directory.
+`npm install ` and `npm run build` in the 'react-editor' directory.
 
-## Point SPA project at the local library.
+### Point SPA project at the local library.
 
 Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the locally installed react-editor package:
  `   "@magnolia/react-editor": "[YOUR FULL PATH]/frontend-helpers/packages/react-editor/",`
 
+## For Angular
 
-# If you previously used the Professional Services PoC library.
+Point the dependency in package.json of the angular top directory (frontend-helpers/packages/angular-editor/package.json) at *local* template annotations:
+`    "@magnolia/template-annotations": "../template-annotations"`
 
-You may have previously used the javascript libraries, and custom Java from Magnolia Professional Services department. If so, you may be interested in what has changed in the production implementation.
+Point the dependency in package.json of the angular library (frontend-helpers/packages/angular-editor/projects/angular-editor/package.json) at *local* template annotations:
+`"@magnolia/template-annotations": "../../../template-annotations"`
 
-### Biggest differences to Services PoC library.
+`npm install ` and `npm run build` in the 'angular-editor' directory.
 
-* Get the 6.2 snapshot using '-s', 'mgnl jumpstart -s'. (You don't need to drop in any additional JARS)
-* You always get the template definitions from a new templateDefinitions endpoint.
-* Any json property prefixed with `@`, `jcr:`, or `mgnl:` now comes in on a prop called `metadata`.
+### Point SPA project at the local library.
+
+Point the dependency in package.json of the react SPA project (spa/angular-minimal/package.json) to the locally installed react-editor package:
+ `   "@magnolia/react-editor": "[YOUR FULL PATH]//frontend-helpers/packages/angular-editor/dist/angular-editor",`
+
 
 
 # Now, Get Started for Real!
@@ -100,46 +131,60 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 
 
 
+# Deploy your SPA to Magnolia 
 
-## JavaScript front-end set up
+Build and deploy the SPA to Magnolia to make it available for editing. 
 
-Each demo contains:
+### React
+Go to  `/spa/react-minimal` on the terminal and run `npm run deploy`. (You already ran `npm install`, right?)
 
-- Basic page template
-- Contact page template
-- Header component
-- Paragraph component
-- Image component
-- List component
-- Item component (available inside List component)
-- Expander component
+Once built, check that the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/build`.
 
-To see the headless rendering system in use, we must create some example content.
+See the `.env` files for important configurations.
 
-### Configuring React
+### Angular
+Go to  `/spa/angular-minimal` on the terminal and run `ng build --prod`. (You already ran `npm install`, right?)
 
-Build and deploy the React app to Magnolia to make it available for editing. Go to  `/spa/react-minimal` on the terminal and run `npm install` and then `npm run deploy`.
+Once built, check that the app is deployed to `magnolia/light-modules/angular-minimal-lm/webresources/build`.
 
-Once built, the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/`.
+See the files in `/src/environments` for important configurations.
 
-In the Pages app, either use the 'Import' action (with nothing selected) and select the file in `/magnolia/content-importer/website.react-sample.yaml`, or create new content with the following steps.
 
-1. In the Pages app create a page called '*_react-sample_*' with the `React: Basic page` template.
+## Create some sample content
 
-1. In the Pages app, beneath 'react-sample', create a page called `contact` with the `React: Contact page` template.
+Either import some content, or create it manually.
 
-1. Add some components to the pages. 
+### Import: 
 
+Use the 'Import' action (with nothing selected) and select appropriate file from `/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
+
+### Manually:
+
+Open the `Pages` app in Magnolia and add either 
+* A `React: Basic` page and name it `angular-minimal`
+* A `Angular: Basic` page and name it `react-minimal`
+
+(The page name is important as the SPA's are hardcoded to treat those names as the base of the app.)
+
+Then add components into the `Main` area of the page.
+
+
+## Running your SPA in development mode
+
+### React 
 Build and start the headless React application inside `/spa/react-minimal` by running `npm start`.
 
-View your Magnolia-managed content via http://localhost:3000/.
+### Angular 
+Build and start the headless Angular application inside `/spa/angular-minimal` by running `ng serve`.
 
 
 
 
 
 
-# MORE
+
+
+# Additional Information
 
 
 ## CORS set up

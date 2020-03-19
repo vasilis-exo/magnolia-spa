@@ -1,9 +1,9 @@
-'react-sample':
+'react-minimal':
   'jcr:primaryType': mgnl:page
   'jcr:uuid': 066761ae-f69b-4029-9900-496259837d2d
   'mgnl:created': 2020-02-01T07:45:49.952+01:00
   'mgnl:createdBy': superuser
-  'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+  'mgnl:lastModified': 2020-03-19T11:43:15.103+01:00
   'mgnl:lastModifiedBy': superuser
   'mgnl:template': react-minimal-lm:pages/basic
   'main':
@@ -11,24 +11,24 @@
     'jcr:uuid': 1f38220d-7a22-4f1c-916c-9371798feea2
     'mgnl:created': 2020-02-01T07:45:52.917+01:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+    'mgnl:lastModified': 2020-03-16T14:29:14.784+01:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'jcr:primaryType': mgnl:component
       'jcr:uuid': 5e292072-1d2e-4f52-a31b-3f4ff9897f26
       'mgnl:created': 2020-02-01T08:12:22.611+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-01T08:12:22.611+01:00
+      'mgnl:lastModified': 2020-03-16T14:29:14.784+01:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': spa-lm:components/header
-      'text': Heady
+      'text': Heady2
     '00':
       'image': jcr:090eb9c4-b35b-4869-a12f-6ea80292cba4
       'jcr:primaryType': mgnl:component
       'jcr:uuid': 4593caf4-1add-4b29-9793-cb4efa8dfad4
       'mgnl:created': 2020-02-01T08:13:33.412+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-01T08:13:33.412+01:00
+      'mgnl:lastModified': 2020-02-17T16:27:36.033+01:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': spa-lm:components/image
     '01':
@@ -36,10 +36,10 @@
       'jcr:uuid': bb5f8114-352e-48e6-a299-2d0ffd6047ee
       'mgnl:created': 2020-02-01T08:15:20.892+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-01T08:15:20.892+01:00
+      'mgnl:lastModified': 2020-02-21T22:37:00.151+01:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': spa-lm:components/paragraph
-      'richText': '<p>Cool <strong>beans.</strong></p>
+      'richText': '<p>Cool <strong>beans. 43</strong></p>
 
         '
     '02':
@@ -47,7 +47,7 @@
       'jcr:uuid': 10b32f00-7c02-407e-8f62-8e298655869a
       'mgnl:created': 2020-02-01T08:15:29.754+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+      'mgnl:lastModified': 2020-03-16T14:23:32.191+01:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': spa-lm:components/list
       'items':
@@ -55,17 +55,17 @@
         'jcr:uuid': 421b722a-718f-4651-b602-4b755e4e48a0
         'mgnl:created': 2020-02-01T08:15:29.811+01:00
         'mgnl:createdBy': superuser
-        'mgnl:lastModified': 2020-02-01T08:15:45.177+01:00
+        'mgnl:lastModified': 2020-03-16T14:23:32.191+01:00
         'mgnl:lastModifiedBy': superuser
         '0':
           'jcr:primaryType': mgnl:component
           'jcr:uuid': 5e61df57-c393-430d-87cc-e41f448f2ae9
           'mgnl:created': 2020-02-01T08:15:38.747+01:00
           'mgnl:createdBy': superuser
-          'mgnl:lastModified': 2020-02-01T08:15:38.747+01:00
+          'mgnl:lastModified': 2020-03-11T21:31:13.743+01:00
           'mgnl:lastModifiedBy': superuser
           'mgnl:template': spa-lm:components/listItem
-          'text': Item 1
+          'text': Item 2
         '00':
           'jcr:primaryType': mgnl:component
           'jcr:uuid': ed594824-a686-4e78-9a53-4dad85f88c78
@@ -75,6 +75,15 @@
           'mgnl:lastModifiedBy': superuser
           'mgnl:template': spa-lm:components/listItem
           'text': Item 2
+        '01':
+          'jcr:primaryType': mgnl:component
+          'jcr:uuid': 197e7645-4698-4276-b79b-eb071297973d
+          'mgnl:created': 2020-03-16T14:23:32.192+01:00
+          'mgnl:createdBy': superuser
+          'mgnl:lastModified': 2020-03-16T14:23:32.192+01:00
+          'mgnl:lastModifiedBy': superuser
+          'mgnl:template': spa-lm:components/listItem
+          'text': de
   'expanderItems':
     'jcr:primaryType': mgnl:area
     'jcr:uuid': 2d1341e8-b8f7-40e6-ae9c-d8ff857c2f33
@@ -94,7 +103,7 @@
     'jcr:uuid': c7c11927-7eca-4ac0-99e4-e1c02db22c74
     'mgnl:created': 2020-02-01T08:16:19.204+01:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+    'mgnl:lastModified': 2020-03-19T11:43:15.103+01:00
     'mgnl:lastModifiedBy': superuser
     'mgnl:template': react-minimal-lm:pages/contact
     'main':
@@ -102,14 +111,14 @@
       'jcr:uuid': bbbe6c79-011e-48e4-964c-ffdf0c125eed
       'mgnl:created': 2020-02-01T08:16:21.311+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+      'mgnl:lastModified': 2020-03-13T10:18:29.241+01:00
       'mgnl:lastModifiedBy': superuser
       '0':
         'jcr:primaryType': mgnl:component
         'jcr:uuid': de70c3a3-93d0-41ab-977a-9e62a19045bb
         'mgnl:created': 2020-02-01T08:16:29.423+01:00
         'mgnl:createdBy': superuser
-        'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+        'mgnl:lastModified': 2020-03-13T10:18:29.241+01:00
         'mgnl:lastModifiedBy': superuser
         'mgnl:template': spa-lm:components/expander
         'expanderItems':
@@ -117,28 +126,50 @@
           'jcr:uuid': 96c40b85-4037-4450-b906-dcad64d058bc
           'mgnl:created': 2020-02-01T08:16:29.475+01:00
           'mgnl:createdBy': superuser
-          'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+          'mgnl:lastModified': 2020-03-13T10:18:29.241+01:00
           'mgnl:lastModifiedBy': superuser
-          '0':
-            'jcr:primaryType': mgnl:component
-            'jcr:uuid': c5aee0fb-0e49-4980-9d0d-1733cc991af1
-            'mgnl:created': 2020-02-01T08:18:25.953+01:00
-            'mgnl:createdBy': superuser
-            'mgnl:lastModified': 2020-02-01T08:18:25.953+01:00
-            'mgnl:lastModifiedBy': superuser
-            'mgnl:template': spa-lm:components/paragraph
-            'richText': '<p>Find us at the end of the road.</p>
-
-              '
           '00':
             'jcr:primaryType': mgnl:component
             'jcr:uuid': e47270ba-6a16-4e41-9883-caf0fc1e709d
             'mgnl:created': 2020-02-01T08:18:39.895+01:00
             'mgnl:createdBy': superuser
-            'mgnl:lastModified': 2020-02-03T09:48:59.489+01:00
+            'mgnl:lastModified': 2020-02-21T22:37:27.921+01:00
             'mgnl:lastModifiedBy': superuser
             'mgnl:template': spa-lm:components/paragraph
             'richText': '<p>There is a <em>sign over there</em>.</p>
+
+              '
+          '0':
+            'jcr:primaryType': mgnl:component
+            'jcr:uuid': c5aee0fb-0e49-4980-9d0d-1733cc991af1
+            'mgnl:created': 2020-02-01T08:18:25.953+01:00
+            'mgnl:createdBy': superuser
+            'mgnl:lastModified': 2020-02-21T22:37:23.531+01:00
+            'mgnl:lastModifiedBy': superuser
+            'mgnl:template': spa-lm:components/paragraph
+            'richText': '<p>Find us at the end of the road.</p>
+
+              '
+          '01':
+            'jcr:primaryType': mgnl:component
+            'jcr:uuid': 747a10e9-abcb-46ff-9b62-5d8bd0332c76
+            'mgnl:created': 2020-02-21T22:37:37.740+01:00
+            'mgnl:createdBy': superuser
+            'mgnl:lastModified': 2020-03-13T10:18:29.241+01:00
+            'mgnl:lastModifiedBy': superuser
+            'mgnl:template': spa-lm:components/paragraph
+            'richText': '<p>hhhhhhhfds</p>
+
+              '
+          '02':
+            'jcr:primaryType': mgnl:component
+            'jcr:uuid': 328981cb-1601-4fdb-8000-44bcc25ea344
+            'mgnl:created': 2020-03-13T10:18:21.794+01:00
+            'mgnl:createdBy': superuser
+            'mgnl:lastModified': 2020-03-13T10:18:21.794+01:00
+            'mgnl:lastModifiedBy': superuser
+            'mgnl:template': spa-lm:components/paragraph
+            'richText': '<p>fds</p>
 
               '
     'expanderItems':
@@ -153,17 +184,17 @@
     'jcr:uuid': a826c0dc-eb44-4184-9048-332c5f790789
     'mgnl:created': 2020-02-03T09:27:45.964+01:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+    'mgnl:lastModified': 2020-03-05T16:54:36.272+01:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'jcr:primaryType': mgnl:component
-      'jcr:uuid': 671a74b5-d086-43d1-9e3b-43724cbf29a2
-      'mgnl:created': 2020-02-03T09:45:53.987+01:00
+      'jcr:uuid': a1fdf50a-41a9-418e-a919-f018d88b7dd7
+      'mgnl:created': 2020-03-05T16:54:36.273+01:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-02-03T09:45:53.987+01:00
+      'mgnl:lastModified': 2020-03-05T16:54:36.273+01:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': spa-lm:components/paragraph
-      'richText': '<p>A <em><strong>secondary</strong></em> paragraph.</p>
+      'richText': '<p>Some Secondaray text.</p>
 
         '
   'footer':
