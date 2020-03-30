@@ -38,6 +38,11 @@ h1 {
   font-weight: 200;
 }
 
+h2 {
+  color: #00b39b;
+  font-weight: 200;
+}
+
 ul {
   padding: 0;
   list-style: none;

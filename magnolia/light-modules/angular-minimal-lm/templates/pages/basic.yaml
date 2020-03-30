@@ -1,9 +1,9 @@
 title: 'Angular: Basic'
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
-renderType: spa
-visible: true
-
 templateScript: /angular-minimal-lm/webresources/build/index.html
+dialog: spa-lm:pages/basic
+
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 
 # jsPaths:
 #   - /angular-minimal-lm/webresources/build/main.js
@@ -15,13 +15,13 @@ templateScript: /angular-minimal-lm/webresources/build/index.html
 # cssPaths:
 #   - /angular-minimal-lm/webresources/build/styles.css
 
-
 areas:
+
   main:
     title: Main Area
     availableComponents:
-      header:
-        id: spa-lm:components/header
+      Headline:
+        id: spa-lm:components/headline
       Image:
         id: spa-lm:components/image
       Paragraph:
@@ -31,8 +31,12 @@ areas:
       List:
         id: spa-lm:components/list
         
-  secondary:
-    title: Secondary Area
+  extras:
+    title: Extras Area
     availableComponents:
+      Headline:
+        id: spa-lm:components/headline
       Paragraph:
         id: spa-lm:components/paragraph
+      List:
+        id: spa-lm:components/list

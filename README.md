@@ -2,9 +2,9 @@
 
 The new Visual SPA Editor allows authors to edit your SPA, reducing your ongoing maintenance duties. (win!) But you get to keep everything fully headless.
 
-This demo shows you how to use the basic features for both React and Angular. 
+This demo shows you how to use the basic features for both React and Angular.
 
-![The App](_dev/README-screenshot-app.png)
+![The App](magnolia/_dev/README-screenshot-app.png)
 
 
 ## Pages and Components
@@ -22,44 +22,6 @@ The demo contains:
 - Expander component
 
 - Navigation component
-
-
-# Workarounds until React & Angular Libraries are published to NPM
-
-## Install helper libraries locally.
-Clone frontend-helpers project library locally.
-https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/)
-
-`npm install ` and `npm run build` in the 'template-annotations', 'react-editor' and 'angular-editor directories.
-
-## For React
-
-Point the dependency in package.json of the react library (frontend-helpers/packages/react-editor/package.json) at *local* template annotations:
-`    "@magnolia/template-annotations": "../template-annotations"`
-
-`npm install ` and `npm run build` in the 'react-editor' directory.
-
-### Point SPA project at the local library.
-
-Point the dependency in package.json of the react SPA project (spa/react-minimal/package.json) to the locally installed react-editor package:
- `   "@magnolia/react-editor": "[YOUR FULL PATH]/frontend-helpers/packages/react-editor/",`
-
-## For Angular
-
-Point the dependency in package.json of the angular top directory (frontend-helpers/packages/angular-editor/package.json) at *local* template annotations:
-`    "@magnolia/template-annotations": "../template-annotations"`
-
-Point the dependency in package.json of the angular library (frontend-helpers/packages/angular-editor/projects/angular-editor/package.json) at *local* template annotations:
-`"@magnolia/template-annotations": "../../../template-annotations"`
-
-`npm install ` and `npm run build` in the 'angular-editor' directory.
-
-### Point SPA project at the local library.
-
-Point the dependency in package.json of the react SPA project (spa/angular-minimal/package.json) to the locally installed react-editor package:
- `   "@magnolia/react-editor": "[YOUR FULL PATH]//frontend-helpers/packages/angular-editor/dist/angular-editor",`
-
-
 
 # Now, Get Started for Real!
 
@@ -115,7 +77,7 @@ To access the apps that are mentioned in these instructions use the grid icon at
 In order for images to be displayed:
 Open the Security app, open the `Roles` tab, edit the `anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
 
-![Image Access for Anonymous](_dev/README-security-anonymous-dam.png)
+![Image Access for Anonymous](magnolia/_dev/README-security-anonymous-dam.png)
 
 ### TemplateDefinitions
 Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/templateDefinition*` set to GET.
@@ -131,9 +93,9 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 
 
 
-# Deploy your SPA to Magnolia 
+# Deploy your SPA to Magnolia
 
-Build and deploy the SPA to Magnolia to make it available for editing. 
+Build and deploy the SPA to Magnolia to make it available for editing.
 
 ### React
 Go to  `/spa/react-minimal` on the terminal and run `npm run deploy`. (You already ran `npm install`, right?)
@@ -144,6 +106,7 @@ See the `.env` files for important configurations.
 
 ### Angular
 Go to  `/spa/angular-minimal` on the terminal and run `ng build --prod`. (You already ran `npm install`, right?)
+(If you forget the '--prod', the paths to the js and css in the created index.html will be incorrect.)
 
 Once built, check that the app is deployed to `magnolia/light-modules/angular-minimal-lm/webresources/build`.
 
@@ -154,13 +117,13 @@ See the files in `/src/environments` for important configurations.
 
 Either import some content, or create it manually.
 
-### Import: 
+### Import:
 
-Use the 'Import' action (with nothing selected) and select appropriate file from `/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
+Use the 'Import' action (with nothing selected) and select appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
 
 ### Manually:
 
-Open the `Pages` app in Magnolia and add either 
+Open the `Pages` app in Magnolia and add either
 * A `React: Basic` page and name it `angular-minimal`
 * A `Angular: Basic` page and name it `react-minimal`
 
@@ -171,10 +134,10 @@ Then add components into the `Main` area of the page.
 
 ## Running your SPA in development mode
 
-### React 
+### React
 Build and start the headless React application inside `/spa/react-minimal` by running `npm start`.
 
-### Angular 
+### Angular
 Build and start the headless Angular application inside `/spa/angular-minimal` by running `ng serve`.
 
 

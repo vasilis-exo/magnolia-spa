@@ -1,6 +1,6 @@
 import Basic from './pages/Basic';
 import Contact from './pages/Contact';
-import Header from './components/Header';
+import Headline from './components/Headline';
 import Image from './components/Image';
 import Paragraph from './components/Paragraph';
 import Expander from './components/Expander';
@@ -12,7 +12,7 @@ const config = {
         'react-minimal-lm:pages/basic': Basic,
         'react-minimal-lm:pages/contact': Contact,
     
-        'spa-lm:components/header': Header,
+        'spa-lm:components/headline': Headline,
         'spa-lm:components/image': Image,
         'spa-lm:components/paragraph': Paragraph,
         'spa-lm:components/expander': Expander,

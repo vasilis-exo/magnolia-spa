@@ -1,5 +1,7 @@
 title: 'React: Basic'
 templateScript: /react-minimal-lm/webresources/build/index.html
+dialog: spa-lm:pages/basic
+
 renderType: spa
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 
@@ -9,13 +11,13 @@ class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 #   - http://localhost:3000/static/js/1.chunk.js
 #   - http://localhost:3000/static/js/main.chunk.js
 
-
 areas:
+
   main:
     title: Main Area
     availableComponents:
-      Header:
-        id: spa-lm:components/header
+      Headline:
+        id: spa-lm:components/headline
       Image:
         id: spa-lm:components/image
       Paragraph:
@@ -25,22 +27,12 @@ areas:
       List:
         id: spa-lm:components/list
         
-  secondary:
-    title: Secondary Area
+  extras:
+    title: Extras Area
     availableComponents:
+      Headline:
+        id: spa-lm:components/headline
       Paragraph:
         id: spa-lm:components/paragraph
-
-  # expanderItems:
-  #   title: Expander Area
-  #   availableComponents:
-  #     Paragraph:
-  #       id: spa-lm:components/paragraph
-
-  # items:
-  #   title: List Items Area
-  #   availableComponents:
-  #     Item:
-  #       id: spa-lm:components/listItem
-
-
+      List:
+        id: spa-lm:components/list

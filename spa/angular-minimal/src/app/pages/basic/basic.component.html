@@ -1,15 +1,15 @@
 <div class="Basic">
     <div class="hint">[Basic Page]</div>    
-    <h1>{{content?.title}}</h1>
+    <h1>{{content.title || content['@name']}}</h1>
     
     <main>
         <div class="hint">[Main Area]</div>         
         <div mgnl-area [name]="'main'" [content]="content"></div>  
     </main>
     
-    <div class="Secondary" >
-        <div class="hint">[Secondary Area]</div>
-        <div mgnl-area [name]="'secondary'" [content]="content"></div>
+    <div class="Extras" >
+        <div class="hint">[Extras Area]</div>
+        <div mgnl-area [name]="'extras'" [content]="content"></div>
         <button routerLink="/contact">Contact</button>
     </div>
 </div>

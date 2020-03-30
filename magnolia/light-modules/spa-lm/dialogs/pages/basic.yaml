@@ -1,0 +1,14 @@
+label: Page Properties
+form:
+  tabs:
+    - name: tabMain
+      fields:
+        - name: title
+          label: Title
+          fieldType: text
+
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
