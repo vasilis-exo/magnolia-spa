@@ -39,6 +39,11 @@ h1 {
   font-weight: 200;
 }
 
+h2 {
+  color: #00b39b;
+  font-weight: 200;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -49,6 +54,11 @@ footer {
   border-top: 1px solid #eef2f2;
   font-size: 0.75rem;
   color: #ababab;
+}
+
+.box{
+  background-color:#eaf7f5;
+  padding: 20px;
 }
 
 .active {

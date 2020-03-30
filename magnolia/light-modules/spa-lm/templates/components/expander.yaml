@@ -8,6 +8,6 @@ areas:
         id: spa-lm:components/image
       Paragraph:
         id: spa-lm:components/paragraph
-      Header:
-        id: spa-lm:components/header
+      Headline:
+        id: spa-lm:components/headline
 

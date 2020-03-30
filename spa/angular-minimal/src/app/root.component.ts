@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { RendererContextService } from '@magnolia/angular-editor';
 
 import { environment } from '../environments/environment';
-import { config } from './magnolia.config.js';
+import { config } from '../magnolia.config.js';
 
 
 

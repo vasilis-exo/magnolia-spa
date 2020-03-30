@@ -8,7 +8,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 
 import { BasicComponent } from './pages/basic/basic.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeadlineComponent } from './components/headline/headline.component';
 import { ListComponent } from './components/list/list.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { ImageComponent } from './components/image/image.component';
@@ -33,7 +33,7 @@ import { routing } from './app.routing';
     
     BasicComponent,
     ContactComponent,
-    HeaderComponent,
+    HeadlineComponent,
     ListComponent,
     ListItemComponent,
     ImageComponent,
@@ -44,7 +44,7 @@ import { routing } from './app.routing';
   entryComponents: [
     BasicComponent,
     ContactComponent,
-    HeaderComponent,
+    HeadlineComponent,
     ListComponent,
     ListItemComponent,
     ImageComponent,
