@@ -6,6 +6,7 @@ form:
         - name: text
           label: Headline Text
           fieldType: text
+          i18n: true
 
 actions:
   commit:
