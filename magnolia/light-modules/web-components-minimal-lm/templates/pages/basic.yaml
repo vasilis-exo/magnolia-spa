@@ -15,12 +15,3 @@ areas:
         id: web-components-minimal-lm:components/paragraph
       List:
         id: web-components-minimal-lm:components/list
-  extras:
-    title: Extras Area
-    availableComponents:
-      Headline:
-        id: web-components-minimal-lm:components/headline
-      Paragraph:
-        id: web-components-minimal-lm:components/paragraph
-      List:
-        id: web-components-minimal-lm:components/list

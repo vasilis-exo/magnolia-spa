@@ -12,7 +12,6 @@
       <div class="Basic">
         <h1>${content.title!content.@name}</h1>
         <main>[@cms.area name="main" /]</main>
-        <div class="Extras">[@cms.area name="extras" /]</div> 
       </div>
     </div>
     <footer>
