@@ -1,14 +1,7 @@
 label: Headline
 form:
-  tabs:
-    - name: tabMain
-      fields:
-        - name: text
-          label: Headline Text
-          fieldType: text
-
-actions:
-  commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
-  cancel:
-    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+  properties:
+    text:
+      label: Headline Text
+      $type: textField
+      i18n: true

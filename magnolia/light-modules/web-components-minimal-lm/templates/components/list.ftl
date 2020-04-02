@@ -1,0 +1,1 @@
+<wc-list items='[@cms.area name="items" /]'></wc-list>

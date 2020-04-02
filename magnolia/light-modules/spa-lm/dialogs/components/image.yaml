@@ -1,20 +1,9 @@
 label: Image
 form:
-  tabs:
-    - name: tabMain
-      fields:
-        - name: image
-          label: Image
-          fieldType: link
-          targetWorkspace: dam
-          appName: assets
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-
-actions:
-  commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
-  cancel:
-    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+  properties:
+    image:
+      label: Image
+      $type: linkField
+      chooser:
+        workbenchChooser:
+          appName: dam-chooser
