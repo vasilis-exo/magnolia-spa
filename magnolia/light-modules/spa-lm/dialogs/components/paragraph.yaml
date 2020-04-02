@@ -1,14 +1,7 @@
 label: Paragraph
 form:
-  tabs:
-    - name: tabMain
-      fields:
-        - name: richText
-          label: Paragraph Text
-          fieldType: richText
-
-actions:
-  commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
-  cancel:
-    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
+  properties:
+    richText:
+      label: Paragraph Text
+      $type: richTextField
+      i18n: true

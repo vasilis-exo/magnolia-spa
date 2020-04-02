@@ -1,6 +1,7 @@
 title: 'Web Components: Basic'
 templateScript: /web-components-minimal-lm/templates/pages/basic.ftl
 renderType: freemarker
+dialog: spa-lm:pages/basic
 
 areas:
   main:
