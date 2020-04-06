@@ -1,1 +1,5 @@
-<wc-list items='[@cms.area name="items" /]'></wc-list>
+[#assign items]
+  [@cms.area name="items" /]
+[/#assign]
+
+<wc-list items="${items?html}"></wc-list>
