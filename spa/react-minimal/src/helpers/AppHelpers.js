@@ -20,9 +20,9 @@ export function inAuthor() {
  */
 export function onMagnolia() {
     //TODO, this should somehow actually detect if running in a magnolia instance.
-    //Maybe just check path for existance of 'magnolia', or rely on an environment variable.
-    const ia = Boolean(window.parent && window.parent.mgnlRefresh);
-    return ia;
+    //For now rely on an environment variable.
+
+    return process.env.REACT_APP_MGNL_IS_PREVIEW;
 }
 
 export function getAPIBase() {

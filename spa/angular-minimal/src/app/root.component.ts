@@ -27,7 +27,7 @@ export class RootComponent {
   }
 
   private inAuthor() {
-    const ia = this.rendererContext.inEditor();
+    const ia = environment.inEditor;
     return ia;
 }
 

@@ -98,7 +98,7 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 Build and deploy the SPA to Magnolia to make it available for editing.
 
 ### React
-Go to  `/spa/react-minimal` on the terminal and run `npm run deploy`. (You already ran `npm install`, right?)
+Go to  `/spa/react-minimal` on the terminal and run `npm run deploy:mgnl`. (You already ran `npm install`, right?)
 
 Once built, check that the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/build`.
 
