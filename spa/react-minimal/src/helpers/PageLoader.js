@@ -1,8 +1,9 @@
 import React from 'react';
 import config  from '../magnolia.config';
-import {removeExtension, inAuthor, onMagnolia, getAPIBase} from './AppHelpers';
+import {removeExtension, onMagnolia, getAPIBase} from './AppHelpers';
 
-import {Page} from '@magnolia/react-editor';
+import {EditablePage} from '@magnolia/react-editor';
+import {EditorContextHelper} from '@magnolia/react-editor';
 
 class PageLoader extends React.Component {
 
@@ -39,7 +40,7 @@ class PageLoader extends React.Component {
     console.log('templateId:', templateId);
 
     let templateJson = null;
-    if (inAuthor()) {
+    if (EditorContextHelper.inEditor()) {
       const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
@@ -54,30 +55,43 @@ class PageLoader extends React.Component {
 
   };
 
+
+  inEditorPreview(){
+    const url = window.location.href;
+    const inPreview = (url.indexOf('mgnlPreview=true')>0);
+    console.log('inEditorPreview:' + inPreview)
+    return (EditorContextHelper.inEditor() && inPreview);
+  }
+
   componentDidMount() {
     this.loadPage();
-    if (inAuthor() && window.parent.mgnlRefresh) {
-      window.parent.mgnlRefresh();
+    if (EditorContextHelper.inEditor()) {
+      if (!this.inEditorPreview()){
+        EditorContextHelper.refresh();
+      }
     }
   }
 
   componentDidUpdate() {
     this.loadPage();
-    if (inAuthor()  && window.parent.mgnlRefresh) {
-      window.parent.mgnlRefresh();
+    if (EditorContextHelper.inEditor()) {
+      if (!this.inEditorPreview()){
+        EditorContextHelper.refresh();
+      }
     }
   }
 
 
   render() {
+    
     if (this.state.init){
       console.log('config:', config);
       //const isDevMode = process.env.NODE_ENV === 'development';
-      console.log("n:" + process.env.NODE_ENV)
+      //console.log("n:" + process.env.NODE_ENV)
 
       return (
-      <Page templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} componentMappings={config.componentMappings} >
-      </Page> 
+      <EditablePage templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} config={config} >
+      </EditablePage> 
       )
 
     }else{

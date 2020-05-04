@@ -5,5 +5,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  @Input() content: any;
+  @Input() title: any;
+  
+  @Input() main: any;
+  // metadata
+  @Input() metadata: any;
 }

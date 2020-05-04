@@ -16,5 +16,5 @@ export const environment = {
   navUrl: HOST + MAGNOLIA_BASE + '/.rest/delivery/pagenav/v1',
     
   damRawUrl: HOST,
-
+  inEditor: false
 };

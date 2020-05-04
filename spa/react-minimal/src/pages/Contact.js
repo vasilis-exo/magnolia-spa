@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '@magnolia/react-editor';
+import { EditableArea } from '@magnolia/react-editor';
 
 const Contact = props => {
   const { main, title } = props;
@@ -14,7 +14,7 @@ const Contact = props => {
       <div className="box" style={boxStyle}>
         <h1>{title || 'Nulla vitae elit libero, a pharetra augue.'}</h1>
       </div>
-      {main && <Area content={main} />}
+      {main && <EditableArea content={main} />}
     </div>
   );
 };

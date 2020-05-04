@@ -23,7 +23,7 @@ The demo contains:
 
 - Navigation component
 
-# Now, Get Started for Real!
+# Setup
 
 ## Requirements
 
@@ -58,11 +58,8 @@ mgnl start
 
 Once the terminal shows `Server startup in X ms`
 
-In your browser, open Magnolia at:
+In your browser, open Magnolia at: http://localhost:8080/magnoliaAuthor/
 
-```
-http://localhost:8080/magnoliaAuthor/
-```
 
 ## Accessing Magnolia
 You can log in to Magnolia using the credentials `superuser/superuser`.
@@ -79,17 +76,6 @@ Open the Security app, open the `Roles` tab, edit the `anonymous` role, go to `W
 
 ![Image Access for Anonymous](magnolia/_dev/README-security-anonymous-dam.png)
 
-### TemplateDefinitions
-Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/templateDefinition*` set to GET.
-(Note: Only requried for debugging the editor features when running outside the PageEditor.)
-
-### Content endpoint permissions
-
-The app has anonymous access to Magnolia REST endpoints with no additional configuration because:
-* "Web access" is allowed, because the restEndpoint files are under the `/delivery` path
-* "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
-
-**NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
 
 
 
@@ -98,14 +84,14 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 Build and deploy the SPA to Magnolia to make it available for editing.
 
 ### React
-Go to  `/spa/react-minimal` on the terminal and run `npm run deploy`. (You already ran `npm install`, right?)
+Go to  `/spa/react-minimal` on the terminal and run `npm install`, and then `npm run deploy:mgnl`.
 
 Once built, check that the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/build`.
 
 See the `.env` files for important configurations.
 
 ### Angular
-Go to  `/spa/angular-minimal` on the terminal and run `ng build --prod`. (You already ran `npm install`, right?)
+Go to  `/spa/angular-minimal` on the terminal and run `npm install`, and then `ng build --prod`. 
 (If you forget the '--prod', the paths to the js and css in the created index.html will be incorrect.)
 
 Once built, check that the app is deployed to `magnolia/light-modules/angular-minimal-lm/webresources/build`.
@@ -119,7 +105,7 @@ Either import some content, or create it manually.
 
 ### Import:
 
-Use the 'Import' action (with nothing selected) and select appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
+Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
 
 ### Manually:
 
@@ -130,6 +116,7 @@ Open the `Pages` app in Magnolia and add either
 (The page name is important as the SPA's are hardcoded to treat those names as the base of the app.)
 
 Then add components into the `Main` area of the page.
+You can also add additional pages as children of that page.
 
 
 ## Running your SPA in development mode
@@ -177,3 +164,21 @@ For the purpose of this demo, we want to allow anonymous access to the REST end
 
 The endpoint is http://localhost:8080/magnoliaAuthor/.rest/pages.
 Opening this while not logged in will produce the log in page.
+
+
+### Content endpoint permissions
+
+The app has anonymous access to Magnolia REST endpoints with no additional configuration because:
+* "Web access" is allowed, because the restEndpoint files are under the `/delivery` path
+* "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
+
+**NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
+
+
+### TemplateDefinitions
+
+If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the templateDefinitions endpoint:
+
+Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/templateDefinition*` set to GET.
+
+

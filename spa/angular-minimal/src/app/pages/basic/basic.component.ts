@@ -5,5 +5,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./basic.component.scss']
 })
 export class BasicComponent {
-  @Input() content: any;
+  @Input() title: any;
+
+  @Input() main: any;
+  @Input() extras: any;
+  // metadata
+  @Input() metadata: any;
 }

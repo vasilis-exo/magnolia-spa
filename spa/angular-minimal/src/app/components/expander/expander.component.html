@@ -9,7 +9,7 @@
     
       <div *ngIf="isExpanded">
         <div class="hint">[EXPANDER OPENED]</div>
-        <ul mgnl-area [name]="'expanderItems'" [content]="content"></ul>
+        <ul editable-area [content]="expanderItems"  [parentTemplateId]="metadata['mgnl:template']"></ul>
 
       </div>
     

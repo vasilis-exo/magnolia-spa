@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '@magnolia/react-editor';
+import { EditableArea, EditorContextHelper } from '@magnolia/react-editor';
 
 class Expander extends React.Component {
 
@@ -19,9 +19,10 @@ class Expander extends React.Component {
   }
 
   componentDidUpdate() {
-    if (window.parent.mgnlRefresh !== undefined){
-      window.parent.mgnlRefresh();
-    }
+    EditorContextHelper.refresh();
+    // if (window.parent.mgnlRefresh !== undefined){
+    //   EditorContextHelper.refresh();
+    // }
   }
 
   render () {
@@ -36,7 +37,7 @@ class Expander extends React.Component {
         {!this.state.isCollapsed &&
           <div>
             <div className="hint">[EXPANDER OPENED]</div>
-            {expanderItems && <Area content={expanderItems}  parentTemplateId={this.props.metadata['mgnl:template']}/>}
+            {expanderItems && <EditableArea content={expanderItems}  parentTemplateId={this.props.metadata['mgnl:template']}/>}
           </div>
         }   
       </div>

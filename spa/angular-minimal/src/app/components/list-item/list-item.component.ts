@@ -5,5 +5,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent {
-  @Input() content: any;
+  @Input() text: any;
 }
