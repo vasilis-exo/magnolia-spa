@@ -10,6 +10,23 @@ const insertComments = (node, commentOpen, commentClose) => {
   }
 };
 
+const getProps = (node) => {
+  const props = {};
+  const metadata = {};
+
+  Object.keys(node).forEach((key) => {
+    if (key.match(/^(@|mgnl:|jcr:)/)) {
+      metadata[key] = node[key];
+    } else {
+      props[key] = node[key];
+    }
+  });
+
+  props.metadata = metadata;
+
+  return props;
+};
+
 export const EditablePage = {
   name: 'EditablePage',
   props: ['content', 'config', 'templateDefinitions'],
@@ -36,7 +53,7 @@ export const EditablePage = {
 
     return template
       ? createElement(template, {
-          props: this.content,
+          props: getProps(this.content),
         })
       : null;
   },
@@ -87,7 +104,7 @@ export const EditableComponent = {
 
     return template
       ? createElement(template, {
-          props: this.content,
+          props: getProps(this.content),
         })
       : null;
   },

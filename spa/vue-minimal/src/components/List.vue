@@ -1,6 +1,6 @@
 <template>
   <ul class="List">
-    <EditableArea v-if="items" v-bind:content="items" v-bind:parentTemplateId="this['mgnl:template']">
+    <EditableArea v-if="items" v-bind:content="items" v-bind:parentTemplateId="metadata['mgnl:template']">
   </ul>
 </template>
 
@@ -12,6 +12,6 @@ export default {
   components: {
     EditableArea,
   },
-  props: ['items', 'mgnl:template']
+  props: ['items', 'metadata']
 };
 </script>
