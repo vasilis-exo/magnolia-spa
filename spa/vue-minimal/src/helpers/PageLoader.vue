@@ -9,7 +9,7 @@
 
 <script>
 import config from '../magnolia.config';
-import { EditablePage, inEditorPreview } from '../vue-editor';
+import { EditablePage, inEditorEdit } from '../vue-editor';
 
 const getContentUrl = () => {
   const path = window.location.href
@@ -36,7 +36,7 @@ export default {
       const contentResponse = await fetch(getContentUrl());
       const content = await contentResponse.json();
 
-      if (inEditorPreview) {
+      if (inEditorEdit) {
         const templateDefinitionsResponse = await fetch(
           process.env.VUE_APP_REST_TEMPLATE_DEFINITION + content['mgnl:template']
         );
@@ -52,7 +52,7 @@ export default {
     this.loadPage();
   },
   updated() {
-    if (inEditorPreview) window.parent.mgnlRefresh();
+    if (inEditorEdit) window.parent.mgnlRefresh();
   },
 };
 </script>

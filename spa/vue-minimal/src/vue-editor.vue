@@ -1,10 +1,11 @@
 <script>
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 
-export const inEditorPreview = typeof window !== 'undefined' ? window.self !== window.top : false;
+const inMgnlIframe = typeof window !== 'undefined' ? window.self !== window.top : false;
+export const inEditorEdit = inMgnlIframe && window.location.search.indexOf('mgnlPreview=false') > -1;
 
 const insertComments = (node, commentOpen, commentClose) => {
-  if (inEditorPreview && node) {
+  if (node) {
     node.parentNode.insertBefore(document.createComment(commentOpen), node);
     node.parentNode.insertBefore(document.createComment(commentClose), node.nextSibling);
   }
@@ -46,7 +47,7 @@ export const EditablePage = {
     const templateDefinition = this.templateDefinitions[this.pageTemplateId];
     const commentOpen = TemplateAnnotations.getPageCommentString(this.content, templateDefinition);
 
-    insertComments(this.$el, commentOpen, '/cms:page');
+    if (inMgnlIframe) insertComments(this.$el, commentOpen, '/cms:page');
   },
   render(createElement) {
     const template = this.config.componentMappings[this.pageTemplateId];
@@ -71,7 +72,7 @@ export const EditableArea = {
     const templateDefinition = this.templateDefinitions[parentTemplateId];
     const commentOpen = TemplateAnnotations.getAreaCommentString(this.content, templateDefinition);
 
-    insertComments(this.$el, commentOpen, '/cms:area');
+    if (inEditorEdit) insertComments(this.$el, commentOpen, '/cms:area');
   },
   render(createElement) {
     const nodes = this.content['@nodes'].map((nodeName) => this.content[nodeName]);
@@ -97,7 +98,7 @@ export const EditableComponent = {
     const templateDefinition = this.templateDefinitions[this.componentTemplateId];
     const commentOpen = TemplateAnnotations.getComponentCommentString(this.content, templateDefinition);
 
-    insertComments(this.$el, commentOpen, '/cms:component');
+    if (inEditorEdit) insertComments(this.$el, commentOpen, '/cms:component');
   },
   render(createElement) {
     const template = this.config.componentMappings[this.componentTemplateId];
