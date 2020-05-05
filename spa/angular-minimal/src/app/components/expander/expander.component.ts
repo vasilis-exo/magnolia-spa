@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-expander',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./expander.component.scss']
 })
 export class ExpanderComponent  {
+
+  @Input() expanderItems: any;
+
+  // metadata
+  @Input() metadata: any;
 
   isExpanded = false;
 

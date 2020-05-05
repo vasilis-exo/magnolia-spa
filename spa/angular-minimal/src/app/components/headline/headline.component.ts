@@ -5,5 +5,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./headline.component.scss'],
 })
 export class HeadlineComponent {
-  @Input() content: any;
+  @Input() text: any;
 }

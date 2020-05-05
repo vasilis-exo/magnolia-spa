@@ -1,6 +1,6 @@
 {
   "name": "angular-minimal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@magnolia/angular-editor": "1.0.1",
     "@angular/animations": "~8.2.13",
     "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
@@ -19,7 +20,6 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
-    "@magnolia/angular-editor": "1.0.0",
     "jquery": "^3.4.1",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",

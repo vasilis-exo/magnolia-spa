@@ -6,13 +6,13 @@ import { Component, Input, AfterContentInit } from '@angular/core';
 })
 export class ParagraphComponent implements AfterContentInit{
 
-  @Input() content: object;
+  @Input() richText: any;
   toDisplay = "";
   //coolio = this.content['richText'];
 
   ngAfterContentInit(): void {
-    if (this.content ) {
-      this.toDisplay = this.content['richText'];
+    if (this.richText ) {
+      this.toDisplay = this.richText;
     }
   }
 }

@@ -3,11 +3,11 @@
   
 
   <div class="box">
-    <h1>{{content.title || 'Nulla vitae elit libero, a pharetra augue.'}}</h1>
+    <h1>{{title || 'Nulla vitae elit libero, a pharetra augue.'}}</h1>
   </div>
 
   <main>
-    <div mgnl-area [name]="'main'" [content]="content"></div>
+    <div editable-area [content]="main" [parentTemplateId]="metadata['mgnl:template']"></div>
   </main>
 </div>
 

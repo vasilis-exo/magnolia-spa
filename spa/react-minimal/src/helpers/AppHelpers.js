@@ -7,15 +7,6 @@ export function removeExtension(path) {
 }
 
 /**
- * Is in the actual editor
- */
-export function inAuthor() {
-    return true;
-    const ia = Boolean(window.parent && window.parent.mgnlRefresh);
-    return ia;
-}
-
-/**
  * Is running on Magnolia server, either in editor or on public instance.
  */
 export function onMagnolia() {

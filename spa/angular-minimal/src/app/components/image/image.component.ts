@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./image.component.scss'],
 })
 export class ImageComponent {
-  @Input() content: any;
+  
+  @Input() image: any;
+  
   damUrl = environment.damRawUrl;
 }
