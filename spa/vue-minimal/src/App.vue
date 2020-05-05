@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <nav>
-        <router-link to="/vue-demo">Home</router-link>
-        <router-link to="/vue-demo/contact">Contact</router-link>
-      </nav>
+      <Navigation>
     </header>
     <div class="container">
       <router-view :key="$route.fullPath"></router-view>
@@ -17,8 +14,13 @@
 </template>
 
 <script>
+import Navigation from './components/Navigation';
+
 export default {
-  name: "app"
+  name: 'app',
+  components: {
+    Navigation,
+  },
 };
 </script>
 

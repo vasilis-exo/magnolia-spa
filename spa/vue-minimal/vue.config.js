@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/magnoliaAuthor/.resources/vue-demo/webresources'
+  publicPath: process.env.PUBLIC_PATH,
 };

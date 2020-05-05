@@ -1,9 +1,6 @@
 <template>
-  <div class="Contact">
+  <div class="Basic">
     <h1>{{ title || metadata['@name'] }}</h1>
-    <div class="box">
-      <h1>Nulla vitae elit libero, a pharetra augue.</h1>
-    </div>
     <EditableArea v-if="main" v-bind:content="main" />
   </div>
 </template>
@@ -12,17 +9,10 @@
 import { EditableArea } from '../vue-editor';
 
 export default {
-  name: 'Contact',
+  name: 'Basic',
   components: {
     EditableArea,
   },
   props: ['title', 'metadata', 'main'],
 };
 </script>
-
-<style scoped>
-.box {
-  background: #eaf7f5;
-  padding: 20px;
-}
-</style>

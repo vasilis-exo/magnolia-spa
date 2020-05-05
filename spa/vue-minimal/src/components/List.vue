@@ -1,17 +1,17 @@
 <template>
   <ul class="List">
-    <Area v-if="items" v-bind:area="items" />
+    <EditableArea v-if="items" v-bind:content="items" v-bind:parentTemplateId="this['mgnl:template']">
   </ul>
 </template>
 
 <script>
-import Area from "vue-magnolia/Area";
+import { EditableArea } from '../vue-editor';
 
 export default {
-  name: "List",
+  name: 'List',
   components: {
-    Area
+    EditableArea,
   },
-  props: ["items"]
+  props: ['items', 'mgnl:template']
 };
 </script>
