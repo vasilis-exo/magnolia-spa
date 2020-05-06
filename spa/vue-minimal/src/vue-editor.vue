@@ -1,8 +1,9 @@
 <script>
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 
-const inMgnlIframe = typeof window !== 'undefined' ? window.self !== window.top : false;
-export const inEditorEdit = inMgnlIframe && window.location.search.indexOf('mgnlPreview=false') > -1;
+const inIframe = typeof window !== 'undefined' ? window.self !== window.top : false;
+const inMgnlIframe = inIframe && window.location.search.indexOf('mgnlPreview') > -1;
+export const inEditorEdit = inIframe && window.location.search.indexOf('mgnlPreview=false') > -1;
 
 const insertComments = (node, commentOpen, commentClose) => {
   if (node) {
