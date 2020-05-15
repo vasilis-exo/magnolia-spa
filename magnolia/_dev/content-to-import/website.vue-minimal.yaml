@@ -1,46 +1,47 @@
-'angular-minimal':
+'vue-minimal':
   'jcr:primaryType': 'mgnl:page'
-  'jcr:uuid': 'd3b197e2-af60-4a91-83ad-aa54000e9737'
+  'jcr:uuid': '43cb73d5-31e9-49d7-97c4-06703c38b336'
+  'jcrName': 'vue-minimal'
   'mgnl:activationStatus': true
-  'mgnl:created': 2020-03-27T15:49:30.229+01:00
+  'mgnl:created': 2020-05-15T11:57:48.523+02:00
   'mgnl:createdBy': 'superuser'
-  'mgnl:lastActivated': 2020-05-15T16:42:12.708+02:00
+  'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
   'mgnl:lastActivatedBy': 'superuser'
-  'mgnl:lastModified': 2020-03-27T15:59:19.997+01:00
+  'mgnl:lastModified': 2020-05-15T16:41:39.912+02:00
   'mgnl:lastModifiedBy': 'superuser'
-  'mgnl:template': 'angular-minimal-lm:pages/basic'
-  'title': 'Angular Minimal'
+  'mgnl:template': 'vue-minimal-lm:pages/basic'
+  'title': 'Vue Minimal'
   'main':
     'jcr:primaryType': 'mgnl:area'
-    'jcr:uuid': '6bf79641-66cd-4da8-8772-5ab8f81b8f8c'
+    'jcr:uuid': '207c5573-b0b3-4ccb-8bd6-07fdb1494194'
     'mgnl:activationStatus': true
-    'mgnl:created': 2020-03-27T15:49:57.787+01:00
+    'mgnl:created': 2020-05-15T11:57:50.457+02:00
     'mgnl:createdBy': 'superuser'
-    'mgnl:lastActivated': 2020-05-15T16:42:12.708+02:00
+    'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
     'mgnl:lastActivatedBy': 'superuser'
-    'mgnl:lastModified': 2020-03-27T15:57:09.747+01:00
+    'mgnl:lastModified': 2020-05-15T16:06:02.632+02:00
     'mgnl:lastModifiedBy': 'superuser'
-    '0':
+    '00':
       'image': 'jcr:090eb9c4-b35b-4869-a12f-6ea80292cba4'
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': '7f57769e-883f-430a-b758-2d437c0ecbfb'
+      'jcr:uuid': '33a295d4-b687-44ce-a04d-702c6e8d3f27'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:53:24.490+01:00
+      'mgnl:created': 2020-05-15T16:06:02.632+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.708+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T15:53:24.490+01:00
+      'mgnl:lastModified': 2020-05-15T16:06:02.632+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/image'
-    '00':
+    '0':
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': 'fce617d6-d44b-4b8a-9f76-0e6c82c395e2'
+      'jcr:uuid': '3332e7fb-9504-41bf-9f03-7a3707490608'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:57:09.748+01:00
+      'mgnl:created': 2020-05-15T16:04:16.039+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T15:57:09.748+01:00
+      'mgnl:lastModified': 2020-05-15T16:04:16.039+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/paragraph'
       'richText': '<p>Ahhhhh, <strong><em>springtime</em></strong>.</p>
@@ -52,128 +53,129 @@
         '
   'extras':
     'jcr:primaryType': 'mgnl:area'
-    'jcr:uuid': '8ba39120-cdaa-49c9-b64c-13c2bfb16346'
+    'jcr:uuid': '7874536b-34fc-4225-af3b-da0527b8ce1b'
     'mgnl:activationStatus': true
-    'mgnl:created': 2020-03-27T15:49:57.788+01:00
+    'mgnl:created': 2020-05-15T11:57:50.457+02:00
     'mgnl:createdBy': 'superuser'
-    'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+    'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
     'mgnl:lastActivatedBy': 'superuser'
-    'mgnl:lastModified': 2020-03-27T15:59:19.997+01:00
+    'mgnl:lastModified': 2020-05-15T16:41:39.912+02:00
     'mgnl:lastModifiedBy': 'superuser'
-    '0':
+    '00':
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': 'f5931aaa-b349-438a-928a-ad156d5cbc45'
+      'jcr:uuid': '99c02fd6-452c-40b3-9c2f-32865b7a7995'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:57:56.375+01:00
+      'mgnl:created': 2020-05-15T16:07:44.139+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T15:57:56.375+01:00
+      'mgnl:lastModified': 2020-05-15T16:07:44.139+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/headline'
       'text': 'Spring Essentials'
-    '00':
+    '0':
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': '1e592820-ceb1-4de1-ad35-7a52b1524e75'
+      'jcr:uuid': '72574254-4e83-406e-8528-328f34e1da0e'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:58:24.770+01:00
+      'mgnl:created': 2020-05-15T13:24:52.656+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:56.974+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T15:59:00.052+01:00
+      'mgnl:lastModified': 2020-05-15T16:07:26.460+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/list'
       'items':
         'jcr:primaryType': 'mgnl:area'
-        'jcr:uuid': '4ad0ef75-f9f2-40eb-9642-0e09e989f9ea'
+        'jcr:uuid': 'dd90d2b7-f326-452e-8955-ccced9e4cdd4'
         'mgnl:activationStatus': true
-        'mgnl:created': 2020-03-27T15:58:24.818+01:00
+        'mgnl:created': 2020-05-15T13:24:52.727+02:00
         'mgnl:createdBy': 'superuser'
-        'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+        'mgnl:lastActivated': 2020-05-15T16:41:56.975+02:00
         'mgnl:lastActivatedBy': 'superuser'
-        'mgnl:lastModified': 2020-03-27T15:59:00.052+01:00
+        'mgnl:lastModified': 2020-05-15T16:07:26.460+02:00
         'mgnl:lastModifiedBy': 'superuser'
         '0':
           'jcr:primaryType': 'mgnl:component'
-          'jcr:uuid': '0dca33e3-f483-467c-9578-12907fe1a978'
+          'jcr:uuid': '8dc6c2dc-ed23-4b0a-84a6-220ef8825723'
           'mgnl:activationStatus': true
-          'mgnl:created': 2020-03-27T15:58:38.822+01:00
+          'mgnl:created': 2020-05-15T16:06:47.110+02:00
           'mgnl:createdBy': 'superuser'
-          'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+          'mgnl:lastActivated': 2020-05-15T16:41:56.975+02:00
           'mgnl:lastActivatedBy': 'superuser'
-          'mgnl:lastModified': 2020-03-27T15:58:38.822+01:00
+          'mgnl:lastModified': 2020-05-15T16:06:47.110+02:00
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Put ski''s in storage'
         '00':
           'jcr:primaryType': 'mgnl:component'
-          'jcr:uuid': '5297a4f8-131b-4c72-84c7-dc9e8ff7362c'
+          'jcr:uuid': 'adc4a202-5ba8-4298-8fa6-d462aedf4d65'
           'mgnl:activationStatus': true
-          'mgnl:created': 2020-03-27T15:58:51.049+01:00
+          'mgnl:created': 2020-05-15T16:07:09.342+02:00
           'mgnl:createdBy': 'superuser'
-          'mgnl:lastActivated': 2020-05-15T16:42:12.709+02:00
+          'mgnl:lastActivated': 2020-05-15T16:41:56.975+02:00
           'mgnl:lastActivatedBy': 'superuser'
-          'mgnl:lastModified': 2020-03-27T15:58:51.049+01:00
+          'mgnl:lastModified': 2020-05-15T16:07:09.342+02:00
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Get grill on balcony'
         '01':
           'jcr:primaryType': 'mgnl:component'
-          'jcr:uuid': '5176c2be-0be5-48cf-a175-209bfcb6ce86'
+          'jcr:uuid': '857bdccc-7af2-4bc4-bf56-ce0282e62584'
           'mgnl:activationStatus': true
-          'mgnl:created': 2020-03-27T15:59:00.052+01:00
+          'mgnl:created': 2020-05-15T16:07:26.460+02:00
           'mgnl:createdBy': 'superuser'
-          'mgnl:lastActivated': 2020-05-15T16:42:12.710+02:00
+          'mgnl:lastActivated': 2020-05-15T16:41:56.975+02:00
           'mgnl:lastActivatedBy': 'superuser'
-          'mgnl:lastModified': 2020-03-27T15:59:00.052+01:00
+          'mgnl:lastModified': 2020-05-15T16:07:26.460+02:00
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Buy beer'
     '01':
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': '11969de8-21a5-4037-88da-18f55e67839c'
+      'jcr:uuid': '55446d58-3e54-489a-b452-c3c584a16b7b'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:59:19.997+01:00
+      'mgnl:created': 2020-05-15T16:41:39.912+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.710+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:56.975+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T15:59:19.997+01:00
+      'mgnl:lastModified': 2020-05-15T16:41:39.912+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/paragraph'
-      'richText': '<p>It&#39;s all about <em>priorities</em>.</p>
+      'richText': '<p>It&#39;s all about&nbsp;<em>priorities</em>.</p>
 
         '
   'contact':
     'jcr:primaryType': 'mgnl:page'
-    'jcr:uuid': 'fbdf5892-ec90-44fa-b456-f47871422adf'
+    'jcr:uuid': '54de3733-de69-4878-a6b5-3267749b6d07'
+    'jcrName': 'contact'
     'mgnl:activationStatus': true
-    'mgnl:created': 2020-03-27T15:59:39.177+01:00
+    'mgnl:created': 2020-05-15T16:08:18.956+02:00
     'mgnl:createdBy': 'superuser'
-    'mgnl:lastActivated': 2020-05-15T16:42:12.842+02:00
+    'mgnl:lastActivated': 2020-05-15T16:41:57.186+02:00
     'mgnl:lastActivatedBy': 'superuser'
-    'mgnl:lastModified': 2020-03-27T16:48:43.779+01:00
+    'mgnl:lastModified': 2020-05-15T16:16:19.091+02:00
     'mgnl:lastModifiedBy': 'superuser'
-    'mgnl:template': 'angular-minimal-lm:pages/contact'
+    'mgnl:template': 'vue-minimal-lm:pages/contact'
     'title': 'Contact'
     'main':
       'jcr:primaryType': 'mgnl:area'
-      'jcr:uuid': 'bfe51cf1-6664-49b8-8828-b47fac6eb39b'
+      'jcr:uuid': '2fd0141c-6710-4e30-a3bb-6dea60bdec7d'
       'mgnl:activationStatus': true
-      'mgnl:created': 2020-03-27T15:59:41.056+01:00
+      'mgnl:created': 2020-05-15T16:08:39.624+02:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastActivated': 2020-05-15T16:42:12.842+02:00
+      'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
       'mgnl:lastActivatedBy': 'superuser'
-      'mgnl:lastModified': 2020-03-27T16:06:15.363+01:00
+      'mgnl:lastModified': 2020-05-15T16:16:19.091+02:00
       'mgnl:lastModifiedBy': 'superuser'
       '0':
         'jcr:primaryType': 'mgnl:component'
-        'jcr:uuid': '077568bf-c32c-404c-bda4-01b5839ab584'
+        'jcr:uuid': '696a9532-a99f-4dc5-98db-de644943a518'
         'mgnl:activationStatus': true
-        'mgnl:created': 2020-03-27T16:00:11.771+01:00
+        'mgnl:created': 2020-05-15T16:09:47.244+02:00
         'mgnl:createdBy': 'superuser'
-        'mgnl:lastActivated': 2020-05-15T16:42:12.843+02:00
+        'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
         'mgnl:lastActivatedBy': 'superuser'
-        'mgnl:lastModified': 2020-03-27T16:00:11.771+01:00
+        'mgnl:lastModified': 2020-05-15T16:09:47.244+02:00
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/paragraph'
         'richText': '<p><strong>Contact Sales</strong></p>
@@ -181,41 +183,38 @@
           '
       '00':
         'jcr:primaryType': 'mgnl:component'
-        'jcr:uuid': '08dfb13a-c140-4dec-bfc2-a2e145471b3c'
+        'jcr:uuid': 'ade7a537-bdab-421e-9212-eed7273247eb'
         'mgnl:activationStatus': true
-        'mgnl:created': 2020-03-27T16:05:00.635+01:00
+        'mgnl:created': 2020-05-15T16:14:58.711+02:00
         'mgnl:createdBy': 'superuser'
-        'mgnl:lastActivated': 2020-05-15T16:42:12.843+02:00
+        'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
         'mgnl:lastActivatedBy': 'superuser'
-        'mgnl:lastModified': 2020-03-27T16:05:29.437+01:00
+        'mgnl:lastModified': 2020-05-15T16:15:32.366+02:00
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/expander'
         'expanderItems':
           'jcr:primaryType': 'mgnl:area'
-          'jcr:uuid': '0f6c5c07-7b47-4b11-9aef-0a61a3ca6cda'
+          'jcr:uuid': 'ae0ba576-8f21-476e-8955-ec96c377f956'
           'mgnl:activationStatus': true
-          'mgnl:created': 2020-03-27T16:05:00.680+01:00
+          'mgnl:created': 2020-05-15T16:14:58.841+02:00
           'mgnl:createdBy': 'superuser'
-          'mgnl:lastActivated': 2020-05-15T16:42:12.843+02:00
+          'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
           'mgnl:lastActivatedBy': 'superuser'
-          'mgnl:lastModified': 2020-03-27T16:05:29.437+01:00
+          'mgnl:lastModified': 2020-05-15T16:15:32.366+02:00
           'mgnl:lastModifiedBy': 'superuser'
           '0':
             'jcr:primaryType': 'mgnl:component'
-            'jcr:uuid': 'f103670a-c42f-4a7a-9f18-5a88e1eeaed4'
+            'jcr:uuid': '8a019919-6977-4066-97f6-355328752515'
             'mgnl:activationStatus': true
-            'mgnl:created': 2020-03-27T16:05:29.437+01:00
+            'mgnl:created': 2020-05-15T16:15:32.367+02:00
             'mgnl:createdBy': 'superuser'
-            'mgnl:lastActivated': 2020-05-15T16:42:12.843+02:00
+            'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
             'mgnl:lastActivatedBy': 'superuser'
-            'mgnl:lastModified': 2020-03-27T16:05:29.437+01:00
+            'mgnl:lastModified': 2020-05-15T16:15:32.367+02:00
             'mgnl:lastModifiedBy': 'superuser'
             'mgnl:template': 'spa-lm:components/paragraph'
             'richText': '<p>Reach out to us anytime, 24/7. Really. Go ahead, just
-              call us!&nbsp;</p>
-
-
-              <p><em>Please?</em></p>
+              call us!&nbsp;<em>Please?</em></p>
 
 
               <p>sales@minimal-spa-demo.com</p>
@@ -226,13 +225,13 @@
               '
       '01':
         'jcr:primaryType': 'mgnl:component'
-        'jcr:uuid': 'a19329d3-3990-4959-8fc4-d2f7eaf1f452'
+        'jcr:uuid': 'c15b6d67-2402-4b9d-b35f-a3f9e0d54475'
         'mgnl:activationStatus': true
-        'mgnl:created': 2020-03-27T16:05:45.438+01:00
+        'mgnl:created': 2020-05-15T16:15:53.178+02:00
         'mgnl:createdBy': 'superuser'
-        'mgnl:lastActivated': 2020-05-15T16:42:12.843+02:00
+        'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
         'mgnl:lastActivatedBy': 'superuser'
-        'mgnl:lastModified': 2020-03-27T16:05:45.438+01:00
+        'mgnl:lastModified': 2020-05-15T16:15:53.178+02:00
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/paragraph'
         'richText': '<p><strong>Contact Support</strong></p>
@@ -240,34 +239,34 @@
           '
       '02':
         'jcr:primaryType': 'mgnl:component'
-        'jcr:uuid': '93686daf-c636-44c9-892e-328ebb4339e7'
+        'jcr:uuid': 'a9c330ca-a050-4653-a01e-2a7cddf93f2f'
         'mgnl:activationStatus': true
-        'mgnl:created': 2020-03-27T16:05:48.624+01:00
+        'mgnl:created': 2020-05-15T16:15:59.290+02:00
         'mgnl:createdBy': 'superuser'
-        'mgnl:lastActivated': 2020-05-15T16:42:12.844+02:00
+        'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
         'mgnl:lastActivatedBy': 'superuser'
-        'mgnl:lastModified': 2020-03-27T16:06:15.363+01:00
+        'mgnl:lastModified': 2020-05-15T16:16:19.091+02:00
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/expander'
         'expanderItems':
           'jcr:primaryType': 'mgnl:area'
-          'jcr:uuid': '31d27e45-69d8-4987-9c3f-87ae14e65493'
+          'jcr:uuid': '40aea894-2129-47e4-b718-c47d383f64bf'
           'mgnl:activationStatus': true
-          'mgnl:created': 2020-03-27T16:05:48.624+01:00
+          'mgnl:created': 2020-05-15T16:15:59.348+02:00
           'mgnl:createdBy': 'superuser'
-          'mgnl:lastActivated': 2020-05-15T16:42:12.844+02:00
+          'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
           'mgnl:lastActivatedBy': 'superuser'
-          'mgnl:lastModified': 2020-03-27T16:06:15.363+01:00
+          'mgnl:lastModified': 2020-05-15T16:16:19.091+02:00
           'mgnl:lastModifiedBy': 'superuser'
           '0':
             'jcr:primaryType': 'mgnl:component'
-            'jcr:uuid': '4f2606ae-ce03-444c-9940-32025901f8a6'
+            'jcr:uuid': '88c5b551-67e0-4730-9195-b27619358bb9'
             'mgnl:activationStatus': true
-            'mgnl:created': 2020-03-27T16:05:48.624+01:00
+            'mgnl:created': 2020-05-15T16:16:19.091+02:00
             'mgnl:createdBy': 'superuser'
-            'mgnl:lastActivated': 2020-05-15T16:42:12.844+02:00
+            'mgnl:lastActivated': 2020-05-15T16:41:57.187+02:00
             'mgnl:lastActivatedBy': 'superuser'
-            'mgnl:lastModified': 2020-03-27T16:06:15.363+01:00
+            'mgnl:lastModified': 2020-05-15T16:16:19.091+02:00
             'mgnl:lastModifiedBy': 'superuser'
             'mgnl:template': 'spa-lm:components/paragraph'
             'richText': '<p>Available from 3:00 - 3:25. Every 2nd Tuesday of the month.</p>

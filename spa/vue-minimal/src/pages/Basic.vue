@@ -1,7 +1,17 @@
 <template>
   <div class="Basic">
+    <div className="hint">[Basic Page]</div>
     <h1>{{ title || metadata['@name'] }}</h1>
-    <EditableArea v-if="main" v-bind:content="main" />
+    
+    <main>
+      <div class="hint">[Main Area]</div>         
+      <EditableArea v-if="main" v-bind:content="main" />
+    </main>
+
+    <div class="Extras">
+      <div class="hint">[Extras Area]</div> 
+      <EditableArea v-if="extras" v-bind:content="extras" />
+    </div>
   </div>
 </template>
 
@@ -13,6 +23,6 @@ export default {
   components: {
     EditableArea,
   },
-  props: ['title', 'metadata', 'main'],
+  props: ['title', 'metadata', 'main', 'extras'],
 };
 </script>
