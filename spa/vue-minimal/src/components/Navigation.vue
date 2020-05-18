@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <router-link v-for="item in pagenav" :key="item['@id']" v-bind:to="item['@name']">{{ item.title }}</router-link>
+  <nav v-if="pagenav">
+    <router-link  v-for="item in pagenav" :key="item['@id']" v-bind:to="item['@name']">{{ item.title }}</router-link>
   </nav>
 </template>
 

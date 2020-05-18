@@ -1,8 +1,8 @@
 <template>
   <div class="Contact">
-    <h1>{{ title || metadata['@name'] }}</h1>
+    <h2  class="hint">[Contact Page]</h2>
     <div class="box">
-      <h1>Nulla vitae elit libero, a pharetra augue.</h1>
+      <h1>{{ title || 'Nulla vitae elit libero, a pharetra augue.' }}</h1>
     </div>
     <EditableArea v-if="main" v-bind:content="main" />
   </div>

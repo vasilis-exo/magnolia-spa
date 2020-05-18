@@ -98,9 +98,9 @@ See the files in `/src/environments` for important configurations.
 
 ### Vue
 
-Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run build`.
+Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run deploy:mgnl`.
 
-Once built, copy `dist` folder to `magnolia/light-modules/vue-minimal-lm/webresources/`.
+Once built, check that the app is deployed to `magnolia/light-modules/vue-minimal-lm/webresources/dist`.
 
 See the `.env` files for important configurations.
 
@@ -112,19 +112,21 @@ Either import some content, or create it manually.
 
 ### Import:
 
-Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml` or `website.angular-minimal.yaml`.
+Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`,  `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
 
 ### Manually:
 
 Open the `Pages` app in Magnolia and add either
 
-- A `React: Basic` page and name it `angular-minimal`
-- A `Angular: Basic` page and name it `react-minimal`
+- A `React: Basic` page and name it `react-minimal`
+- A `Angular: Basic` page and name it `angular-minimal`
+- A `Vue: Basic` page and name it `vue-minimal`
 
-(The page name is important as the SPA's are hardcoded to treat those names as the base of the app.)
+> The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
 
-Then add components into the `Main` area of the page.
+Then add components into the `Main` or `Extras` area of the page.
 You can also add additional pages as children of that page.
+
 
 ## Running your SPA in development mode
 
@@ -135,6 +137,10 @@ Build and start the headless React application inside `/spa/react-minimal` by ru
 ### Angular
 
 Build and start the headless Angular application inside `/spa/angular-minimal` by running `ng serve`.
+
+### Vue
+
+TODO.
 
 # Additional Information
 
