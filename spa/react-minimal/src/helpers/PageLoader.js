@@ -1,24 +1,24 @@
 import React from 'react';
-import config  from '../magnolia.config';
-import {removeExtension, onMagnolia, getAPIBase} from './AppHelpers';
+import config from '../magnolia.config';
+import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage } from './AppHelpers';
 
-import {EditablePage} from '@magnolia/react-editor';
-import {EditorContextHelper} from '@magnolia/react-editor';
+import { EditablePage } from '@magnolia/react-editor';
+import { EditorContextHelper } from '@magnolia/react-editor';
 
 class PageLoader extends React.Component {
-
   state = {};
 
   getPagePath = () => {
-    let path = window.location.pathname;
-    path = path.replace(process.env.REACT_APP_MGNL_BASE_AUTHOR, '');
-    path = path.replace(process.env.REACT_APP_MGNL_BASE_PUBLIC, '');
+    const languages = getLanguages();
+    const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+    const currentLanguage = getCurrentLanguage();
+    let path = nodeName + window.location.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
 
-    if (!onMagnolia()){
-      path = process.env.REACT_APP_MGNL_APP_BASE + path
+    if (currentLanguage !== languages[0]) {
+      path = removeCurrentLanguage(path, currentLanguage);
+      path += '?lang=' + currentLanguage;
     }
 
-    path = removeExtension(path);
     return path;
   };
 
@@ -35,7 +35,7 @@ class PageLoader extends React.Component {
     const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();
     console.log('page content: ', pageJson);
-  
+
     const templateId = pageJson['mgnl:template'];
     console.log('templateId:', templateId);
 
@@ -50,23 +50,21 @@ class PageLoader extends React.Component {
       init: true,
       content: pageJson,
       templateDefinitions: templateJson,
-      pathname: window.location.pathname
+      pathname: window.location.pathname,
     });
-
   };
 
-
-  inEditorPreview(){
+  inEditorPreview() {
     const url = window.location.href;
-    const inPreview = (url.indexOf('mgnlPreview=true')>0);
-    console.log('inEditorPreview:' + inPreview)
-    return (EditorContextHelper.inEditor() && inPreview);
+    const inPreview = url.indexOf('mgnlPreview=true') > 0;
+    console.log('inEditorPreview:' + inPreview);
+    return EditorContextHelper.inEditor() && inPreview;
   }
 
   componentDidMount() {
     this.loadPage();
     if (EditorContextHelper.inEditor()) {
-      if (!this.inEditorPreview()){
+      if (!this.inEditorPreview()) {
         EditorContextHelper.refresh();
       }
     }
@@ -75,27 +73,27 @@ class PageLoader extends React.Component {
   componentDidUpdate() {
     this.loadPage();
     if (EditorContextHelper.inEditor()) {
-      if (!this.inEditorPreview()){
+      if (!this.inEditorPreview()) {
         EditorContextHelper.refresh();
       }
     }
   }
 
-
   render() {
-    
-    if (this.state.init){
+    if (this.state.init) {
       console.log('config:', config);
       //const isDevMode = process.env.NODE_ENV === 'development';
       //console.log("n:" + process.env.NODE_ENV)
 
       return (
-      <EditablePage templateDefinitions={this.state.templateDefinitions || {}} content={this.state.content} config={config} >
-      </EditablePage> 
-      )
-
-    }else{
-      return <p>NO PAGE.</p>
+        <EditablePage
+          templateDefinitions={this.state.templateDefinitions || {}}
+          content={this.state.content}
+          config={config}
+        ></EditablePage>
+      );
+    } else {
+      return <p>NO PAGE.</p>;
     }
   }
 }
