@@ -1,28 +1,28 @@
 <template>
   <div class="Basic">
-    <div className="hint">[Basic Page]</div>
+    <div class="hint">[Basic Page]</div>
     <h1>{{ title || metadata['@name'] }}</h1>
-    
+
     <main>
-      <div class="hint">[Main Area]</div>         
+      <div class="hint">[Main Area]</div>
       <EditableArea v-if="main" v-bind:content="main" />
     </main>
 
     <div class="Extras">
-      <div class="hint">[Extras Area]</div> 
+      <div class="hint">[Extras Area]</div>
       <EditableArea v-if="extras" v-bind:content="extras" />
     </div>
   </div>
 </template>
 
 <script>
-import { EditableArea } from '../vue-editor';
+import { EditableArea } from "../vue-editor";
 
 export default {
-  name: 'Basic',
+  name: "Basic",
   components: {
-    EditableArea,
+    EditableArea
   },
-  props: ['title', 'metadata', 'main', 'extras'],
+  props: ["title", "metadata", "main", "extras"]
 };
 </script>

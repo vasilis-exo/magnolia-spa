@@ -1,17 +1,21 @@
 <template>
   <ul class="List">
-    <EditableArea v-if="items" v-bind:content="items" v-bind:parentTemplateId="metadata['mgnl:template']">
+    <EditableArea
+      v-if="items"
+      v-bind:content="items"
+      v-bind:parentTemplateId="metadata['mgnl:template']"
+    />
   </ul>
 </template>
 
 <script>
-import { EditableArea } from '../vue-editor';
+import { EditableArea } from "../vue-editor";
 
 export default {
-  name: 'List',
+  name: "List",
   components: {
-    EditableArea,
+    EditableArea
   },
-  props: ['items', 'metadata']
+  props: ["items", "metadata"]
 };
 </script>

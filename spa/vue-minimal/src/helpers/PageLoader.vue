@@ -8,27 +8,31 @@
 </template>
 
 <script>
-import config from '../magnolia.config';
-import { EditablePage, inEditorEdit } from '../vue-editor';
+import config from "../magnolia.config";
+import { EditablePage, inEditorEdit } from "../vue-editor";
 
 const getContentUrl = () => {
-  const path = window.location.href
-    .replace(process.env.VUE_APP_ORIGIN + process.env.VUE_APP_MGNL_BASENAME, '')
-    .replace(/\.html.*/, '');
+  const nodeName = process.env.VUE_APP_SITE_BASENAME;
+  const path =
+    nodeName +
+    window.location.pathname.replace(
+      new RegExp("(.*" + nodeName + "|.html)", "g"),
+      ""
+    );
 
   return process.env.VUE_APP_REST_PAGES + path;
 };
 
 export default {
-  name: 'PageLoader',
+  name: "PageLoader",
   components: {
-    EditablePage,
+    EditablePage
   },
   data: function() {
     return {
       content: undefined,
       config,
-      templateDefinitions: {},
+      templateDefinitions: {}
     };
   },
   methods: {
@@ -38,7 +42,8 @@ export default {
 
       if (inEditorEdit) {
         const templateDefinitionsResponse = await fetch(
-          process.env.VUE_APP_REST_TEMPLATE_DEFINITION + content['mgnl:template']
+          process.env.VUE_APP_REST_TEMPLATE_DEFINITION +
+            content["mgnl:template"]
         );
         const templateDefinitions = await templateDefinitionsResponse.json();
 
@@ -46,13 +51,13 @@ export default {
       }
 
       this.content = content;
-    },
+    }
   },
   mounted() {
     this.loadPage();
   },
   updated() {
     if (inEditorEdit) window.parent.mgnlRefresh();
-  },
+  }
 };
 </script>

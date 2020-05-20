@@ -1,6 +1,6 @@
 <template>
   <div class="Contact">
-    <h2  class="hint">[Contact Page]</h2>
+    <h2 class="hint">[Contact Page]</h2>
     <div class="box">
       <h1>{{ title || 'Nulla vitae elit libero, a pharetra augue.' }}</h1>
     </div>
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import { EditableArea } from '../vue-editor';
+import { EditableArea } from "../vue-editor";
 
 export default {
-  name: 'Contact',
+  name: "Contact",
   components: {
-    EditableArea,
+    EditableArea
   },
-  props: ['title', 'metadata', 'main'],
+  props: ["title", "metadata", "main"]
 };
 </script>
 

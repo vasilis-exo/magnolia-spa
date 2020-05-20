@@ -112,7 +112,7 @@ Either import some content, or create it manually.
 
 ### Import:
 
-Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`,  `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
+Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`, `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
 
 ### Manually:
 
@@ -127,7 +127,6 @@ Open the `Pages` app in Magnolia and add either
 Then add components into the `Main` or `Extras` area of the page.
 You can also add additional pages as children of that page.
 
-
 ## Running your SPA in development mode
 
 ### React
@@ -140,7 +139,7 @@ Build and start the headless Angular application inside `/spa/angular-minimal` b
 
 ### Vue
 
-TODO.
+Build and start the headless Vue application inside `/spa/vue-minimal` by running `npm run serve`.
 
 # Additional Information
 
