@@ -2,17 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { getAPIBase, getLanguages, getCurrentLanguage, changeLanguage } from '../helpers/AppHelpers';
 
-//TODO - Is this still needed now that we use .env files?
-function removeAppBase(path) {
-  const base = process.env.REACT_APP_MGNL_APP_BASE;
-  if (base !== '') {
-    if (base === path.substring(0, base.length)) {
-      return path.substring(base.length);
-    }
-  }
-  return path;
-}
-
 function renderLanguages() {
   const currentLanguage = getCurrentLanguage();
 
@@ -52,7 +41,11 @@ function Navigation() {
     <nav className="Navigation">
       {navItems.map((item) => {
         return (
-          <NavLink activeClassName="active" key={item['@id']} to={`${removeAppBase(item['@path'])}.html`}>
+          <NavLink
+            activeClassName="active"
+            key={item['@id']}
+            to={item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')}
+          >
             {item.navigationTitle || item.title || item['@name']}
           </NavLink>
         );

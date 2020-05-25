@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+
+import { getRouterBasename } from './helpers/AppHelpers';
 
 import { AppComponent } from './app.component';
 import { RootComponent } from './root.component';
@@ -19,18 +22,12 @@ import { MagnoliaModule } from '@magnolia/angular-editor';
 
 import { routing } from './app.routing';
 
-
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    routing,
-    MagnoliaModule,
-  ],
+  imports: [BrowserModule, HttpClientModule, routing, MagnoliaModule],
   declarations: [
     AppComponent,
     RootComponent,
-    
+
     BasicComponent,
     ContactComponent,
     HeadlineComponent,
@@ -52,6 +49,7 @@ import { routing } from './app.routing';
     ExpanderComponent,
     NavigationComponent,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{ provide: APP_BASE_HREF, useValue: getRouterBasename() }],
 })
-export class AppModule { }
+export class AppModule {}

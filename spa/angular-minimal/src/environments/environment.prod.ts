@@ -14,7 +14,9 @@ export const environment = {
   restUrlBase: SERVER + '/.rest/delivery/pages/v1',
   templateDefinitionBase: SERVER + '/.rest/templateDefinition/v1',
   navUrl: HOST + MAGNOLIA_BASE + '/.rest/delivery/pagenav/v1',
-    
+
   damRawUrl: HOST,
-  inEditor: true
+  inEditor: true,
+
+  languages: ['en', 'de'],
 };
