@@ -27,7 +27,19 @@ nav a:hover {
   color: #00b39b;
 }
 
+.languages {
+  display: inline-block;
+}
 
+.languages span {
+  margin-left: 1rem;
+}
+
+.languages span:hover,
+.languages span[data-active='true'] {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 img {
   max-width: 300px;
@@ -56,20 +68,17 @@ footer {
 }
 
 .active {
- color: black;
+  color: black;
 }
-
-
-
 
 .expander {
   border: solid 1px #cccccc;
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
   vertical-align: middle;
   margin-bottom: 20px;
 }
 
-.expanderHeader{
+.expanderHeader {
   cursor: pointer;
   margin: 5px;
 }
@@ -92,7 +101,6 @@ footer {
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-
-.hint{
+.hint {
   font-size: 0.7em;
 }
