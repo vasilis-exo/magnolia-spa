@@ -63,20 +63,10 @@ class PageLoader extends React.Component {
 
   componentDidMount() {
     this.loadPage();
-    if (EditorContextHelper.inEditor()) {
-      if (!this.inEditorPreview()) {
-        EditorContextHelper.refresh();
-      }
-    }
   }
 
   componentDidUpdate() {
     this.loadPage();
-    if (EditorContextHelper.inEditor()) {
-      if (!this.inEditorPreview()) {
-        EditorContextHelper.refresh();
-      }
-    }
   }
 
   render() {
