@@ -7,7 +7,7 @@ import { getRouterBasename } from './helpers/AppHelpers';
 
 function App() {
   return (
-    <BrowserRouter basename={getRouterBasename()} forceRefresh={true}>
+    <BrowserRouter basename={getRouterBasename()}>
       <header>
         <Navigation />
       </header>
