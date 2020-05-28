@@ -51,6 +51,16 @@
         and chase away the winter blues.</p>
 
         '
+      'richText_de': '<p>Ahhhhh, <em><strong>Fr&uuml;hlingszeit.</strong></em></p>
+
+
+        <p>Werft die Fenster weit auf und lasst die k&uuml;hle Brise durch die Wohnung
+        str&ouml;men und die Bedr&uuml;cktheit des Winters vertreiben.</p>
+
+
+        <p>&nbsp;</p>
+
+        '
   'extras':
     'jcr:primaryType': 'mgnl:area'
     'jcr:uuid': '7874536b-34fc-4225-af3b-da0527b8ce1b'
@@ -73,6 +83,7 @@
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/headline'
       'text': 'Spring Essentials'
+      'text_de': 'Essential für den Fruhling'
     '0':
       'jcr:primaryType': 'mgnl:component'
       'jcr:uuid': '72574254-4e83-406e-8528-328f34e1da0e'
@@ -106,6 +117,7 @@
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Put ski''s in storage'
+          'text_de': 'Räumt die Skier weg'
         '00':
           'jcr:primaryType': 'mgnl:component'
           'jcr:uuid': 'adc4a202-5ba8-4298-8fa6-d462aedf4d65'
@@ -118,6 +130,7 @@
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Get grill on balcony'
+          'text_de': 'Macht den Grill auf den Balkon'
         '01':
           'jcr:primaryType': 'mgnl:component'
           'jcr:uuid': '857bdccc-7af2-4bc4-bf56-ce0282e62584'
@@ -130,6 +143,7 @@
           'mgnl:lastModifiedBy': 'superuser'
           'mgnl:template': 'spa-lm:components/listItem'
           'text': 'Buy beer'
+          'text_de': 'Kauft Bier'
     '01':
       'jcr:primaryType': 'mgnl:component'
       'jcr:uuid': '55446d58-3e54-489a-b452-c3c584a16b7b'
@@ -142,6 +156,9 @@
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'spa-lm:components/paragraph'
       'richText': '<p>It&#39;s all about&nbsp;<em>priorities</em>.</p>
+
+        '
+      'richText_de': '<p>Es geht alles um die Priorit&auml;ten</p>
 
         '
   'contact':
@@ -157,6 +174,7 @@
     'mgnl:lastModifiedBy': 'superuser'
     'mgnl:template': 'vue-minimal-lm:pages/contact'
     'title': 'Contact'
+    'title_de': 'Kontakt'
     'main':
       'jcr:primaryType': 'mgnl:area'
       'jcr:uuid': '2fd0141c-6710-4e30-a3bb-6dea60bdec7d'
@@ -179,6 +197,9 @@
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/paragraph'
         'richText': '<p><strong>Contact Sales</strong></p>
+
+          '
+        'richText_de': '<p><strong>Kontakt Verkauf</strong></p>
 
           '
       '00':
@@ -223,6 +244,19 @@
               <p>+41 12 34 567 89 00</p>
 
               '
+            'richText_de': '<p>Kontaktiert uns jederzeit, 24/7. Ernsthaft. Kommt schon,
+              ruft uns einfach an! <em>Bitte?</em></p>
+
+
+              <p>sales@minimal-spa-demo.com</p>
+
+
+              <p>+41 12 34 567 89 00</p>
+
+
+              <p>&nbsp;</p>
+
+              '
       '01':
         'jcr:primaryType': 'mgnl:component'
         'jcr:uuid': 'c15b6d67-2402-4b9d-b35f-a3f9e0d54475'
@@ -235,6 +269,9 @@
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'spa-lm:components/paragraph'
         'richText': '<p><strong>Contact Support</strong></p>
+
+          '
+        'richText_de': '<p><strong>Kontakt Support</strong></p>
 
           '
       '02':
@@ -276,5 +313,20 @@
 
 
               <p>+41 98 765 43 21 00</p>
+
+              '
+            'richText_de': '<p>Erreichbar von 15:00 - 15:25. Jeden 2. Dienstag des
+              Monats.</p>
+
+
+              <p>support@minimal-spa-demo.com</p>
+
+
+              <p>+41 98 765 43 21 00</p>
+
+
+              <p><br />
+
+              &nbsp;</p>
 
               '
