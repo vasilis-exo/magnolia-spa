@@ -145,20 +145,7 @@ Build and start the headless Vue application inside `/spa/vue-minimal` by runnin
 
 ## CORS set up
 
-## Because you installed the `magnolia-community-demo-webapp` bundle, CORS is already configured. Read on to learn how to configure it:
-
-By default, Magnolia does not add any [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers to its responses.
-
-However, since Magnolia will be on port 8080 with the React dev server is on port 3000, CORS must be configured.
-
-Magnolia allows you to configure any number of
-[Java servlet filters](https://www.oracle.com/technetwork/java/filters-137243.html) that can manipulate the HTTP
-request/response and with a Magnolia-provided AddHeadersFilter we can set a generic "use anywhere" CORS header for the purpose of this demo.
-
-**NOTE** As with the security config, such a wide-ranging approach to CORS may not be appropriate in production.
-
-The AddHeadersFilter can be configured manually as [described in the documentation](https://documentation.magnolia-cms.com/display/DOCS61/Filters#Filters-AddingHTTPheaders)
-or via the [supplied Groovy script](add-cors-filter.groovy).
+For version 6.2.5 and up see **Configure security** here [https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md](https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md).
 
 ## Security set up
 
@@ -182,6 +169,6 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 
 ### TemplateDefinitions
 
-If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the templateDefinitions endpoint:
+If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the template-definitions endpoint:
 
-Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/templateDefinition*` set to GET.
+Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` set to GET.
