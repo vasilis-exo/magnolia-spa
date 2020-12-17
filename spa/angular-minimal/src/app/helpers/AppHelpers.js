@@ -53,3 +53,7 @@ export function getRouterBasename() {
 
   return languages[0] === currentLanguage ? '/' : '/' + currentLanguage;
 }
+
+export function getVersion(path) {
+  return new URLSearchParams(path).get('mgnlVersion');
+}
