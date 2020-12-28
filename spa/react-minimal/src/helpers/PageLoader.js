@@ -1,6 +1,6 @@
 import React from 'react';
 import config from '../magnolia.config';
-import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage } from './AppHelpers';
+import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage, getVersion } from './AppHelpers';
 
 import { EditablePage } from '@magnolia/react-editor';
 import { EditorContextHelper } from '@magnolia/react-editor';
@@ -30,7 +30,9 @@ class PageLoader extends React.Component {
 
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
-    let fullContentPath = apiBase + process.env.REACT_APP_MGNL_API_PAGES + pagePath;
+
+    const version = getVersion(window.location.href);
+    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${version ? `?version=${version}` : ''}`;
 
     const pageResponse = await fetch(fullContentPath);
     const pageJson = await pageResponse.json();

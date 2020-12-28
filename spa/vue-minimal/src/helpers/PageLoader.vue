@@ -13,7 +13,8 @@ import { EditablePage, inEditorEdit } from "../vue-editor";
 import {
   getLanguages,
   getCurrentLanguage,
-  removeCurrentLanguage
+  removeCurrentLanguage,
+  getVersion
 } from "../helpers/AppHelpers";
 
 const getContentUrl = () => {
@@ -32,7 +33,12 @@ const getContentUrl = () => {
     path += "?lang=" + currentLanguage;
   }
 
-  return process.env.VUE_APP_REST_PAGES + path;
+  const version = getVersion(window.location.href);
+  if (version) {
+      path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
+    }
+
+  return `${version ? process.env.VUE_APP_REST_PAGES_PREVIEW : process.env.VUE_APP_REST_PAGES}${path}`;
 };
 
 export default {

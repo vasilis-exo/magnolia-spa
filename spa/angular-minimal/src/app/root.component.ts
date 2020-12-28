@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { EditorContextService } from '@magnolia/angular-editor';
 
-import { getLanguages, getCurrentLanguage, removeCurrentLanguage } from 'src/app/helpers/AppHelpers';
+import { getLanguages, getCurrentLanguage, removeCurrentLanguage, getVersion } from 'src/app/helpers/AppHelpers';
 import { environment } from '../environments/environment';
 import { config } from '../magnolia.config.js';
 
@@ -41,7 +41,12 @@ export class RootComponent {
       path += '?lang=' + currentLanguage;
     }
 
-    this.http.get(`${environment.restUrlBase}${path}`).subscribe((content) => {
+    const version = getVersion(window.location.href);
+    if (version) {
+      path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
+    }
+
+    this.http.get(`${version ? environment.restPreviewUrlBase : environment.restUrlBase}${path}`).subscribe((content) => {
       if (!this.inAuthor()) {
         this.content = content;
       } else {
