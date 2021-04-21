@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { EditableArea } from "../vue-editor";
+import { EditableArea } from '@magnolia/vue-editor';
 
 export default {
   name: "Contact",

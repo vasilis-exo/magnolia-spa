@@ -10,7 +10,7 @@
         v-for="language in languages"
         :key="language"
         :data-active="currentLanguage === language"
-        @click="clickLanguage(language)"
+        @click="(e)=>$router.push(clickLanguage(language))"
       >{{ language }}</span>
     </div>
   </nav>
@@ -34,8 +34,13 @@ export default {
   },
 
   async mounted() {
-    const pagenavResponse = await fetch(
-      process.env.VUE_APP_REST_PAGENAV + process.env.VUE_APP_SITE_BASENAME
+
+    let url = process.env.VUE_APP_MGNL_API_NAV + process.env.VUE_APP_MGNL_SITE_PATH;
+
+    console.log("Get Nav Con  : " + url)
+
+    const pagenavResponse = await fetch(url
+      
     );
     const pagenav = await pagenavResponse.json();
     const newPagenav = [
@@ -53,7 +58,7 @@ export default {
 
   methods: {
     clickLanguage: function(language) {
-      changeLanguage(language);
+      return changeLanguage(language);
     }
   }
 };

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { EditableArea, inEditorEdit } from "../vue-editor";
+import { EditableArea, inEditorEdit } from '@magnolia/vue-editor';
 
 export default {
   name: "Expander",
