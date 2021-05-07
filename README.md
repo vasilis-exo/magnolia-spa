@@ -143,17 +143,18 @@ Build and start the headless Vue application inside `/spa/vue-minimal` by runnin
 
 # Additional Information
 
-## CORS set up
 
-For version 6.2.5 and up see **Configure security** here [https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md](https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md).
 
 ## Security set up
 
+For Magnolia version 6.2.5 and up see **Configure security** here [https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md](https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md).
+
+
 By default, the author instance of Magnolia
-(see: [Instances](https://documentation.magnolia-cms.com/display/DOCS61/Instances)) is restricted to authorised users.
+(see: [Instances](https://docs.magnolia-cms.com/product-docs/Administration/Instances.html)) is restricted to authorised users.
 
 For the purpose of this demo, we want to allow anonymous access to the REST endpoint describing the configured content.
-(see: [Security](https://documentation.magnolia-cms.com/display/DOCS61/Security))
+(see: [Security](https://docs.magnolia-cms.com/product-docs/Administration/Security.html))
 
 The endpoint is http://localhost:8080/magnoliaAuthor/.rest/pages.
 Opening this while not logged in will produce the log in page.
@@ -167,8 +168,10 @@ The app has anonymous access to Magnolia REST endpoints with no additional confi
 
 **NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
 
-### TemplateDefinitions
+### TemplateDefinitions Endpoint
 
 If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the template-definitions endpoint:
 
-Open the Security app, open the Roles tab, edit the `rest-anonuymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` set to GET.
+Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` set to GET.
+
+(Perform similar steps if you would like to use the `template-annotations` endpoint.)
