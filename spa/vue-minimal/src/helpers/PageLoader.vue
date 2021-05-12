@@ -117,12 +117,12 @@ export default {
     //if (inEditorEdit) window.parent.mgnlRefresh();
   },
   created() {
-    this.$watch(
-      () => this.$route.params,
-      () => {
-        this.loadPageContent();
-      }
-    );
+    // this.$watch(
+    //   () => this.$route.params,
+    //   () => {
+    //     this.loadPageContent();
+    //   }
+    // );
   },
 };
 </script>
