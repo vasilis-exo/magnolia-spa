@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-ssg-minimal",
+  "name": "nextjs-minimal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "ssr": "next build && next start",
     "ssg": "next build && next export"
   },
   "dependencies": {

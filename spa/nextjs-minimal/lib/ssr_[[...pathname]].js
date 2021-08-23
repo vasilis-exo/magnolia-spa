@@ -8,11 +8,11 @@ import Expander from '../templates/components/Expander';
 import List from '../templates/components/List';
 import Item from '../templates/components/Item';
 
-const nodeName = '/nextjs-ssr-minimal';
+const nodeName = '/nextjs-minimal';
 const config = {
   componentMappings: {
-    'nextjs-ssr-minimal-lm:pages/basic': Basic,
-    'nextjs-ssr-minimal-lm:pages/contact': Contact,
+    'nextjs-minimal-lm:pages/basic': Basic,
+    'nextjs-minimal-lm:pages/contact': Contact,
 
     'spa-lm:components/headline': Headline,
     'spa-lm:components/image': Image,
@@ -25,7 +25,7 @@ const config = {
 const pagesApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pages/v1';
 const templateAnnotationsApi = 'http://localhost:8080/magnoliaAuthor/.rest/template-annotations/v1';
 
-export async function getPage(context) {
+export async function getServerSideProps(context) {
   let templateAnnotations = {};
 
   const pagePath = nodeName + context.resolvedUrl;
@@ -39,26 +39,10 @@ export async function getPage(context) {
     templateAnnotations = await templateAnnotationsRes.json();
   }
 
-  return { page, templateAnnotations };
-}
-
-// SSR
-export async function getServerSideProps(context) {
-  const page = await getPage(context);
-
   return {
-    props: page,
+    props: { page, templateAnnotations },
   };
 }
-
-// SSG
-// export async function getStaticProps(context) {
-//   const page = await getPage(context);
-
-//   return {
-//     props: page,
-//   };
-// }
 
 export default function Pathname(props) {
   const { page, templateAnnotations } = props;

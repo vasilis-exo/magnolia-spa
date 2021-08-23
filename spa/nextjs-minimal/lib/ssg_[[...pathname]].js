@@ -8,11 +8,11 @@ import Expander from '../templates/components/Expander';
 import List from '../templates/components/List';
 import Item from '../templates/components/Item';
 
-const nodeName = '/nextjs-ssg-minimal';
+const nodeName = '/nextjs-minimal';
 const config = {
   componentMappings: {
-    'nextjs-ssg-minimal-lm:pages/basic': Basic,
-    'nextjs-ssg-minimal-lm:pages/contact': Contact,
+    'nextjs-minimal-lm:pages/basic': Basic,
+    'nextjs-minimal-lm:pages/contact': Contact,
 
     'spa-lm:components/headline': Headline,
     'spa-lm:components/image': Image,
@@ -24,41 +24,51 @@ const config = {
 };
 const pagesApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pages/v1';
 const templateAnnotationsApi = 'http://localhost:8080/magnoliaAuthor/.rest/template-annotations/v1';
+const pagenavApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pagenav/v1';
 
-export async function getPage(context) {
+function getStaticPath(node, paths) {
+  let pathname = node['@path'].replace(nodeName, '');
+
+  pathname.split('/');
+  paths.push({ params: { pathname } });
+
+  node['@nodes'].forEach((nodeName) => getStaticPath(node[nodeName], paths));
+}
+
+export async function getStaticPaths() {
+  let paths = [];
+
+  const navRes = await fetch(pagenavApi + nodeName);
+  const nav = await navRes.json();
+
+  getStaticPath(nav, paths);
+
+  console.log(paths);
+
+  return {
+    paths: [{ params: { pathname: [] } }, { params: { pathname: ['contact'] } }],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
   let templateAnnotations = {};
 
-  const pagePath = nodeName + context.resolvedUrl;
+  const pagePath = nodeName + (params.pathname ? '/' + params.pathname.join('/') : '');
   const pagesRes = await fetch(pagesApi + pagePath);
   const page = await pagesRes.json();
 
   // Fetch template annotations only inside Magnolia WYSIWYG
-  if (context.query.mgnlPreview === 'false') {
-    const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
+  // if (context.query.mgnlPreview === 'false') {
+  //   const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
 
-    templateAnnotations = await templateAnnotationsRes.json();
-  }
-
-  return { page, templateAnnotations };
-}
-
-// SSR
-export async function getServerSideProps(context) {
-  const page = await getPage(context);
+  //   templateAnnotations = await templateAnnotationsRes.json();
+  // }
 
   return {
-    props: page,
+    props: { page, templateAnnotations },
   };
 }
-
-// SSG
-// export async function getStaticProps(context) {
-//   const page = await getPage(context);
-
-//   return {
-//     props: page,
-//   };
-// }
 
 export default function Pathname(props) {
   const { page, templateAnnotations } = props;

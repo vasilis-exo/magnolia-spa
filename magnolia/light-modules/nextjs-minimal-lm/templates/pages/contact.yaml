@@ -1,4 +1,4 @@
-title: 'Next.js SSR: Contact'
+title: 'Next.js: Contact'
 url: http://localhost:3000
 dialog: spa-lm:pages/basic
 renderType: spa
