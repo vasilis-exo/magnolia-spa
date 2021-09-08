@@ -6,11 +6,13 @@ import Paragraph from './components/Paragraph';
 import Expander from './components/Expander';
 import List from './components/List';
 import Item from './components/Item';
+import Personalization from './pages/Personalization';
 
 const config = {
     'componentMappings':{
         'react-minimal-lm:pages/basic': Basic,
         'react-minimal-lm:pages/contact': Contact,
+        'react-minimal-lm:pages/personalization': Personalization,
     
         'spa-lm:components/headline': Headline,
         'spa-lm:components/image': Image,

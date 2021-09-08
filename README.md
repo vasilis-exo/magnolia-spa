@@ -175,3 +175,9 @@ If you want to debug the editing features when running the app outside of the Ma
 Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` set to GET.
 
 (Perform similar steps if you would like to use the `template-annotations` endpoint.)
+
+## Personalization (Only works on DX-CORE)
+
+Currently, personalization feature demo is only available in `react-minimal`. After imported `website.react-minimal.yaml`, you will see a new sub-page `Personalization` that you can enter your age to see personalized content.
+
+**NOTE** There's an issue with CORS and custom headers, that we are working on it. For a moment, you can set `rest-anonymous` role to have `Get&Post` permission to run this demo.
