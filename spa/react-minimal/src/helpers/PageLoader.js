@@ -2,7 +2,7 @@ import React from 'react';
 import config from '../magnolia.config';
 import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage, getVersion } from './AppHelpers';
 
-import { EditablePage, EditorContextHelper, PersonalizationService } from '@magnolia/react-editor';
+import { EditablePage, EditorContextHelper } from '@magnolia/react-editor';
 
 class PageLoader extends React.Component {
   state = {};
@@ -35,20 +35,26 @@ class PageLoader extends React.Component {
 
     const isPersonalizationPage = sessionStorage.getItem(`personalized_${window.location.pathname.replace(/\//g, '_')}`);
 
-    const params = PersonalizationService.getPersonalizationParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
 
     const version = getVersion(window.location.href);
 
     if (version) {
-      params.version = version;
+      params.append('version', version);
     }
+
+    if (params.get('mgnlPreviewAsVisitor') !== 'true' && params.get('mgnlPreview') === 'false') {
+      params.append('variants', 'all');
+    }
+    
+    const queryString = params.toString();
 
     const ageHeader = sessionStorage.getItem('mgnlAgeHeader');
     if (isPersonalizationPage && ageHeader && !EditorContextHelper.inIframe()) {
       config.headers['X-Mgnl-Age'] = ageHeader;
     }
 
-    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${PersonalizationService.toSearchQuery(params)}`;
+    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${queryString ? `?${queryString}` : ''}`;
 
     const pageResponse = await fetch(fullContentPath, config);
     const pageJson = await pageResponse.json();

@@ -7,7 +7,6 @@ systemProperties:
  - mgnl:lastModified
  - mgnl:created
  - mgnl:template
- - jcr:mixinTypes
 
 nodeTypes:
   - mgnl:page
