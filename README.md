@@ -35,7 +35,7 @@ The demo contains:
 In a terminal, navigate to the `magnolia` directory and run:
 
 ```
-mgnl jumpstart -s
+mgnl jumpstart
 ```
 
 Choose `magnolia-community-demo-webapp` or `magnolia-dx-core-demo-webapp` as the version to download.
@@ -68,16 +68,27 @@ To access the apps that are mentioned in these instructions use the grid icon at
 
 ## Configuring REST and DAM security
 
+### Content endpoint permissions
+
+The app has anonymous access to Magnolia REST endpoints with no additional configuration because:
+
+- "Web access" is allowed, because the restEndpoint files are under the `/delivery` path
+- "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
+
+**NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
+
 ### DAM
 
 In order for images to be displayed:
-Open the Security app, open the `Roles` tab, edit the `anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
+Open the Security app, open the `Roles` tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/dam/*` set to GET.
 
 ![Image Access for Anonymous](magnolia/_dev/README-security-anonymous-dam.png)
 
-# Deploy your SPA to Magnolia
+In `Access control lists` tab modify `Dam` workspace by allowing `Read-only` access to `Selected and sub nodes` to `/`.
 
-Build and deploy the SPA to Magnolia to make it available for editing.
+# Deploy your SPA
+
+Build and deploy the SPA to make it available for editing.
 
 ### React
 
@@ -104,7 +115,27 @@ Once built, check that the app is deployed to `magnolia/light-modules/vue-minima
 
 See the `.env` files for important configurations.
 
-> Vue example is using [vue-editor.vue](https://git.magnolia-cms.com/projects/DEMOS/repos/minimal-headless-spa-demos/browse/spa/vue-minimal/src/vue-editor.vue) to connect Vue app to Magnolia. It is a good example of creating Magnolia connector for any framework.
+### Next.js SSR
+
+Go to `/spa/nextjs-ssr-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
+
+It will start start the Next.js server.
+
+All Magnolia specific configurations can be find in `[[...pathname]].js` file.
+
+Now you can go and manually create sample content.
+
+### Next.js SSG
+
+Go to `/spa/nextjs-ssg-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
+
+It will start start the Next.js server with API for `Preview Mode`.
+
+All Magnolia specific configurations can be find in `[[...pathname]].js` file.
+
+Now you can go and manually create sample content.
+
+To build static sites you must run `npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
 ## Create some sample content
 
@@ -121,57 +152,20 @@ Open the `Pages` app in Magnolia and add either
 - A `React: Basic` page and name it `react-minimal`
 - A `Angular: Basic` page and name it `angular-minimal`
 - A `Vue: Basic` page and name it `vue-minimal`
+- A `Next.js SSR: Basic` page and name it `nextjs-ssr-minimal`
+- A `Next.js SSG: Basic` page and name it `nextjs-ssg-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
 
 Then add components into the `Main` or `Extras` area of the page.
 You can also add additional pages as children of that page.
 
-## Running your SPA in development mode
-
-### React
-
-Build and start the headless React application inside `/spa/react-minimal` by running `npm start`.
-
-### Angular
-
-Build and start the headless Angular application inside `/spa/angular-minimal` by running `ng serve`.
-
-### Vue
-
-Build and start the headless Vue application inside `/spa/vue-minimal` by running `npm run serve`.
-
 # Additional Information
 
+### TemplateDefinitions/TemplateAnnotations Endpoints
 
+If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the template-definitions/template-annotations endpoint:
 
-## Security set up
+Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` or `/.rest/template-annotations*` set to GET.
 
-For Magnolia version 6.2.5 and up see **Configure security** here [https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md](https://git.magnolia-cms.com/projects/DEMOS/repos/website-spa-demo/browse/README-local.md).
-
-
-By default, the author instance of Magnolia
-(see: [Instances](https://docs.magnolia-cms.com/product-docs/Administration/Instances.html)) is restricted to authorised users.
-
-For the purpose of this demo, we want to allow anonymous access to the REST endpoint describing the configured content.
-(see: [Security](https://docs.magnolia-cms.com/product-docs/Administration/Security.html))
-
-The endpoint is http://localhost:8080/magnoliaAuthor/.rest/pages.
-Opening this while not logged in will produce the log in page.
-
-### Content endpoint permissions
-
-The app has anonymous access to Magnolia REST endpoints with no additional configuration because:
-
-- "Web access" is allowed, because the restEndpoint files are under the `/delivery` path
-- "Access contol list" access is allowed, beause the restEndponts have the `bypassWorkspaceAcls` property.
-
-**NOTE** Allowing anonymous access may not be suitable for a production environment where you wish to keep data private.
-
-### TemplateDefinitions Endpoint
-
-If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the template-definitions endpoint:
-
-Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` set to GET.
-
-(Perform similar steps if you would like to use the `template-annotations` endpoint.)
+Since Magnolia 6.2.12 both endpoints come already configured in `rest-anonymous` role.
