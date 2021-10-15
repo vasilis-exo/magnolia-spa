@@ -40,6 +40,9 @@ mgnl jumpstart -s
 
 Choose `magnolia-community-demo-webapp` or `magnolia-dx-core-demo-webapp` as the version to download.
 
+> Note: If you want to try the personalization feature - you will need `dx-core`. To get `dx-core` you will need an enterprise account, please contact Magnolia Sales team if you do not have one.
+Additionally you will need the version 2.1.0 higher of the [personalization modules](https://docs.magnolia-cms.com/product-docs/6.2/Modules/List-of-modules/Personalization-module.html). 
+
 (Magnolia is downloaded.)
 
 ## Add the demo light modules to Magnolia
@@ -103,8 +106,6 @@ Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm ru
 Once built, check that the app is deployed to `magnolia/light-modules/vue-minimal-lm/webresources/dist`.
 
 See the `.env` files for important configurations.
-
-> Vue example is using [vue-editor.vue](https://git.magnolia-cms.com/projects/DEMOS/repos/minimal-headless-spa-demos/browse/spa/vue-minimal/src/vue-editor.vue) to connect Vue app to Magnolia. It is a good example of creating Magnolia connector for any framework.
 
 ## Create some sample content
 
@@ -176,8 +177,61 @@ Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to
 
 (Perform similar steps if you would like to use the `template-annotations` endpoint.)
 
-## Personalization (Only works on DX-CORE)
 
-Currently, personalization feature demo is only available in `react-minimal`. After imported `website.react-minimal.yaml`, you will see a new sub-page `Personalization` that you can enter your age to see personalized content.
+# Personalization Demo (Only available on DX-CORE)
 
-**NOTE** There's an issue with CORS and custom headers, that we are working on it. For a moment, you can set `rest-anonymous` role to have `Get&Post` permission to run this demo.
+Not available on Community Edition.
+
+Currently, personalization feature demo is only available in `react-minimal` sample. 
+
+[Overview of Magnolia Personalization](https://docs.magnolia-cms.com/product-docs/6.2/Features/Personalization.html)
+
+## Demo Scenario
+
+Show different content based on the age group of the visitor.
+The information of the visitors age could come from anywhere, for example an external CDP, CRM, or Marketing automation system. 
+
+For this simple demo, the visitor can enter thier age in a form on the page. The app stores their age as well as their age group (Child, Adult, Senior) in browser Session Storage. 
+
+From then on, the app always includes an `X-Mgnl-Age` header (with the age group) in it's requests to the REST delivery endpoint.
+
+Content authors have created content variants with different messages for each age group. They have selected an 'audience' for each variant based on the 'Age' trait configured on the system.
+
+## Technical notes
+
+- The trait is provisioned with `/light-modules/spa-lm/traits/x-mgnl-age.yaml`.
+- The session value is set in `/spa/react-minimal/src/components/AgeForm.js`.
+- The header is set in `/spa/react-minimal/src/helpers/PageLoader.js`.
+
+## Setup - Create personalized content
+
+Either import some content, or create it manually.
+
+Open the `Pages` app in Magnolia and select the `react-minimal` page.
+
+### Import:
+
+Use the `Import` action, browse to `/magnolia/_dev/content-to-import/`, select `website.react-minimal.personalization.yaml` and import it.
+
+### Manually:
+
+Or instead of importing, 
+- Use the `Add page` action.
+- Choose the `React: Personalization` template and save.
+- Create a component in the `Main` area.
+- Use the `Add component variant` action and edit the component variant content.
+- Use the `Choose audience` action.
+- Under 'Choose traits of audience' click `Add`, pick the `Age (Minimal headless demo)` trait.
+- In the new `Age` select box choose one of the ages.
+- Repeat for other variants, ideally supplying one for the `Child`, `Adult`, and `Senior` traits.
+
+## Usage
+
+- Run the app outside of the Page Editor. (ie on the React dev server with http://localhost:3000) Enter your age to see personalized content.
+- Use the Page Editor to edit the content of the variants. 
+- Use the `Preview page` action to view *unpersonalized* content.
+- Use the `Preview in tab` green button to see personalized content based on age form.
+- Use the `Preview as visitor` to impersonate different users. For example use the `Add` action to add a user trait, like `Age`. 
+
+
+
