@@ -35,7 +35,7 @@ The demo contains:
 In a terminal, navigate to the `magnolia` directory and run:
 
 ```
-mgnl jumpstart -s
+mgnl jumpstart
 ```
 
 Choose `magnolia-community-demo-webapp` or `magnolia-dx-core-demo-webapp` as the version to download.
