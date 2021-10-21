@@ -26,16 +26,29 @@ const config = {
 const pagesApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pages/v1';
 const templateAnnotationsApi = 'http://localhost:8080/magnoliaAuthor/.rest/template-annotations/v1';
 
+// Fetch all variants inside Magnolia WYSIWYG in edit mode
+function p13n(pagePath, mgnlPreview) {
+  let newPagePath = pagePath;
+
+  if (mgnlPreview === 'false') {
+    newPagePath += newPagePath.indexOf('?') > -1 ? '&' : '?';
+    newPagePath += 'variants=all';
+  }
+
+  return newPagePath;
+}
+
 export async function getServerSideProps(context) {
   let props = {};
+  const mgnlPreview = context.query.mgnlPreview;
 
   const pagePath = nodeName + context.resolvedUrl.replace(new RegExp('^' + nodeName), '');
-  const pagesRes = await fetch(pagesApi + pagePath);
+  const pagesRes = await fetch(pagesApi + p13n(pagePath, mgnlPreview));
 
   props.page = await pagesRes.json();
 
   // Fetch template annotations only inside Magnolia WYSIWYG
-  if (context.query.mgnlPreview) {
+  if (mgnlPreview) {
     const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
 
     props.templateAnnotations = await templateAnnotationsRes.json();
