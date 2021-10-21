@@ -3,9 +3,9 @@ workspace: website
 depth: 10
 bypassWorkspaceAcls: true
 systemProperties:
- - mgnl:lastModified
- - mgnl:created
- - mgnl:template
+  - mgnl:lastModified
+  - mgnl:created
+  - mgnl:template
 
 nodeTypes:
   - mgnl:page
