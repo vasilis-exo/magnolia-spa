@@ -2,8 +2,7 @@ import React from 'react';
 import config from '../magnolia.config';
 import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage, getVersion } from './AppHelpers';
 
-import { EditablePage } from '@magnolia/react-editor';
-import { EditorContextHelper } from '@magnolia/react-editor';
+import { EditablePage, EditorContextHelper } from '@magnolia/react-editor';
 
 class PageLoader extends React.Component {
   state = {};
@@ -30,11 +29,34 @@ class PageLoader extends React.Component {
 
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
+    const config = {
+      headers: {}
+    };
+
+    const isPersonalizationPage = sessionStorage.getItem(`personalized_${window.location.pathname.replace(/\//g, '_')}`);
+
+    const params = new URLSearchParams(window.location.search);
 
     const version = getVersion(window.location.href);
-    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${version ? `?version=${version}` : ''}`;
 
-    const pageResponse = await fetch(fullContentPath);
+    if (version) {
+      params.append('version', version);
+    }
+
+    if (params.get('mgnlPreviewAsVisitor') !== 'true' && params.get('mgnlPreview') === 'false') {
+      params.append('variants', 'all');
+    }
+    
+    const queryString = params.toString();
+
+    const ageHeader = sessionStorage.getItem('mgnlAgeHeader');
+    if (isPersonalizationPage && ageHeader && !EditorContextHelper.inIframe()) {
+      config.headers['X-Mgnl-Age'] = ageHeader;
+    }
+
+    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${queryString ? `?${queryString}` : ''}`;
+
+    const pageResponse = await fetch(fullContentPath, config);
     const pageJson = await pageResponse.json();
     console.log('page content: ', pageJson);
 
@@ -42,16 +64,15 @@ class PageLoader extends React.Component {
     console.log('templateId:', templateId);
 
     let templateJson = null;
-    if (EditorContextHelper.inEditor()) {
-      const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
-      templateJson = await templateResponse.json();
-      console.log('definition:', templateJson);
-    }
+    const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + pagePath);
+    templateJson = await templateResponse.json();
+    console.log('definition:', templateJson);
+
 
     this.setState({
       init: true,
       content: pageJson,
-      templateDefinitions: templateJson,
+      templateAnnotations: templateJson,
       pathname: window.location.pathname,
     });
   };
@@ -79,7 +100,7 @@ class PageLoader extends React.Component {
 
       return (
         <EditablePage
-          templateDefinitions={this.state.templateDefinitions || {}}
+          templateAnnotations={this.state.templateAnnotations || {}}
           content={this.state.content}
           config={config}
         ></EditablePage>
