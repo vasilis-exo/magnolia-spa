@@ -43,7 +43,7 @@ class PageLoader extends React.Component {
       params.append('version', version);
     }
 
-    if (params.get('mgnlPreviewAsVisitor') !== 'true' && params.get('mgnlPreview') === 'false') {
+    if (params.get('mgnlPreviewAsVisitor') !== 'true' && EditorContextHelper.inIframe()) {
       params.append('variants', 'all');
     }
     
