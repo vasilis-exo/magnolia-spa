@@ -20,7 +20,8 @@ function AgeForm() {
     }
   }
 
-  function saveAge() {
+  function saveAge(event) {
+    event.preventDefault();
     if (!errorMessages.isValid) {
       return;
     }
