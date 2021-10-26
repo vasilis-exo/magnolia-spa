@@ -53,9 +53,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const mgnlPreview = context.previewData?.query?.mgnlPreview;
+  const isPagesApp = context.previewData?.query?.mgnlPreview || null;
   let props = {
-    isEdit: mgnlPreview === 'false',
+    isPagesApp,
+    isPagesAppEdit: isPagesApp === 'false',
   };
 
   // Find out page path in Magnolia
@@ -72,7 +73,7 @@ export async function getStaticProps(context) {
   props.pagenav = await pagenavRes.json();
 
   // Fetch template annotations only inside Magnolia WYSIWYG
-  if (mgnlPreview) {
+  if (isPagesApp) {
     const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
 
     props.templateAnnotations = await templateAnnotationsRes.json();
@@ -84,13 +85,11 @@ export async function getStaticProps(context) {
 }
 
 export default function Pathname(props) {
-  const { page, templateAnnotations, pagenav, isEdit } = props;
-
-  // In Navigation links have nodeName, this can be removed for SSG
+  const { page, templateAnnotations, pagenav, isPagesAppEdit } = props;
 
   return (
-    <div className={isEdit ? 'disable-a-pointer-events' : ''}>
-      {pagenav && <Navigation content={pagenav} />}
+    <div className={isPagesAppEdit ? 'disable-a-pointer-events' : ''}>
+      {pagenav && <Navigation content={pagenav} nodeName={nodeName} />}
       {page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}
     </div>
   );

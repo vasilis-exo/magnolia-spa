@@ -45,9 +45,10 @@ const pagenavApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pagenav/
 // }
 
 export async function getServerSideProps(context) {
-  const mgnlPreview = context.query.mgnlPreview;
+  const isPagesApp = context.query.mgnlPreview;
   let props = {
-    isEdit: mgnlPreview === 'false',
+    isPagesApp,
+    isPagesAppEdit: isPagesApp === 'false',
   };
 
   // Find out page path in Magnolia
@@ -62,7 +63,7 @@ export async function getServerSideProps(context) {
   props.pagenav = await pagenavRes.json();
 
   // Fetch template annotations only inside Magnolia WYSIWYG
-  if (mgnlPreview) {
+  if (isPagesApp) {
     const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
 
     props.templateAnnotations = await templateAnnotationsRes.json();
@@ -74,11 +75,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function Pathname(props) {
-  const { page, templateAnnotations, pagenav, isEdit } = props;
+  const { page, templateAnnotations, pagenav, isPagesAppEdit } = props;
 
   return (
-    <div className={isEdit ? 'disable-a-pointer-events' : ''}>
-      {pagenav && <Navigation content={pagenav} />}
+    <div className={isPagesAppEdit ? 'disable-a-pointer-events' : ''}>
+      {pagenav && <Navigation content={pagenav} nodeName={nodeName} />}
       {page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}
     </div>
   );
