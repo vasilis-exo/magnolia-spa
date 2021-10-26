@@ -86,6 +86,8 @@ export async function getStaticProps(context) {
 export default function Pathname(props) {
   const { page, templateAnnotations, pagenav, isEdit } = props;
 
+  // In Navigation links have nodeName, this can be removed for SSG
+
   return (
     <div className={isEdit ? 'disable-a-pointer-events' : ''}>
       {pagenav && <Navigation content={pagenav} />}
