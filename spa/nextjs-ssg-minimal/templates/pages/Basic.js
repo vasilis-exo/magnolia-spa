@@ -6,16 +6,16 @@ const Basic = (props) => {
 
   return (
     <div className='Basic'>
-      <div className='hint'>[Basic Page]</div>
+      <h2 className='hint'>[Basic Page]</h2>
       <h1>{title || props.metadata['@name']}</h1>
 
       <main>
-        <div className='hint'>[Main Area]</div>
+        <h2 className='hint'>[Main Area]</h2>
         {main && <EditableArea className='Area' content={main} />}
       </main>
 
       <div className='Extras'>
-        <div className='hint'>[Sercondary Area]</div>
+        <h2 className='hint'>[Sercondary Area]</h2>
         {extras && <EditableArea className='Area' content={extras} />}
       </div>
     </div>

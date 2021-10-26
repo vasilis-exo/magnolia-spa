@@ -104,3 +104,7 @@ footer {
 .hint {
   font-size: 0.7em;
 }
+
+.disable-a-pointer-events a {
+  pointer-events: none;
+}

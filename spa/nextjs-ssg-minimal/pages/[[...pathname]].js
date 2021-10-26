@@ -1,4 +1,5 @@
 import { EditablePage } from '@magnolia/react-editor';
+import Navigation from '../templates/components/Navigation';
 import Basic from '../templates/pages/Basic';
 import Contact from '../templates/pages/Contact';
 import Headline from '../templates/components/Headline';
@@ -52,17 +53,26 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  let props = {};
+  const mgnlPreview = context.previewData?.query?.mgnlPreview;
+  let props = {
+    isEdit: mgnlPreview === 'false',
+  };
 
+  // Find out page path in Magnolia
   const pagePath = context.preview
     ? nodeName + context.previewData.query.slug.replace(new RegExp('^' + nodeName), '')
     : nodeName + (context.params.pathname ? '/' + context.params.pathname.join('/') : '');
-  const pagesRes = await fetch(pagesApi + pagePath);
 
+  // Fetching page content
+  const pagesRes = await fetch(pagesApi + pagePath);
   props.page = await pagesRes.json();
 
+  // Fetching page navigation
+  const pagenavRes = await fetch(pagenavApi + nodeName);
+  props.pagenav = await pagenavRes.json();
+
   // Fetch template annotations only inside Magnolia WYSIWYG
-  if (context.previewData?.query?.mgnlPreview) {
+  if (mgnlPreview) {
     const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
 
     props.templateAnnotations = await templateAnnotationsRes.json();
@@ -74,7 +84,12 @@ export async function getStaticProps(context) {
 }
 
 export default function Pathname(props) {
-  const { page, templateAnnotations } = props;
+  const { page, templateAnnotations, pagenav, isEdit } = props;
 
-  return <div>{page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}</div>;
+  return (
+    <div className={isEdit ? 'disable-a-pointer-events' : ''}>
+      {pagenav && <Navigation content={pagenav} />}
+      {page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}
+    </div>
+  );
 }
