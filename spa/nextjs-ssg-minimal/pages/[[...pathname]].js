@@ -59,6 +59,8 @@ export async function getStaticProps(context) {
     isPagesAppEdit: isPagesApp === 'false',
   };
 
+  global.mgnlInPageEditor = props.isPagesAppEdit;
+
   // Find out page path in Magnolia
   const pagePath = context.preview
     ? nodeName + context.previewData.query.slug.replace(new RegExp('^' + nodeName), '')

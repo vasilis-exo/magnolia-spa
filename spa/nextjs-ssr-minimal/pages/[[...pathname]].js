@@ -45,11 +45,13 @@ const pagenavApi = 'http://localhost:8080/magnoliaAuthor/.rest/delivery/pagenav/
 // }
 
 export async function getServerSideProps(context) {
-  const isPagesApp = context.query.mgnlPreview;
+  const isPagesApp = context.query?.mgnlPreview || null;
   let props = {
     isPagesApp,
     isPagesAppEdit: isPagesApp === 'false',
   };
+
+  global.mgnlInPageEditor = props.isPagesAppEdit;
 
   // Find out page path in Magnolia
   const pagePath = nodeName + context.resolvedUrl.replace(new RegExp('^' + nodeName), '');
