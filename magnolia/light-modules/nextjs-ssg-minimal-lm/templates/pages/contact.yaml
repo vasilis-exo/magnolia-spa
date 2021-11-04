@@ -1,6 +1,6 @@
 title: 'Next.js SSG: Contact'
 url: http://localhost:3000
-routeTemplate: '/api/preview?slug={{@path}}'
+routeTemplate: '/api/preview?slug=/{{language}}{{@path}}'
 
 dialog: spa-lm:pages/basic
 renderType: spa

@@ -1,6 +1,6 @@
 title: 'Next.js SSR: Contact'
 url: http://localhost:3000
-routeTemplate: '{{@path}}'
+routeTemplate: '/{{language}}{{@path}}'
 
 dialog: spa-lm:pages/basic
 renderType: spa
