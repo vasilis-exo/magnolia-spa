@@ -1,5 +1,5 @@
 title: 'Next.js SSG: Basic'
-url: http://localhost:3000
+baseUrl: http://localhost:3000
 routeTemplate: '/api/preview?slug=/{{language}}{{@path}}'
 
 dialog: spa-lm:pages/basic
