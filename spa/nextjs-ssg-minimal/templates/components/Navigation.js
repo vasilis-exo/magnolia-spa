@@ -9,12 +9,12 @@ let BASENAME = '';
 
 function renderLink(item) {
   return (
-    <>
+    <React.Fragment key={item['@id']}>
       <Link href={BASENAME + item['@path'].replace(NODE_NAME, '') || '/'}>
         <a>{item['@name']}</a>
       </Link>
       {item['@nodes'].length > 0 && item['@nodes'].map((nodeName) => renderLink(item[nodeName]))}
-    </>
+      </React.Fragment>
   );
 }
 
@@ -28,7 +28,7 @@ function Navigation(props) {
     <nav>
       {renderLink(content, currentLanguage)}
       {languages.map((language, i) => (
-        <button onClick={() => (window.location.href = '/' + (i === 0 ? '' : language))}>{language}</button>
+        <button onClick={() => (window.location.href = '/' + (i === 0 ? '' : language)) } key={language}>{language}</button>
       ))}
     </nav>
   );

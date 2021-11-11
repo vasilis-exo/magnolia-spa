@@ -1,4 +1,4 @@
-export const languages = ['en', 'de'];
+export const languages = process.env.NEXT_PUBLIC_MGNL_LANGUAGES.split(' ');
 
 export function getCurrentLanguage(url) {
   for (let i = 0; i < languages.length; i++) {
