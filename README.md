@@ -138,7 +138,7 @@ All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
 Now you can go and manually create sample content.
 
-To build static sites you must run `npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
+To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/magnoliaPublic npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
 ## Create some sample content
 

@@ -25,8 +25,7 @@ const config = {
   },
 };
 
-// Use different defaultBaseUrl to point to public instances
-const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST + '/magnoliaAuthor';
+const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 const pagesApi = defaultBaseUrl + '/.rest/delivery/pages/v1';
 const templateAnnotationsApi = defaultBaseUrl + '/.rest/template-annotations/v1';
 const pagenavApi = defaultBaseUrl + '/.rest/delivery/pagenav/v1';
