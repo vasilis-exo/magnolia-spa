@@ -32,20 +32,18 @@ const pagesApi = defaultBaseUrl + '/.rest/delivery/pages/v1';
 const templateAnnotationsApi = defaultBaseUrl + '/.rest/template-annotations/v1';
 const pagenavApi = defaultBaseUrl + '/.rest/delivery/pagenav/v1';
 
-//
-// TO BE USED ONCE THE P13N WITH NEW SPA IS RELEASED
-//
+// More info about personalization of headless projects https://docs.magnolia-cms.com/product-docs/6.2/Developing/SPA-development-and-Magnolia/Personalization-of-headless-SPA-projects.html
 // Fetch all variants inside Magnolia WYSIWYG in edit mode
-// function p13n(pagePath, isPagesAppEdit) {
-//   let newPagePath = pagePath;
+function p13n(pagePath, isPagesAppEdit) {
+  let newPagePath = pagePath;
 
-//   if (isPagesAppEdit) {
-//     newPagePath += newPagePath.indexOf('?') > -1 ? '&' : '?';
-//     newPagePath += 'variants=all';
-//   }
+  if (isPagesAppEdit) {
+    newPagePath += newPagePath.indexOf('?') > -1 ? '&' : '?';
+    newPagePath += 'variants=all';
+  }
 
-//   return newPagePath;
-// }
+  return newPagePath;
+}
 
 export async function getServerSideProps(context) {
   const resolvedUrl = context.resolvedUrl;
@@ -66,7 +64,9 @@ export async function getServerSideProps(context) {
   }
 
   // Fetching page content
-  const pagesRes = await fetch(setURLSearchParams(pagesApi + props.pagePath, 'lang=' + currentLanguage));
+  const pagesRes = await fetch(
+    p13n(setURLSearchParams(pagesApi + props.pagePath, 'lang=' + currentLanguage), props.isPagesAppEdit)
+  );
   props.page = await pagesRes.json();
 
   // Fetching page navigation
