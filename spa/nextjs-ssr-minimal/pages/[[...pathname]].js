@@ -92,7 +92,7 @@ export default function Pathname(props) {
     }
 
     if (isPagesApp) fetchTemplateAnnotations();
-  }, []);
+  }, [isPagesApp, pagePath]);
 
   // In Pages app wait for template annotations before rendering EditablePage
   const shouldRenderEditablePage = page && (isPagesApp ? templateAnnotations : true);
