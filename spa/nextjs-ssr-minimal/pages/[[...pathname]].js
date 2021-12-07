@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { EditablePage } from '@magnolia/react-editor';
 import Navigation from '../templates/components/Navigation';
 import Basic from '../templates/pages/Basic';
@@ -26,7 +27,7 @@ const config = {
 };
 
 // Use different defaultBaseUrl to point to public instances
-const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST + '/magnoliaAuthor';
+const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 const pagesApi = defaultBaseUrl + '/.rest/delivery/pages/v1';
 const templateAnnotationsApi = defaultBaseUrl + '/.rest/template-annotations/v1';
 const pagenavApi = defaultBaseUrl + '/.rest/delivery/pagenav/v1';
@@ -35,10 +36,10 @@ const pagenavApi = defaultBaseUrl + '/.rest/delivery/pagenav/v1';
 // TO BE USED ONCE THE P13N WITH NEW SPA IS RELEASED
 //
 // Fetch all variants inside Magnolia WYSIWYG in edit mode
-// function p13n(pagePath, mgnlPreview) {
+// function p13n(pagePath, isPagesAppEdit) {
 //   let newPagePath = pagePath;
 
-//   if (mgnlPreview === 'false') {
+//   if (isPagesAppEdit) {
 //     newPagePath += newPagePath.indexOf('?') > -1 ? '&' : '?';
 //     newPagePath += 'variants=all';
 //   }
@@ -55,31 +56,22 @@ export async function getServerSideProps(context) {
     isPagesApp,
     isPagesAppEdit: isPagesApp === 'false',
     basename: isDefaultLanguage ? '' : '/' + currentLanguage,
+    pagePath: nodeName + context.resolvedUrl.replace(new RegExp('.*' + nodeName), ''), // Find out page path to fetch from Magnolia
   };
 
   global.mgnlInPageEditor = props.isPagesAppEdit;
 
-  // Find out page path to fetch from Magnolia
-  let pagePath = nodeName + context.resolvedUrl.replace(new RegExp('.*' + nodeName), '');
-
   if (!isDefaultLanguage) {
-    pagePath = pagePath.replace('/' + currentLanguage, '');
+    props.pagePath = props.pagePath.replace('/' + currentLanguage, '');
   }
 
   // Fetching page content
-  const pagesRes = await fetch(setURLSearchParams(pagesApi + pagePath, 'lang=' + currentLanguage));
+  const pagesRes = await fetch(setURLSearchParams(pagesApi + props.pagePath, 'lang=' + currentLanguage));
   props.page = await pagesRes.json();
 
   // Fetching page navigation
   const pagenavRes = await fetch(setURLSearchParams(pagenavApi + nodeName, 'lang=' + currentLanguage));
   props.pagenav = await pagenavRes.json();
-
-  // Fetch template annotations only inside Magnolia WYSIWYG
-  if (isPagesApp) {
-    const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
-
-    props.templateAnnotations = await templateAnnotationsRes.json();
-  }
 
   return {
     props,
@@ -87,12 +79,30 @@ export async function getServerSideProps(context) {
 }
 
 export default function Pathname(props) {
-  const { page, templateAnnotations, pagenav, isPagesAppEdit, basename } = props;
+  const [templateAnnotations, setTemplateAnnotations] = useState();
+  const { page, pagenav, isPagesApp, isPagesAppEdit, basename, pagePath } = props;
+
+  // Fetch template annotations only inside Magnolia WYSIWYG
+  useEffect(() => {
+    async function fetchTemplateAnnotations() {
+      const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
+      const templateAnnotationsJson = await templateAnnotationsRes.json();
+
+      setTemplateAnnotations(templateAnnotationsJson);
+    }
+
+    if (isPagesApp) fetchTemplateAnnotations();
+  }, []);
+
+  // In Pages app wait for template annotations before rendering EditablePage
+  const shouldRenderEditablePage = page && (isPagesApp ? templateAnnotations : true);
 
   return (
     <div className={isPagesAppEdit ? 'disable-a-pointer-events' : ''}>
       {pagenav && <Navigation content={pagenav} nodeName={nodeName} basename={basename} />}
-      {page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}
+      {shouldRenderEditablePage && (
+        <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />
+      )}
     </div>
   );
 }
