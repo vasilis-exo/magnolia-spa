@@ -4,9 +4,9 @@ depth: 10
 personalized: true
 bypassWorkspaceAcls: true
 systemProperties:
- - mgnl:lastModified
- - mgnl:created
- - mgnl:template
+  - mgnl:lastModified
+  - mgnl:created
+  - mgnl:template
 
 nodeTypes:
   - mgnl:page
