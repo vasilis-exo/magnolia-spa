@@ -64,7 +64,8 @@ In your browser, open Magnolia at: http://localhost:8080/magnoliaAuthor/
 
 ## Accessing Magnolia
 
-You can log in to Magnolia using the credentials `superuser/superuser`.
+You can log in to Magnolia using the credentials ***username: `superuser`,
+password: `superuser`.***
 This will give you complete access to all content and configuration.
 
 To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
@@ -96,6 +97,8 @@ Build and deploy the SPA to make it available for editing.
 ### React
 
 Go to `/spa/react-minimal` on the terminal and run `npm install`, and then `npm run deploy:mgnl`.
+
+***You may need to change the `deploy:mgnl` script according to your file structure.***
 
 Once built, check that the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/build`.
 
@@ -130,6 +133,8 @@ Now you can go and manually create sample content.
 
 ### Next.js SSG
 
+You will need to create a root page with the `Next.js SSG: Basic` template and name it `nextjs-ssg-minimal`.
+
 Go to `/spa/nextjs-ssg-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
 
 It will start start the Next.js server with API for `Preview Mode`.
@@ -146,17 +151,17 @@ Either import some content, or create it manually.
 
 ### Import:
 
-Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`, `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
+***In the Pages app***, Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`, `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
 
 ### Manually:
 
-Open the `Pages` app in Magnolia and add either
+Open the `Pages` app in Magnolia and ***click Add Page*** add either
 
-- A `React: Basic` page and name it `react-minimal`
-- A `Angular: Basic` page and name it `angular-minimal`
-- A `Vue: Basic` page and name it `vue-minimal`
-- A `Next.js SSR: Basic` page and name it `nextjs-ssr-minimal`
-- A `Next.js SSG: Basic` page and name it `nextjs-ssg-minimal`
+- A `React: Basic` ***template*** and name it `react-minimal`
+- A `Angular: Basic` ***template*** and name it `angular-minimal`
+- A `Vue: Basic` ***template*** and name it `vue-minimal`
+- A `Next.js SSR: Basic` ***template*** and name it `nextjs-ssr-minimal`
+- A `Next.js SSG: Basic` ***template*** and name it `nextjs-ssg-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
 
@@ -167,7 +172,7 @@ You can also add additional pages as children of that page.
 
 ### TemplateDefinitions/TemplateAnnotations Endpoints
 
-If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the template-definitions/template-annotations endpoint:
+If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the `template-definitions/template-annotations` endpoint:
 
 Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` or `/.rest/template-annotations*` set to GET.
 
@@ -186,7 +191,7 @@ Currently, personalization feature demo is only available in `react-minimal` sam
 Show different content based on the age group of the visitor.
 The information of the visitors age could come from anywhere, for example an external CDP, CRM, or Marketing automation system.
 
-For this simple demo, the visitor can enter thier age in a form on the page. The app stores their age as well as their age group (Child, Adult, Senior) in browser Session Storage.
+For this simple demo, the visitor can enter their age in a form on the page. The app stores their age as well as their age group (Child, Adult, Senior) in browser Session Storage.
 
 From then on, the app always includes an `X-Mgnl-Age` header (with the age group) in it's requests to the REST delivery endpoint.
 
