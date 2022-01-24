@@ -94,13 +94,12 @@ In `Access control lists` tab modify `Dam` workspace by allowing `Read-only` acc
 
 Build and deploy the SPA to make it available for editing.
 
+(These demos use a fully headless approach where the frontends are running on their own servers. If you would like to host the frontend as a bundle in a Magnolia light module see [README-host-in-light-module](README-host-in-light-module.md).
+)
+
 ### React
 
-Go to `/spa/react-minimal` on the terminal and run `npm install`, and then `npm run deploy:mgnl`.
-
-***You may need to change the `deploy:mgnl` script according to your file structure.***
-
-Once built, check that the app is deployed to `magnolia/light-modules/react-minimal-lm/webresources/build`.
+Go to `/spa/react-minimal` on the terminal and run `npm install`, and then `npm run start`.
 
 See the `.env` files for important configurations.
 
@@ -115,9 +114,7 @@ See the files in `/src/environments` for important configurations.
 
 ### Vue
 
-Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run deploy:mgnl`.
-
-Once built, check that the app is deployed to `magnolia/light-modules/vue-minimal-lm/webresources/dist`.
+Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run start`.
 
 See the `.env` files for important configurations.
 
@@ -147,11 +144,11 @@ To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/
 
 ## Create some sample content
 
-Either import some content, or create it manually.
+***Either*** import some content, or create it manually.
 
 ### Import:
 
-***In the Pages app***, Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, either `website.react-minimal.yaml`, `website.angular-minimal.yaml` or `website.vue-minimal.yaml` .
+***In the Pages app***, Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, depending on which 'flavor' you are using.
 
 ### Manually:
 
@@ -167,16 +164,6 @@ Open the `Pages` app in Magnolia and ***click Add Page*** add either
 
 Then add components into the `Main` or `Extras` area of the page.
 You can also add additional pages as children of that page.
-
-# Additional Information
-
-### TemplateDefinitions/TemplateAnnotations Endpoints
-
-If you want to debug the editing features when running the app outside of the Magnolia page editor, you will want permissions to the `template-definitions/template-annotations` endpoint:
-
-Open the Security app, open the Roles tab, edit the `rest-anonymous` role, go to `Web access` tab, `Add new` with this path `/.rest/template-definitions*` or `/.rest/template-annotations*` set to GET.
-
-Since Magnolia 6.2.12 both endpoints come already configured in `rest-anonymous` role.
 
 # Personalization Demo (Only available on DX-CORE)
 
