@@ -105,10 +105,7 @@ See the `.env` files for important configurations.
 
 ### Angular
 
-Go to `/spa/angular-minimal` on the terminal and run `npm install`, and then `ng build --prod`.
-(If you forget the '--prod', the paths to the js and css in the created index.html will be incorrect.)
-
-Once built, check that the app is deployed to `magnolia/light-modules/angular-minimal-lm/webresources/build`.
+Go to `/spa/angular-minimal` on the terminal and run `npm install`, and then `ng serve`.
 
 See the files in `/src/environments` for important configurations.
 
@@ -126,8 +123,6 @@ It will start start the Next.js server.
 
 All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
-Now you can go and manually create sample content.
-
 ### Next.js SSG
 
 You will need to create a root page with the `Next.js SSG: Basic` template and name it `nextjs-ssg-minimal`.
@@ -138,11 +133,9 @@ It will start start the Next.js server with API for `Preview Mode`.
 
 All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
-Now you can go and manually create sample content.
-
 To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/magnoliaPublic npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
-## Create some sample content
+# Create Sample Content
 
 ***Either*** import some content, or create it manually.
 

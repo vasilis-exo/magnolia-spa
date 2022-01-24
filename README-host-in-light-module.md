@@ -1,6 +1,8 @@
 # Deploy your SPA - IN A LIGHT MODULE
 
-(This README is for the special case of deploying a SPA in a light module. For most purposes hosting a SPA elsewhere is a best practice, as described in the main [README](README.md) file)
+(This README is for the special case of deploying a SPA in a light module. For most purposes hosting a SPA on it's own server is a best practice, and provides a better development experience. This is described in the main [README](README.md) file.)
+
+(This method of deployment ***in this demo project*** is not actively maintained.)
 
 Build and deploy the SPA to make it available for editing.
 
