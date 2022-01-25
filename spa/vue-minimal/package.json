@@ -1,16 +1,17 @@
 {
   "name": "vue-minimal",
-  "version": "0.3.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+
     "deploy:mgnl": "npm run clean && npm run build && copyfiles -u 1 \"dist/**/*\" ../../magnolia/light-modules/vue-minimal-lm/webresources/dist",
     "clean": "rimraf dist && rimraf ../../magnolia/light-modules/vue-minimal-lm/webresources/dist"
   },
   "dependencies": {
-    "@magnolia/vue-editor": "^1.0.0",
+    "@magnolia/vue-editor": "1.2.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.6"
