@@ -30,10 +30,12 @@ class PageLoader extends React.Component {
     const pagePath = this.getPagePath();
     console.log('pagePath:' + pagePath);
     const config = {
-      headers: {}
+      headers: {},
     };
 
-    const isPersonalizationPage = sessionStorage.getItem(`personalized_${window.location.pathname.replace(/\//g, '_')}`);
+    const isPersonalizationPage = sessionStorage.getItem(
+      `personalized_${window.location.pathname.replace(/\//g, '_')}`
+    );
 
     const params = new URLSearchParams(window.location.search);
 
@@ -46,7 +48,7 @@ class PageLoader extends React.Component {
     if (params.get('mgnlPreviewAsVisitor') !== 'true' && EditorContextHelper.inIframe()) {
       params.append('variants', 'all');
     }
-    
+
     const queryString = params.toString();
 
     const ageHeader = sessionStorage.getItem('mgnlAgeHeader');
@@ -54,7 +56,19 @@ class PageLoader extends React.Component {
       config.headers['X-Mgnl-Age'] = ageHeader;
     }
 
-    let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${queryString ? `?${queryString}` : ''}`;
+    let fullContentPath = `${apiBase}${
+      version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES
+    }${pagePath}`;
+
+    if (queryString) {
+      if (fullContentPath.includes('?')) {
+        fullContentPath += '&';
+      } else {
+        fullContentPath += '?';
+      }
+
+      fullContentPath += queryString;
+    }
 
     const pageResponse = await fetch(fullContentPath, config);
     const pageJson = await pageResponse.json();
@@ -67,7 +81,6 @@ class PageLoader extends React.Component {
     const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + pagePath);
     templateJson = await templateResponse.json();
     console.log('definition:', templateJson);
-
 
     this.setState({
       init: true,

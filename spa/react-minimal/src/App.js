@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from './helpers/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
@@ -12,10 +12,11 @@ function App() {
         <Navigation />
       </header>
 
-      <div className="container">
-        <Switch>
-          <Route path="/" component={PageLoader} />
-        </Switch>
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<PageLoader />} />
+          <Route path='/:pathname' element={<PageLoader />} />
+        </Routes>
       </div>
 
       <footer>

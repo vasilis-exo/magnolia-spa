@@ -6,7 +6,7 @@ function renderLanguages() {
   const currentLanguage = getCurrentLanguage();
 
   return (
-    <div className="languages">
+    <div className='languages'>
       {getLanguages().map((lang) => (
         <span key={`lang-${lang}`} data-active={currentLanguage === lang} onClick={() => changeLanguage(lang)}>
           {lang}
@@ -38,14 +38,10 @@ function Navigation() {
   }, [navItems]);
 
   return navItems ? (
-    <nav className="Navigation">
+    <nav className='Navigation'>
       {navItems.map((item) => {
         return (
-          <NavLink
-            activeClassName="active"
-            key={item['@id']}
-            to={item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')}
-          >
+          <NavLink key={item['@id']} to={item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')}>
             {item.navigationTitle || item.title || item['@name']}
           </NavLink>
         );
