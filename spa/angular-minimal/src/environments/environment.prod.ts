@@ -13,7 +13,7 @@ export const environment = {
   rootPath: '/angular-minimal',
   restUrlBase: SERVER + '/.rest/delivery/pages/v1',
   restPreviewUrlBase: SERVER + '/.rest/preview/pages/v1',
-  templateDefinitionBase: SERVER + '/.rest/template-definitions/v1',
+  templateAnnotationsBase: SERVER + '/.rest/template-annotations/v1',
   navUrl: HOST + MAGNOLIA_BASE + '/.rest/delivery/pagenav/v1',
 
   damRawUrl: HOST,

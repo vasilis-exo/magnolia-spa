@@ -25,12 +25,7 @@ export class RootComponent {
     });
   }
 
-  private inAuthor() {
-    const ia = environment.inEditor;
-    return ia;
-  }
-
-  private getContent(): void {
+  async getContent() {
     const languages = getLanguages();
     const nodeName = environment.rootPath;
     const currentLanguage = getCurrentLanguage();
@@ -42,20 +37,21 @@ export class RootComponent {
     }
 
     const version = getVersion(window.location.href);
+
     if (version) {
       path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
     }
 
-    this.http.get(`${version ? environment.restPreviewUrlBase : environment.restUrlBase}${path}`).subscribe((content) => {
-      if (!this.inAuthor()) {
-        this.content = content;
-      } else {
-        // request the template definitions for given page
-        this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe((definitions) => {
-          this.editorContext.setTemplateDefinitions(definitions);
-          this.content = content;
-        });
-      }
-    });
+    const contentRes = await fetch(`${version ? environment.restPreviewUrlBase : environment.restUrlBase}${path}`);
+    const content = await contentRes.json();
+
+    if (await this.editorContext.inEditorAsync()) {
+      const templateAnnotationsRes = await fetch(environment.templateAnnotationsBase + path);
+      const templateAnnotations = await templateAnnotationsRes.json();
+
+      this.editorContext.setTemplateAnnotations(templateAnnotations);
+    }
+
+    this.content = content;
   }
 }

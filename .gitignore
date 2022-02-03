@@ -7,6 +7,7 @@ downloads
 /**/vue-minimal-lm/webresources/
 
 .next
+.angular
 
 /**/target
 *.jar
