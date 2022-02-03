@@ -64,8 +64,8 @@ In your browser, open Magnolia at: http://localhost:8080/magnoliaAuthor/
 
 ## Accessing Magnolia
 
-You can log in to Magnolia using the credentials ***username: `superuser`,
-password: `superuser`.***
+You can log in to Magnolia using the credentials **_username: `superuser`,
+password: `superuser`._**
 This will give you complete access to all content and configuration.
 
 To access the apps that are mentioned in these instructions use the grid icon at the top of the page, to the right of the search bar.
@@ -111,7 +111,7 @@ See the files in `/src/environments` for important configurations.
 
 ### Vue
 
-Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run start`.
+Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run serve`.
 
 See the `.env` files for important configurations.
 
@@ -137,21 +137,21 @@ To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/
 
 # Create Sample Content
 
-***Either*** import some content, or create it manually.
+**_Either_** import some content, or create it manually.
 
 ### Import:
 
-***In the Pages app***, Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, depending on which 'flavor' you are using.
+**_In the Pages app_**, Use the 'Import' action (with nothing selected) and select the appropriate file from `/magnolia/_dev/content-to-import/`, depending on which 'flavor' you are using.
 
 ### Manually:
 
-Open the `Pages` app in Magnolia and ***click Add Page*** add either
+Open the `Pages` app in Magnolia and **_click Add Page_** add either
 
-- A `React: Basic` ***template*** and name it `react-minimal`
-- A `Angular: Basic` ***template*** and name it `angular-minimal`
-- A `Vue: Basic` ***template*** and name it `vue-minimal`
-- A `Next.js SSR: Basic` ***template*** and name it `nextjs-ssr-minimal`
-- A `Next.js SSG: Basic` ***template*** and name it `nextjs-ssg-minimal`
+- A `React: Basic` **_template_** and name it `react-minimal`
+- A `Angular: Basic` **_template_** and name it `angular-minimal`
+- A `Vue: Basic` **_template_** and name it `vue-minimal`
+- A `Next.js SSR: Basic` **_template_** and name it `nextjs-ssr-minimal`
+- A `Next.js SSG: Basic` **_template_** and name it `nextjs-ssg-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
 
