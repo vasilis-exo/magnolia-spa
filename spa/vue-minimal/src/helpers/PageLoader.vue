@@ -8,24 +8,13 @@
 </template>
 
 <script>
-import { EditablePage } from "@magnolia/vue-editor";
-import {
-  getLanguages,
-  getCurrentLanguage,
-  removeCurrentLanguage,
-  removeExtension,
-  getVersion,
-} from "./AppHelpers";
-import config from "../magnolia.config";
+import { EditablePage, EditorContextHelper } from '@magnolia/vue-editor';
+import { getLanguages, getCurrentLanguage, removeCurrentLanguage, removeExtension, getVersion } from './AppHelpers';
+import config from '../magnolia.config';
 
 const getPath = () => {
   const nodeName = process.env.VUE_APP_MGNL_SITE_PATH;
-  let path =
-    nodeName +
-    window.location.pathname.replace(
-      new RegExp("(.*" + nodeName + "|.html)", "g"),
-      ""
-    );
+  let path = nodeName + window.location.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
 
   return path;
 };
@@ -38,37 +27,26 @@ const getContentUrl = () => {
   const languages = getLanguages();
   const nodeName = process.env.VUE_APP_MGNL_SITE_PATH;
   const currentLanguage = getCurrentLanguage();
-  let path =
-    nodeName +
-    window.location.pathname.replace(
-      new RegExp("(.*" + nodeName + "|.html)", "g"),
-      ""
-    );
+  let path = nodeName + window.location.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
 
   if (currentLanguage !== languages[0]) {
     path = removeCurrentLanguage(path, currentLanguage);
-    path += "?lang=" + currentLanguage;
+    path += '?lang=' + currentLanguage;
   }
 
   const version = getVersion(window.location.href);
   if (version) {
-    path +=
-      path.indexOf("?") > -1 ? "&version=" + version : "?version=" + version;
+    path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
   }
 
-  return `${
-    version
-      ? process.env.VUE_APP_MGNL_API_PAGES_PREVIEW
-      : process.env.VUE_APP_MGNL_API_PAGES
-  }${path}`;
+  return `${version ? process.env.VUE_APP_MGNL_API_PAGES_PREVIEW : process.env.VUE_APP_MGNL_API_PAGES}${path}`;
 };
 
 export default {
-  name: "PageLoader",
+  name: 'PageLoader',
   components: {
     EditablePage,
   },
-  // mixins: [EditableMixin],
   data() {
     return {
       content: null,
@@ -80,11 +58,11 @@ export default {
     async loadPageContent() {
       const contentUrl = getContentUrl();
 
-      console.log("Get Content: " + contentUrl);
+      console.log('Get Content: ' + contentUrl);
 
       const contentResponse = await fetch(contentUrl);
       const content = await contentResponse.json();
-      const templateId = content["mgnl:template"];
+      const templateId = content['mgnl:template'];
       if (!templateId) {
         return;
       }
@@ -92,40 +70,24 @@ export default {
       // Get Template Annotations
 
       const path = getPath();
-      const templateEndpointUrl =
-        getServerPathUrl() +
-        process.env.VUE_APP_MGNL_API_TEMPLATES +
-        removeExtension(path);
+      const templateEndpointUrl = getServerPathUrl() + process.env.VUE_APP_MGNL_API_TEMPLATES + removeExtension(path);
 
-      console.log("Get Template Info: " + templateEndpointUrl);
+      console.log('Get Template Info: ' + templateEndpointUrl);
 
-      // Handle CORS exceptions
-      try {
+      if (window.location.search.includes('mgnlPreview')) {
         const templateResponse = await fetch(templateEndpointUrl);
         const templateAnnotations = await templateResponse.json();
-        this.templateAnnotations = templateAnnotations;
-      } catch (e) {}
 
-      //const templateAnnotations = {};//does not work: null
+        this.templateAnnotations = templateAnnotations;
+      }
+
       this.content = content;
     },
   },
   mounted() {
     this.loadPageContent();
   },
-  updated() {
-    //if (inEditorEdit) window.parent.mgnlRefresh();
-  },
-  created() {
-    // this.$watch(
-    //   () => this.$route.params,
-    //   () => {
-    //     this.loadPageContent();
-    //   }
-    // );
-  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

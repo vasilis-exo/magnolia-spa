@@ -77,10 +77,13 @@ class PageLoader extends React.Component {
     const templateId = pageJson['mgnl:template'];
     console.log('templateId:', templateId);
 
-    let templateJson = null;
-    const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + pagePath);
-    templateJson = await templateResponse.json();
-    console.log('definition:', templateJson);
+    let templateJson = {};
+
+    if (window.location.search.includes('mgnlPreview')) {
+      const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + pagePath);
+      templateJson = await templateResponse.json();
+      console.log('definition:', templateJson);
+    }
 
     this.setState({
       init: true,
@@ -89,13 +92,6 @@ class PageLoader extends React.Component {
       pathname: window.location.pathname,
     });
   };
-
-  inEditorPreview() {
-    const url = window.location.href;
-    const inPreview = url.indexOf('mgnlPreview=true') > 0;
-    console.log('inEditorPreview:' + inPreview);
-    return EditorContextHelper.inEditor() && inPreview;
-  }
 
   componentDidMount() {
     this.loadPage();
