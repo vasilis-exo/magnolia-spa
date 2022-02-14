@@ -1,5 +1,5 @@
 title: 'Vue: Basic'
-baseUrl: http://localhost:3000
+baseUrl: http://localhost:8081
 routeTemplate: '/{language}{{@path}}'
 # templateScript: /vue-minimal-lm/webresources/dist/index.html
 dialog: spa-lm:pages/basic
@@ -8,7 +8,6 @@ renderType: spa
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 
 areas:
-
   main:
     title: Main Area
     availableComponents:
