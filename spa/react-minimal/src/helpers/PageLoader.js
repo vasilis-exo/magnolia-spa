@@ -100,8 +100,6 @@ class PageLoader extends React.Component {
   }
 
   render() {
-    console.log('this.props.pathname', this.props.pathname);
-
     if (this.state.init) {
       console.log('config:', config);
       //const isDevMode = process.env.NODE_ENV === 'development';
