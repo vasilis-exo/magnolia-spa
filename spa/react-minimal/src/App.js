@@ -1,22 +1,34 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import PageLoader from './helpers/PageLoader';
 import Navigation from './components/Navigation';
 import './App.css';
-import { getRouterBasename } from './helpers/AppHelpers';
+import { events } from './helpers/AppHelpers';
 
 function App() {
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    function handlePopstate() {
+      setPathname(window.location.pathname);
+    }
+
+    events.on('popstate', handlePopstate);
+    window.addEventListener('popstate', handlePopstate);
+
+    return () => {
+      events.removeListener('popstate', handlePopstate);
+      window.removeEventListener('popstate', handlePopstate);
+    };
+  }, []);
+
   return (
-    <BrowserRouter basename={getRouterBasename()}>
+    <>
       <header>
         <Navigation />
       </header>
 
       <div className='container'>
-        <Routes>
-          <Route path='/' element={<PageLoader />} />
-          <Route path='/:pathname' element={<PageLoader />} />
-        </Routes>
+        <PageLoader pathname={pathname} />
       </div>
 
       <footer>
@@ -24,7 +36,7 @@ function App() {
         <br />
         Copyright © 2020
       </footer>
-    </BrowserRouter>
+    </>
   );
 }
 

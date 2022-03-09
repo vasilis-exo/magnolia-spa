@@ -11,7 +11,7 @@ class PageLoader extends React.Component {
     const languages = getLanguages();
     const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
     const currentLanguage = getCurrentLanguage();
-    let path = nodeName + window.location.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
+    let path = nodeName + this.props.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
 
     if (currentLanguage !== languages[0]) {
       path = removeCurrentLanguage(path, currentLanguage);
@@ -23,7 +23,7 @@ class PageLoader extends React.Component {
 
   loadPage = async () => {
     // Bail out if already loaded content.
-    if (this.state.pathname === window.location.pathname) return;
+    if (this.state.pathname === this.props.pathname) return;
 
     const apiBase = getAPIBase();
 
@@ -33,9 +33,7 @@ class PageLoader extends React.Component {
       headers: {},
     };
 
-    const isPersonalizationPage = sessionStorage.getItem(
-      `personalized_${window.location.pathname.replace(/\//g, '_')}`
-    );
+    const isPersonalizationPage = sessionStorage.getItem(`personalized_${this.props.pathname.replace(/\//g, '_')}`);
 
     const params = new URLSearchParams(window.location.search);
 
@@ -89,7 +87,7 @@ class PageLoader extends React.Component {
       init: true,
       content: pageJson,
       templateAnnotations: templateJson,
-      pathname: window.location.pathname,
+      pathname: this.props.pathname,
     });
   };
 
@@ -102,6 +100,8 @@ class PageLoader extends React.Component {
   }
 
   render() {
+    console.log('this.props.pathname', this.props.pathname);
+
     if (this.state.init) {
       console.log('config:', config);
       //const isDevMode = process.env.NODE_ENV === 'development';

@@ -1,6 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { getAPIBase, getLanguages, getCurrentLanguage, changeLanguage } from '../helpers/AppHelpers';
+import {
+  events,
+  getRouterBasename,
+  getAPIBase,
+  getLanguages,
+  getCurrentLanguage,
+  changeLanguage,
+} from '../helpers/AppHelpers';
 
 function renderLanguages() {
   const currentLanguage = getCurrentLanguage();
@@ -40,10 +46,24 @@ function Navigation() {
   return navItems ? (
     <nav className='Navigation'>
       {navItems.map((item) => {
+        let newHref = (getRouterBasename() + item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')).replace(
+          '//',
+          '/'
+        );
+
         return (
-          <NavLink key={item['@id']} to={item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')}>
+          <a
+            key={item['@id']}
+            href={newHref}
+            onClick={(e) => {
+              e.preventDefault();
+
+              window.history.pushState({}, '', e.currentTarget.href);
+              events.emit('popstate');
+            }}
+          >
             {item.navigationTitle || item.title || item['@name']}
-          </NavLink>
+          </a>
         );
       })}
       {renderLanguages()}

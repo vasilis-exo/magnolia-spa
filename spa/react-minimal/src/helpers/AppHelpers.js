@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+
+export const events = new EventEmitter();
+
 export function getAPIBase() {
   let M;
   if (Boolean(process.env.REACT_APP_MGNL_IS_PREVIEW)) {
