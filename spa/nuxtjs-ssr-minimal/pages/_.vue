@@ -15,7 +15,6 @@ import Contact from "../templates/pages/Contact.vue";
 import Headline from "../templates/components/Headline.vue";
 import Image from "../templates/components/Image.vue";
 import Paragraph from "../templates/components/Paragraph.vue";
-import Expander from "../templates/components/Expander.vue";
 import List from "../templates/components/List.vue";
 import Item from "../templates/components/Item.vue";
 
