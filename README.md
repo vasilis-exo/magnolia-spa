@@ -135,6 +135,18 @@ All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
 To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/magnoliaPublic npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
+### Nuxt SSR
+
+> Nuxt uses Vue 2, so the example uses [@magnolia-services/vue2-editor](https://www.npmjs.com/package/@magnolia-services/vue2-editor)
+
+Create a root page with the `Nuxt SSR: Basic` template and name it `nuxtjs-ssr-minimal`.
+
+Go to `/spa/nuxtjs-ssr-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
+
+It will start start the Nuxt server.
+
+All Magnolia specific configurations can be find in `_.vue` file.
+
 # Create Sample Content
 
 **_Either_** import some content, or create it manually.
