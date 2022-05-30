@@ -54,9 +54,7 @@ class PageLoader extends React.Component {
       config.headers['X-Mgnl-Age'] = ageHeader;
     }
 
-    let fullContentPath = `${apiBase}${
-      version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES
-    }${pagePath}`;
+    let fullContentPath = `${apiBase}${process.env.REACT_APP_MGNL_API_PAGES}${pagePath}`;
 
     if (queryString) {
       if (fullContentPath.includes('?')) {
