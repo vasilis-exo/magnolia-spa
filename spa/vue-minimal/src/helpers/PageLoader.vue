@@ -39,7 +39,7 @@ const getContentUrl = () => {
     path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
   }
 
-  return `${version ? process.env.VUE_APP_MGNL_API_PAGES_PREVIEW : process.env.VUE_APP_MGNL_API_PAGES}${path}`;
+  return `${process.env.VUE_APP_MGNL_API_PAGES}${path}`;
 };
 
 export default {

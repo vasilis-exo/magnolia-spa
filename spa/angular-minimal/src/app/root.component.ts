@@ -42,7 +42,7 @@ export class RootComponent {
       path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
     }
 
-    const contentRes = await fetch(`${version ? environment.restPreviewUrlBase : environment.restUrlBase}${path}`);
+    const contentRes = await fetch(`${environment.restUrlBase}${path}`);
     const content = await contentRes.json();
 
     if (await this.editorContext.inEditorAsync()) {

@@ -12,7 +12,6 @@ export const environment = {
   server: SERVER,
   rootPath: '/angular-minimal',
   restUrlBase: SERVER + '/.rest/delivery/pages/v1',
-  restPreviewUrlBase: SERVER + '/.rest/preview/pages/v1',
   templateAnnotationsBase: SERVER + '/.rest/template-annotations/v1',
   navUrl: HOST + MAGNOLIA_BASE + '/.rest/delivery/pagenav/v1',
 
