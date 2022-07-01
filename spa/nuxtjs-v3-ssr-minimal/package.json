@@ -1,0 +1,15 @@
+{
+  "name": "nuxtjs-v3-ssr-minimal",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@magnolia/vue-editor": "1.2.2",
+    "node-fetch": "3.2.8",
+    "nuxt": "^3.0.0-rc.4"
+  }
+}
