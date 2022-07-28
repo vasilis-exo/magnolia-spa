@@ -135,7 +135,7 @@ All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
 To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/magnoliaPublic npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
-### Nuxt SSR
+### Nuxt 2 SSR
 
 > Nuxt uses Vue 2, so the example uses [@magnolia-services/vue2-editor](https://www.npmjs.com/package/@magnolia-services/vue2-editor)
 
@@ -146,6 +146,23 @@ Go to `/spa/nuxtjs-ssr-minimal` on the terminal and run `npm install`, and then 
 It will start start the Nuxt server.
 
 All Magnolia specific configurations can be find in `_.vue` file.
+
+### Nuxt 3 SSR
+
+> Nuxt 3 uses Vue 3, so the example uses [@magnolia/vue-editor](https://www.npmjs.com/package/@magnolia/vue-editor)
+
+Create a root page with the `Nuxt v3 SSR: Basic` template and name it `nuxtjs-v3-ssr-minimal`.
+
+Go to `/spa/nuxtjs-v3-ssr-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
+
+It will start start the Nuxt server.
+
+All Magnolia specific configurations can be found in `[...slug].vue` and `.env` files.
+
+To build static sites you must run `npm run build && npm run generate`. Static files will be generated to .output/public folder.
+Note the `hooks` in `nuxt.config.js` pre-fetching corresponding paths.
+
+[More details on Nuxt 3 SSR](/spa/nuxtjs-v3-ssr-minimal/README.md)
 
 # Create Sample Content
 
@@ -164,6 +181,7 @@ Open the `Pages` app in Magnolia and **_click Add Page_** add either
 - A `Vue: Basic` **_template_** and name it `vue-minimal`
 - A `Next.js SSR: Basic` **_template_** and name it `nextjs-ssr-minimal`
 - A `Next.js SSG: Basic` **_template_** and name it `nextjs-ssg-minimal`
+- A `Nuxt v3 SSR: Basic` **_template_** and name it `nuxtjs-v3-ssr-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
 
