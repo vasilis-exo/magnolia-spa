@@ -76,7 +76,9 @@ export default {
       if (!isDefaultLanguage) {
         pagePath = pagePath.replace("/" + currentLanguage, "");
       }
-      return $fetch(setURLSearchParams(pagesApi + pagePath, "lang=" + currentLanguage));
+      return $fetch(
+        setURLSearchParams(pagesApi + pagePath, "lang=" + currentLanguage)
+      );
     });
 
     return { content, pagePath, templateAnnotationsApi };
