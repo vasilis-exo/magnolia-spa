@@ -1,6 +1,10 @@
 <template>
   <div class="Expander">
-    <div @click.prevent="toggle" class="expanderHeader" :class="isCollapsed ? 'closed' : 'open'">
+    <div
+      @click.prevent="toggle"
+      class="expanderHeader"
+      :class="isCollapsed ? 'closed' : 'open'"
+    >
       Expander
       <svg
         class="expanderIcon"
@@ -25,23 +29,26 @@
 </template>
 
 <script>
-import { EditableArea, inEditorEdit } from '@magnolia/vue-editor';
+import { EditableArea } from "@magnolia/vue-editor";
 
 export default {
   name: "Expander",
   components: {
-    EditableArea
+    EditableArea,
   },
   props: ["expanderItems", "metadata"],
 
   data() {
     return {
-      isCollapsed: true
+      isCollapsed: true,
     };
   },
 
   updated() {
-    if (inEditorEdit && window.parent.mgnlRefresh) {
+    if (
+      window.location.search.includes("mgnlPreview") &&
+      window.parent.mgnlRefresh
+    ) {
       window.parent.mgnlRefresh();
     }
   },
@@ -49,7 +56,7 @@ export default {
   methods: {
     toggle() {
       this.isCollapsed = !this.isCollapsed;
-    }
-  }
+    },
+  },
 };
 </script>
