@@ -135,6 +135,19 @@ All Magnolia specific configurations can be find in `[[...pathname]].js` file.
 
 To build static sites you must run `NEXT_PUBLIC_MGNL_HOST=http://localhost:8080/magnoliaPublic npm run build && npm run export`. You can configure your pipeline to run such job on content publication.
 
+### Next.js Hybrid (SSG/SSR)
+
+You will need to create a root page with the `Next.js Hybrid SSG: Basic` template and name it `nextjs-hybrid-minimal`.
+Under `nextjs-hybrid-minimal` page, create another page with `Next.js Hybrid SSR: Categories` template and name it `categories`.
+
+Go to `/spa/nextjs-hybrid-minimal` on the terminal and run `npm install`, and then `npm run build && npm start`.
+
+All Magnolia specific configurations can be find in `[[...pathname]]/index.js`, `categories/[[...pathname]].js` and `.env` files.
+
+To build static sites it is required to rebuild the project with `npm run build`. You can configure a webhook for to run such job on content publication, see [webhooks documentation](https://docs.magnolia-cms.com/product-docs/6.2/Features/Webhooks.html)
+
+[More details on Next.js Hybrid](/spa/nextjs-hybrid-minimal/README.md)
+
 ### Nuxt 2 SSR
 
 > Nuxt uses Vue 2, so the example uses [@magnolia-services/vue2-editor](https://www.npmjs.com/package/@magnolia-services/vue2-editor)
@@ -181,6 +194,7 @@ Open the `Pages` app in Magnolia and **_click Add Page_** add either
 - A `Vue: Basic` **_template_** and name it `vue-minimal`
 - A `Next.js SSR: Basic` **_template_** and name it `nextjs-ssr-minimal`
 - A `Next.js SSG: Basic` **_template_** and name it `nextjs-ssg-minimal`
+- A `Next.js Hybrid SSG: Basic` **_template_** and name it `nextjs-hybrid-minimal`
 - A `Nuxt v3 SSR: Basic` **_template_** and name it `nuxtjs-v3-ssr-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
