@@ -68,6 +68,8 @@ export async function getStaticProps(context) {
     : context.params.pathname
     ? '/' + context.params.pathname.join('/')
     : '';
+  
+  // For less code use EditorContextHelper.getMagnoliaContext (https://docs.magnolia-cms.com/headless/spa-development/magnolia-front-end-helpers-for-SPA/magnolia-react-editor.html#_editorcontexthelper_getmagnoliacontext)
   const currentLanguage = getCurrentLanguage(resolvedUrl);
   const isDefaultLanguage = currentLanguage === languages[0];
   const isPagesApp = context.previewData?.query?.mgnlPreview || null;
