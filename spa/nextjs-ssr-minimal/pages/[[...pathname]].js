@@ -47,6 +47,8 @@ function p13n(pagePath, isPagesAppEdit) {
 
 export async function getServerSideProps(context) {
   const resolvedUrl = context.resolvedUrl;
+
+  // For less code use EditorContextHelper.getMagnoliaContext (https://docs.magnolia-cms.com/headless/spa-development/magnolia-front-end-helpers-for-SPA/magnolia-react-editor.html#_editorcontexthelper_getmagnoliacontext)
   const currentLanguage = getCurrentLanguage(resolvedUrl);
   const isDefaultLanguage = currentLanguage === languages[0];
   const isPagesApp = context.query?.mgnlPreview || null;
