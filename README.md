@@ -109,6 +109,17 @@ Go to `/spa/angular-minimal` on the terminal and run `npm install`, and then `ng
 
 See the files in `/src/environments` for important configurations.
 
+### Angular Universal
+
+Create a root page with the `Angular Universal: Basic` template and name it `angular-universal-minimal`.
+
+Go to `/spa/angular-universal-minimal` on the terminal and run `npm install`, and then `npm run dev:ssr`.
+It will start developement the server.
+
+See the files in `/src/environments` for important configurations.
+
+[More details on Angular Universal](/spa/angular-universal-minimal/README.md)
+
 ### Vue
 
 Go to `/spa/vue-minimal` on the terminal and run `npm install`, and then `npm run serve`.
@@ -203,6 +214,7 @@ Open the `Pages` app in Magnolia and **_click Add Page_** add either
 
 - A `React: Basic` **_template_** and name it `react-minimal`
 - A `Angular: Basic` **_template_** and name it `angular-minimal`
+- A `Angular Universal: Basic` **_template_** and name it `angular-universal-minimal`
 - A `Vue: Basic` **_template_** and name it `vue-minimal`
 - A `Next.js SSR: Basic` **_template_** and name it `nextjs-ssr-minimal`
 - A `Next.js SSG: Basic` **_template_** and name it `nextjs-ssg-minimal`
