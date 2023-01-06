@@ -148,6 +148,18 @@ To build static sites it is required to rebuild the project with `npm run build`
 
 [More details on Next.js Hybrid](/spa/nextjs-hybrid-minimal/README.md)
 
+### Gastby
+
+You will need to create a root page with the `Gatsby: Basic` template and name it `gatsby-minimal`.
+
+Go to `/spa/gatsby-minimal` on the terminal and run `npm install`, and then `npm run develop`.
+
+It will start start the Gatsby server with hot reload.
+
+All Magnolia specific configurations can be find in `[...].js`, `.env.development` and `.env.production` files.
+
+[More details on Gatsby demo](/spa/gatbsy-minimal/README.md)
+
 ### Nuxt 2 SSR
 
 > Nuxt uses Vue 2, so the example uses [@magnolia-services/vue2-editor](https://www.npmjs.com/package/@magnolia-services/vue2-editor)
@@ -195,6 +207,7 @@ Open the `Pages` app in Magnolia and **_click Add Page_** add either
 - A `Next.js SSR: Basic` **_template_** and name it `nextjs-ssr-minimal`
 - A `Next.js SSG: Basic` **_template_** and name it `nextjs-ssg-minimal`
 - A `Next.js Hybrid SSG: Basic` **_template_** and name it `nextjs-hybrid-minimal`
+- A `Gatsby: Basic` **_template_** and name it `gastby-minimal`
 - A `Nuxt v3 SSR: Basic` **_template_** and name it `nuxtjs-v3-ssr-minimal`
 
 > The page name is important as the SPA's are hardcoded to treat those names as the base of the app.
