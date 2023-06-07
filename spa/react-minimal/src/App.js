@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PageLoader from './helpers/PageLoader';
-import Navigation from './components/Navigation';
 import './App.css';
 import { events } from './helpers/AppHelpers';
 
@@ -23,14 +22,7 @@ function App() {
 
   return (
     <>
-      <header>
-        <Navigation />
-      </header>
-
-      <div className='container'>
-        <PageLoader pathname={pathname} />
-      </div>
-
+      <PageLoader pathname={pathname} />
       <footer>
         Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
         <br />

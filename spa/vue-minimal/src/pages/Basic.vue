@@ -19,10 +19,10 @@
 import { EditableArea } from '@magnolia/vue-editor';
 
 export default {
-  name: "Basic",
+  name: 'Basic',
   components: {
     EditableArea
   },
-  props: ["title", "metadata", "main", "extras"]
+  props: ['title', 'metadata', 'main', 'extras']
 };
 </script>

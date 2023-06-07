@@ -28,25 +28,13 @@ export class RootComponent {
   async getContent() {
     const languages = getLanguages();
     const nodeName = environment.rootPath;
-    const currentLanguage = getCurrentLanguage();
-    let path = nodeName + window.location.pathname.replace(new RegExp('(.*' + nodeName + '|.html)', 'g'), '');
+    const magnoliaContext = this.editorContext.getMagnoliaContext(window.location.href, nodeName, languages);
 
-    if (currentLanguage !== languages[0]) {
-      path = removeCurrentLanguage(path, currentLanguage);
-      path += '?lang=' + currentLanguage;
-    }
-
-    const version = getVersion(window.location.href);
-
-    if (version) {
-      path += path.indexOf('?') > -1 ? '&version=' + version : '?version=' + version;
-    }
-
-    const contentRes = await fetch(`${environment.restUrlBase}${path}`);
+    const contentRes = await fetch(`${environment.restUrlBase}${magnoliaContext.nodePath}${magnoliaContext.search}`);
     const content = await contentRes.json();
 
-    if (await this.editorContext.inEditorAsync()) {
-      const templateAnnotationsRes = await fetch(environment.templateAnnotationsBase + path);
+    if (magnoliaContext.isMagnolia) {
+      const templateAnnotationsRes = await fetch(`${environment.templateAnnotationsBase}${magnoliaContext.nodePath}${magnoliaContext.search}`);
       const templateAnnotations = await templateAnnotationsRes.json();
 
       this.editorContext.setTemplateAnnotations(templateAnnotations);

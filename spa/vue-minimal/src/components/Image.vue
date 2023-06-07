@@ -4,12 +4,12 @@
 
 <script>
 export default {
-  name: "Image",
-  props: ["image"],
+  name: 'Image',
+  props: ['image'],
   data() {
     return {
-      dam_raw: process.env.VUE_APP_MGNL_DAM_RAW,
+      dam_raw: process.env.VUE_APP_MGNL_DAM_RAW
     }
-  },
+  }
 };
 </script>

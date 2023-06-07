@@ -1,75 +1,46 @@
-import React from 'react';
-import {
-  events,
-  getRouterBasename,
-  getAPIBase,
-  getLanguages,
-  getCurrentLanguage,
-  changeLanguage,
-} from '../helpers/AppHelpers';
+import React from "react";
+import {events, getLanguages} from '../helpers/AppHelpers';
 
-function renderLanguages() {
-  const currentLanguage = getCurrentLanguage();
 
+let BASENAME = "";
+
+function handleClick(e) {
+  e.preventDefault();
+  window.history.pushState({}, '', e.currentTarget.href);
+  events.emit('popstate');
+}
+
+function renderLink(item, nodeName) {
   return (
-    <div className='languages'>
-      {getLanguages().map((lang) => (
-        <span key={`lang-${lang}`} data-active={currentLanguage === lang} onClick={() => changeLanguage(lang)}>
-          {lang}
-        </span>
-      ))}
-    </div>
+    <React.Fragment key={item["@id"]}>
+      <a href={BASENAME + item["@path"].replace(nodeName, "") || "/"}
+         onClick={handleClick}
+      >{item.navigationTitle || item.title || item['@name']}</a>
+      {item["@nodes"].length > 0 && item["@nodes"].map((nodeName) => renderLink(item[nodeName]))}
+    </React.Fragment>
   );
 }
 
-function Navigation() {
-  const [navItems, setNavItems] = React.useState([]);
+const Navigation = props => {
+  const {nodeName, content, currentLanguage} = props;
 
-  React.useEffect(() => {
-    async function fetchNav() {
-      const apiBase = getAPIBase();
-      const url = apiBase + process.env.REACT_APP_MGNL_API_NAV + process.env.REACT_APP_MGNL_APP_BASE;
-      console.log('NAV URL:' + url);
-      const response = await fetch(url);
-      const data = await response.json();
-      let items = data['@nodes'].map((nodeName) => {
-        return data[nodeName];
-      });
-      setNavItems([data, ...items]);
-    }
+  const pathname = window.location.pathname;
+  BASENAME = currentLanguage === getLanguages()[0] ? "" : "/" + currentLanguage;
 
-    if (navItems.length < 1) {
-      fetchNav();
-    }
-  }, [navItems]);
 
-  return navItems ? (
-    <nav className='Navigation'>
-      {navItems.map((item) => {
-        let newHref = (getRouterBasename() + item['@path'].replace(process.env.REACT_APP_MGNL_APP_BASE, '')).replace(
-          '//',
-          '/'
-        );
-
-        return (
-          <a
-            key={item['@id']}
-            href={newHref}
-            onClick={(e) => {
-              e.preventDefault();
-
-              window.history.pushState({}, '', e.currentTarget.href);
-              events.emit('popstate');
-            }}
-          >
-            {item.navigationTitle || item.title || item['@name']}
+  return (
+    <nav>
+      {renderLink(content, nodeName)}
+      <div className='languages'>
+        {getLanguages().map((language, i) => (
+          <a key={language} data-active={currentLanguage === language}
+             href={(i === 0 ? "" : "/" + language) + pathname.replace("/" + getLanguages()[1], "")}
+             onClick={handleClick}>
+            {language}
           </a>
-        );
-      })}
-      {renderLanguages()}
+        ))}
+      </div>
     </nav>
-  ) : (
-    <div />
   );
 }
 

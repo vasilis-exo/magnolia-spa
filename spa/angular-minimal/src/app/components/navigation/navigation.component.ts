@@ -29,7 +29,7 @@ export class NavigationComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     if (!this.navItems) {
       this.fetchNav().then((data) => {
-        let items = data['@nodes'].map((nodeName) => {
+        const items = data['@nodes'].map((nodeName) => {
           return data[nodeName];
         });
         this.navItems = [data, ...items];

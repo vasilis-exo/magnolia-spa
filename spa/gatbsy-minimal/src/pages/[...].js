@@ -47,7 +47,6 @@ export async function getServerData(context) {
 	const resolvedUrl = createPathWithQuery("/" + context.params["*"], context.query);
 
 	const magnoliaContext = EditorContextHelper.getMagnoliaContext(resolvedUrl, nodeName, languages);
-	delete magnoliaContext.version;
 
 	let props = {
 		nodeName,
@@ -61,13 +60,13 @@ export async function getServerData(context) {
 	// Fetching page navigation
 	const pagenavRes = await fetch(pagenavApi + nodeName);
 	props.pagenav = await pagenavRes.json();
-
-	global.mgnlInPageEditor = props.isPagesAppEdit;
 	// Fetch template annotations only inside Magnolia WYSIWYG
 	if (magnoliaContext.isMagnolia) {
 		const templateAnnotationsRes = await fetch(templateAnnotationsApi + magnoliaContext.nodePath);
 		props.templateAnnotations = await templateAnnotationsRes.json();
 	}
+
+	global.mgnlInPageEditor = magnoliaContext.isMagnoliaEdit;
 
 	return {
 		status: 200,
@@ -78,9 +77,6 @@ export async function getServerData(context) {
 
 export default function Pathname({ serverData, location }) {
 	const { page = {}, pagenav = {}, templateAnnotations = {}, magnoliaContext, nodeName } = serverData;
-
-	// In Pages app wait for template annotations before rendering EditablePage
-	const shouldRenderEditablePage = page && (magnoliaContext.isMagnolia ? templateAnnotations : true);
 
 	return (
 		<div className={magnoliaContext.isMagnoliaEdit ? "disable-a-pointer-events" : ""}>
@@ -93,7 +89,7 @@ export default function Pathname({ serverData, location }) {
 					pathname={location.pathname}
 				/>
 			)}
-			{shouldRenderEditablePage && (
+			{page && (
 				<EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />
 			)}
 		</div>

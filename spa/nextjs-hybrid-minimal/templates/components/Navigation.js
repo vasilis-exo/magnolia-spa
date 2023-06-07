@@ -27,9 +27,9 @@ function Navigation(props) {
 		<nav>
 			{renderLink(content, currentLanguage)}
 			{languages.map((language, i) => (
-				<Link key={language} href={(i === 0 ? "" : "/" + language) + pathname.replace("/" + languages[1], "")}>
-					<button>{language}</button>
-				</Link>
+					<Link key={language} style={{ padding: 'initial' }}  href={(i === 0 ? "" : "/" + language) + pathname.replace("/" + languages[1], "")}>
+						<button>{language}</button>
+					</Link>
 			))}
 		</nav>
 	);

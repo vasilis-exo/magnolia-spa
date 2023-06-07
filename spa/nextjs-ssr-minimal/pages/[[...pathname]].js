@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { EditablePage } from '@magnolia/react-editor';
 import Navigation from '../templates/components/Navigation';
 import Basic from '../templates/pages/Basic';
@@ -9,9 +8,8 @@ import Paragraph from '../templates/components/Paragraph';
 import Expander from '../templates/components/Expander';
 import List from '../templates/components/List';
 import Item from '../templates/components/Item';
-import { languages, getCurrentLanguage, setURLSearchParams } from '../utils';
+import { getProps } from '../utils';
 
-const nodeName = '/nextjs-ssr-minimal';
 const config = {
   componentMappings: {
     'nextjs-ssr-minimal-lm:pages/basic': Basic,
@@ -26,83 +24,18 @@ const config = {
   },
 };
 
-// Use different defaultBaseUrl to point to public instances
-const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
-const pagesApi = defaultBaseUrl + '/.rest/delivery/pages/v1';
-const templateAnnotationsApi = defaultBaseUrl + '/.rest/template-annotations/v1';
-const pagenavApi = defaultBaseUrl + '/.rest/delivery/pagenav/v1';
-
-// More info about personalization of headless projects https://docs.magnolia-cms.com/product-docs/6.2/Developing/SPA-development-and-Magnolia/Personalization-of-headless-SPA-projects.html
-// Fetch all variants inside Magnolia WYSIWYG in edit mode
-function p13n(pagePath, isPagesAppEdit) {
-  let newPagePath = pagePath;
-
-  if (isPagesAppEdit) {
-    newPagePath += newPagePath.indexOf('?') > -1 ? '&' : '?';
-    newPagePath += 'variants=all';
-  }
-
-  return newPagePath;
-}
 
 export async function getServerSideProps(context) {
-  const resolvedUrl = context.resolvedUrl;
-
-  // For less code use EditorContextHelper.getMagnoliaContext (https://docs.magnolia-cms.com/headless/spa-development/magnolia-front-end-helpers-for-SPA/magnolia-react-editor.html#_editorcontexthelper_getmagnoliacontext)
-  const currentLanguage = getCurrentLanguage(resolvedUrl);
-  const isDefaultLanguage = currentLanguage === languages[0];
-  const isPagesApp = context.query?.mgnlPreview || null;
-  let props = {
-    isPagesApp,
-    isPagesAppEdit: isPagesApp === 'false',
-    basename: isDefaultLanguage ? '' : '/' + currentLanguage,
-    pagePath: nodeName + context.resolvedUrl.replace(new RegExp('.*' + nodeName), ''), // Find out page path to fetch from Magnolia
-  };
-
-  global.mgnlInPageEditor = props.isPagesAppEdit;
-
-  if (!isDefaultLanguage) {
-    props.pagePath = props.pagePath.replace('/' + currentLanguage, '');
-  }
-
-  // Fetching page content
-  const pagesRes = await fetch(
-    p13n(setURLSearchParams(pagesApi + props.pagePath, 'lang=' + currentLanguage), props.isPagesAppEdit)
-  );
-  props.page = await pagesRes.json();
-
-  // Fetching page navigation
-  const pagenavRes = await fetch(setURLSearchParams(pagenavApi + nodeName, 'lang=' + currentLanguage));
-  props.pagenav = await pagenavRes.json();
-
-  return {
-    props,
-  };
+  return await getProps(context.resolvedUrl);
 }
 
+
 export default function Pathname(props) {
-  const [templateAnnotations, setTemplateAnnotations] = useState();
-  const { page, pagenav, isPagesApp, isPagesAppEdit, basename, pagePath } = props;
-
-  // Fetch template annotations only inside Magnolia WYSIWYG
-  useEffect(() => {
-    async function fetchTemplateAnnotations() {
-      const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
-      const templateAnnotationsJson = await templateAnnotationsRes.json();
-
-      setTemplateAnnotations(templateAnnotationsJson);
-    }
-
-    if (isPagesApp) fetchTemplateAnnotations();
-  }, [isPagesApp, pagePath]);
-
-  // In Pages app wait for template annotations before rendering EditablePage
-  const shouldRenderEditablePage = page && (isPagesApp ? templateAnnotations : true);
-
+  const { nodeName, page = {}, pagenav = {}, templateAnnotations = {}, magnoliaContext } = props;
   return (
-    <div className={isPagesAppEdit ? 'disable-a-pointer-events' : ''}>
-      {pagenav && <Navigation content={pagenav} nodeName={nodeName} basename={basename} />}
-      {shouldRenderEditablePage && (
+    <div className={magnoliaContext.isMagnoliaEdit ? "disable-a-pointer-events" : ""}>
+      {pagenav && <Navigation content={pagenav} nodeName={nodeName} currentLanguage={magnoliaContext.currentLanguage} />}
+      {page && (
         <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />
       )}
     </div>

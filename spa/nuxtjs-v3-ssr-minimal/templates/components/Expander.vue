@@ -44,15 +44,6 @@ export default {
     };
   },
 
-  updated() {
-    if (
-      window.location.search.includes("mgnlPreview") &&
-      window.parent.mgnlRefresh
-    ) {
-      window.parent.mgnlRefresh();
-    }
-  },
-
   methods: {
     toggle() {
       this.isCollapsed = !this.isCollapsed;

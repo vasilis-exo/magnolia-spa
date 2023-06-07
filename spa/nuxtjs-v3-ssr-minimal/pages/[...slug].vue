@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { EditablePage } from "@magnolia/vue-editor";
+import { EditablePage, EditorContextHelper } from "@magnolia/vue-editor";
 import Basic from "../templates/pages/Basic.vue";
 import Contact from "../templates/pages/Contact.vue";
 import Headline from "../templates/components/Headline.vue";
@@ -63,30 +63,23 @@ export default {
     const fullPath = useRoute().fullPath;
 
     // Load paths, see .env and nuxt.config.js files
-    const nodeName = runtimeConfig.NUXT_APP_MGNL_SITE_PATH;
-    const languages = runtimeConfig.NUXT_APP_MGNL_LANGUAGES.split(" ");
-    const pagesApi = runtimeConfig.MGNL_API_PAGES;
-    const templateAnnotationsApi = runtimeConfig.MGNL_API_TEMPLATES;
+    const nodeName = runtimeConfig.public.NUXT_APP_MGNL_SITE_PATH;
+    const languages = runtimeConfig.public.NUXT_APP_MGNL_LANGUAGES.split(" ");
+    const pagesApi = runtimeConfig.public.MGNL_API_PAGES;
+    const templateAnnotationsApi = runtimeConfig.public.MGNL_API_TEMPLATES;
 
-    const currentLanguage = getCurrentLanguage(fullPath, languages);
-    const isDefaultLanguage = currentLanguage === languages[0];
-    let pagePath = nodeName + fullPath.replace(new RegExp(".*" + nodeName), "");
+    const magnoliaContext = EditorContextHelper.getMagnoliaContext(fullPath, nodeName, languages);
 
     const { data: content } = await useAsyncData(fullPath, async () => {
-      if (!isDefaultLanguage) {
-        pagePath = pagePath.replace("/" + currentLanguage, "");
-      }
-      return $fetch(
-        setURLSearchParams(pagesApi + pagePath, "lang=" + currentLanguage)
-      );
+      return $fetch(pagesApi + magnoliaContext.nodePath + magnoliaContext.search);
     });
 
-    return { content, pagePath, templateAnnotationsApi };
+    return { magnoliaContext, content, templateAnnotationsApi };
   },
   async mounted() {
-    if (window.location.search.includes("mgnlPreview")) {
+    if (this.magnoliaContext.isMagnolia) {
       const templateAnnotationsRes = await fetch(
-        this.templateAnnotationsApi + this.pagePath
+        this.templateAnnotationsApi + this.magnoliaContext.nodePath
       );
       this.templateAnnotations = await templateAnnotationsRes.json();
     }

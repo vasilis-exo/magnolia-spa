@@ -19,8 +19,8 @@ const config = {
     'spa-lm:components/paragraph': Paragraph,
     'spa-lm:components/list': List,
     'spa-lm:components/listItem': Item,
-    'spa-lm:components/expander': Expander,
-  },
+    'spa-lm:components/expander': Expander
+  }
 };
 
 export default config;

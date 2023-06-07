@@ -10,7 +10,7 @@ export default {
     src() {
       const runtimeConfig = useRuntimeConfig()
       return (
-        runtimeConfig.MGNL_HOST +
+        runtimeConfig.public.MGNL_HOST +
         "/dam/" +
         this.image["@id"] +
         this.image["@path"]

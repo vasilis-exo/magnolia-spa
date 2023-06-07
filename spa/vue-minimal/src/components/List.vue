@@ -12,10 +12,10 @@
 import { EditableArea } from '@magnolia/vue-editor';
 
 export default {
-  name: "List",
+  name: 'List',
   components: {
     EditableArea
   },
-  props: ["items", "metadata"]
+  props: ['items', 'metadata']
 };
 </script>
