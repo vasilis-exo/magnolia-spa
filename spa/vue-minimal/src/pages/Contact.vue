@@ -12,11 +12,11 @@
 import { EditableArea } from '@magnolia/vue-editor';
 
 export default {
-  name: "Contact",
+  name: 'Contact',
   components: {
     EditableArea
   },
-  props: ["title", "metadata", "main"]
+  props: ['title', 'metadata', 'main']
 };
 </script>
 

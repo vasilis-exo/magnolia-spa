@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Paragraph",
-  props: ["richText"]
+  name: 'Paragraph',
+  props: ['richText']
 };
 </script>

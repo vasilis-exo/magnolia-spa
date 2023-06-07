@@ -39,15 +39,16 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 	let resolvedUrl = context.params.pathname ? "/" + context.params.pathname.join("/") : "";
 	if (context.preview) {
-		const query = context.previewData.query;
-		resolvedUrl = query.slug + resolvedUrl + "?mgnlPreview=" + query.mgnlPreview + "&mgnlChannel=" + query.mgnlChannel;
+		const { slug, ...query } = context.previewData.query;
+		let params = new URLSearchParams(query);
+		resolvedUrl = resolvedUrl + '?' + params.toString();
 	}
 	return await getProps(resolvedUrl);
 }
 
 export default function SSGPathname(props) {
 	const { nodeName, page = {}, pagenav = {}, templateAnnotations = {}, magnoliaContext } = props;
-	global.mgnlInPageEditor = magnoliaContext.isMagnoliaEdit;
+
 	return (
 		<div className={magnoliaContext.isMagnoliaEdit ? "disable-a-pointer-events" : ""}>
 			{pagenav && (

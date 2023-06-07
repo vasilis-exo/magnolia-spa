@@ -5,6 +5,6 @@
 <script>
 export default {
   name: 'Headline',
-  props: ['text'],
+  props: ['text']
 };
 </script>

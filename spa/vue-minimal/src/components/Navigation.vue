@@ -21,10 +21,10 @@ import {
   getLanguages,
   getCurrentLanguage,
   changeLanguage
-} from "../helpers/AppHelpers";
+} from '../helpers/AppHelpers';
 
 export default {
-  name: "Navigation",
+  name: 'Navigation',
   data() {
     return {
       pagenav: [],
@@ -37,22 +37,20 @@ export default {
 
     let url = process.env.VUE_APP_MGNL_API_NAV + process.env.VUE_APP_MGNL_SITE_PATH;
 
-    console.log("Get Nav Con  : " + url)
+    console.log('Get Nav Con  : ' + url)
 
-    const pagenavResponse = await fetch(url
-      
-    );
+    const pagenavResponse = await fetch(url);
     const pagenav = await pagenavResponse.json();
     const newPagenav = [
       {
-        "@id": pagenav["@id"],
-        "@name": "/",
+        '@id': pagenav['@id'],
+        '@name': '/',
         title: pagenav.title
       }
     ];
 
     this.pagenav = newPagenav.concat(
-      pagenav["@nodes"].map(nodeName => pagenav[nodeName])
+      pagenav['@nodes'].map(nodeName => pagenav[nodeName])
     );
   },
 

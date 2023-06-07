@@ -31,7 +31,6 @@ export const config = {
 
 export async function getProps(resolvedUrl) {
 	const magnoliaContext = EditorContextHelper.getMagnoliaContext(resolvedUrl, nodeName, languages);
-	delete magnoliaContext.version;
 	//
 	let props = {
 		nodeName,
@@ -49,7 +48,7 @@ export async function getProps(resolvedUrl) {
 		props.templateAnnotations = await templateAnnotationsRes.json();
 	}
 
-	global.mgnlInPageEditor = props.isPagesAppEdit;
+	global.mgnlInPageEditor = magnoliaContext.isMagnoliaEdit;
 
 	return {
 		props,

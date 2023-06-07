@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ContactComponent {
   @Input() title: any;
-  
+
   @Input() main: any;
   // metadata
   @Input() metadata: any;

@@ -39,8 +39,11 @@ img {
   margin-left: 1rem;
 }
 
-.languages span:hover,
-.languages span[data-active='true'] {
+.languages a {
+  color: #747474;
+}
+.languages a:hover,
+.languages a[data-active='true'] {
   text-decoration: underline;
   cursor: pointer;
 }

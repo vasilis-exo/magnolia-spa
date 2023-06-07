@@ -28,11 +28,11 @@
 import { EditableArea, inEditorEdit } from '@magnolia/vue-editor';
 
 export default {
-  name: "Expander",
+  name: 'Expander',
   components: {
     EditableArea
   },
-  props: ["expanderItems", "metadata"],
+  props: ['expanderItems', 'metadata'],
 
   data() {
     return {

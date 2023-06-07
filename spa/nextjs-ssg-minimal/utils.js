@@ -1,15 +1,34 @@
-export const languages = process.env.NEXT_PUBLIC_MGNL_LANGUAGES.split(' ');
+import {EditorContextHelper} from "@magnolia/react-editor";
 
-export function getCurrentLanguage(url) {
-  for (let i = 0; i < languages.length; i++) {
-    const language = languages[i];
+export const nodeName = process.env.NEXT_APP_MGNL_SITE_PATH;
+export const pagesApi = process.env.NEXT_APP_MGNL_API_PAGES;
+export const templateAnnotationsApi = process.env.NEXT_APP_MGNL_API_TEMPLATES;
+export const pagenavApi = process.env.NEXT_APP_MGNL_API_NAV;
+export const languages = process.env.NEXT_PUBLIC_MGNL_LANGUAGES.split(" ");
 
-    if (url.indexOf('/' + language) > -1) return language;
+
+export async function getProps(resolvedUrl) {
+  const magnoliaContext = EditorContextHelper.getMagnoliaContext(resolvedUrl, nodeName, languages);
+  //
+  let props = {
+    nodeName,
+    magnoliaContext,
+  };
+  // Fetching page content
+  const pagesRes = await fetch(pagesApi + magnoliaContext.nodePath + magnoliaContext.search);
+  props.page = await pagesRes.json();
+  // Fetching page navigation
+  const pagenavRes = await fetch(pagenavApi + nodeName);
+  props.pagenav = await pagenavRes.json();
+  // Fetch template annotations only inside Magnolia WYSIWYG
+  if (magnoliaContext.isMagnolia) {
+    const templateAnnotationsRes = await fetch(templateAnnotationsApi + magnoliaContext.nodePath);
+    props.templateAnnotations = await templateAnnotationsRes.json();
   }
 
-  return languages[0];
-}
+  global.mgnlInPageEditor = magnoliaContext.isMagnoliaEdit;
 
-export function setURLSearchParams(url, param) {
-  return url + (url.indexOf('?') > -1 ? '&' : '?') + param;
+  return {
+    props,
+  };
 }

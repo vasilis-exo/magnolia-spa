@@ -1,7 +1,7 @@
 /**
  * @type {import('@vue/cli-service').ProjectOptions}
  */
- module.exports = {
+module.exports = {
   devServer: {
     port: 3000
   },
