@@ -282,3 +282,26 @@ Or instead of importing,
 - Use the `Preview page` action to view _unpersonalized_ content.
 - Use the `Preview in tab` green button to see personalized content based on age form.
 - Use the `Preview as visitor` to impersonate different users. For example use the `Add` action to add a user trait, like `Age`.
+
+# Autogeneration Components and Inheritance Component Set up (Only available from Magnolia 6.2.35)
+
+Currently, this feature demo is only available in `react-minimal` sample and required new endpoint `$type: jcrPagesDeliveryEndpoint_v2`
+
+[Overview of Magnolia Component Autogeneration](https://docs.magnolia-cms.com/product-docs/6.2/Developing/Templating/Template-definition/Area-definition/Component-autogeneration.html)
+
+
+[Overview of Magnolia Component Inheritance](https://docs.magnolia-cms.com/product-docs/6.2/Developing/Templating/Template-definition/Area-definition/Component-inheritance.html)
+
+### Create React-minimal manually with autogeneration component:
+- Ensure https://git.magnolia-cms.com/projects/DEMOS/repos/minimal-headless-spa-demos/browse/magnolia/light-modules/spa-lm/restEndpoints/delivery/pages_v1.yaml endpoint is configured with `$type: jcrPagesDeliveryEndpoint_v2`
+- Use the `Add page` action to create `react-minimal`
+- Choose the `React: Basic-autogeneration` template and save.
+- Open `react-minimal` in page detail editor
+- See `headline` component has been generated automatically
+
+### Create subpage of React-minimal manually with inheritance component:
+- Ensure https://git.magnolia-cms.com/projects/DEMOS/repos/minimal-headless-spa-demos/browse/magnolia/light-modules/spa-lm/restEndpoints/delivery/pages_v1.yaml endpoint is configured with `$type: jcrPagesDeliveryEndpoint_v2`
+- Use the `Add page` action to create `react-child` under `react-minimal`
+- Choose the `React: Contact-inheritance` template and save.
+- Open `react-child` in page detail editor
+- See `headline` component in `react-child` that inherited from `react-minimal`. Since it is inherited so no green bar for editing headline component

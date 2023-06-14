@@ -13,6 +13,9 @@ const config = {
         'react-minimal-lm:pages/basic': Basic,
         'react-minimal-lm:pages/contact': Contact,
         'react-minimal-lm:pages/personalization': Personalization,
+
+        'react-minimal-lm:pages/basic-autogeneration': Basic,
+        'react-minimal-lm:pages/contact-inheritance': Contact,
     
         'spa-lm:components/headline': Headline,
         'spa-lm:components/image': Image,
