@@ -1,0 +1,60 @@
+datasource:
+  workspace: tours
+  autoCreate: true
+
+model:
+  properties:
+    name:
+      label: Name
+      required: true
+      i18n: true
+
+    description:
+      label: Description
+      i18n: true
+
+    isFeatured:
+      type: Boolean #Types 'Decimal', 'Long' and 'Double' are also available.
+      label: Feature this item
+
+    image:
+      type: asset
+      label: Image
+
+    tourTypes:
+      label: Tour Types
+      multiple: true
+
+    location:
+      label: Start City
+      i18n: true
+
+    date:
+      label: Date
+      type: Date
+
+    duration:
+      type: Long
+      label: Tour Duration
+      options:
+        "2":
+          value: 2
+          label: 2 days
+        "7":
+          value: 7
+          label: 7 days
+        "14":
+          value: 14
+          label: 14 days
+        "21":
+          value: 21
+          label: 21 days
+
+    tourOperator:
+      label: Tour Operator
+      i18n: true
+
+    body:
+      type: richText
+      label: Body
+      i18n: true
