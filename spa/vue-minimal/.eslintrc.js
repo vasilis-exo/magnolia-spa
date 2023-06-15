@@ -44,5 +44,8 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ],
+  "eslint.workingDirectories": [
+    {'mode': 'auto'}
+  ],
 };
