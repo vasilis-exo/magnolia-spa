@@ -21,6 +21,8 @@ areas:
         id: spa-lm:components/expander
       List:
         id: spa-lm:components/list
+      TourList:
+        id: spa-lm:components/tourList
 
   extras:
     title: Extras Area

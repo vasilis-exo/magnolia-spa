@@ -1,0 +1,7 @@
+label: Tour List
+form:
+  properties:
+    headline:
+      label: Tour List Headline
+      $type: textField
+      i18n: true
