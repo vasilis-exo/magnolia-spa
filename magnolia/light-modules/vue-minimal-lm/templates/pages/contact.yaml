@@ -1,5 +1,5 @@
 title: 'Vue: Contact'
-baseUrl: http://localhost:8081
+baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
 # templateScript: /vue-minimal-lm/webresources/dist/index.html
 dialog: spa-lm:pages/basic
