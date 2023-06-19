@@ -6,7 +6,8 @@ import Paragraph from './components/Paragraph';
 import List from './components/List';
 import Item from './components/Item';
 import Expander from './components/Expander';
-import TourList from "./components/TourList";
+import TourList from './components/TourList';
+import TodoList from './components/TodoList';
 
 const config = {
   componentMappings: {
@@ -21,7 +22,8 @@ const config = {
     'spa-lm:components/list': List,
     'spa-lm:components/listItem': Item,
     'spa-lm:components/expander': Expander,
-    'spa-lm:components/tourList': TourList
+    'spa-lm:components/tourList': TourList,
+    'spa-lm:components/todoList': TodoList
   }
 };
 

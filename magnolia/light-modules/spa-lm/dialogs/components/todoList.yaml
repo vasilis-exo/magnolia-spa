@@ -1,0 +1,7 @@
+label: todo List
+form:
+  properties:
+    headline:
+      label: todo List Headline
+      $type: textField
+      i18n: true
