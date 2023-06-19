@@ -8,16 +8,15 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue';
 import { EditableArea } from '@magnolia/vue-editor';
 
-export default {
-  name: 'Contact',
-  components: {
-    EditableArea
-  },
-  props: ['title', 'metadata', 'main']
-};
+const props = defineProps({
+  title: String,
+  metadata: Object,
+  main: Object
+});
 </script>
 
 <style scoped>

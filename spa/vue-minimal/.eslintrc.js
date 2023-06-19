@@ -11,7 +11,8 @@ module.exports = {
     'vue'
   ],
   parserOptions: {
-    parser: '@babel/eslint-parser'
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -44,8 +45,8 @@ module.exports = {
         jest: true
       }
     }
-  ],
-  "eslint.workingDirectories": [
-    {'mode': 'auto'}
-  ],
+  ]
+  // "eslint.workingDirectories": [
+  //   {'mode': 'auto'}
+  // ],
 };

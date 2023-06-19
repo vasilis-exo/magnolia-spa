@@ -1,44 +1,45 @@
 <template>
-  <div class="tour-list">
-    <h1>{{ headline }}</h1>
-    <div v-if="tours.length > 0" class="tour-list-cards">
-      <div class="card" v-for="tour in tours" :key="tour.path">
-        <img :src="imageBase + tour.image.renditions['480x360'].link" class="card-img-top"
-          :alt="tour.image.metadata.caption" />
-        <div class="card-body">
-          <h5 class="card-title">{{ tour.name }}</h5>
-          <p class="card-text">{{ tour.description }}</p>
-        </div>
-      </div>
-    </div>
-    <h2 v-else>No Tours found</h2>
-  </div>
+	<div class="tour-list">
+		<h1>{{ headline }}</h1>
+		<div v-if="state.tours.length > 0" class="tour-list-cards">
+			<div class="card" v-for="tour in state.tours" :key="tour.path">
+				<img :src="state.imageBase + tour.image.renditions['480x360'].link" class="card-img-top"
+					:alt="tour.image.metadata.caption" />
+				<div class="card-body">
+					<h5 class="card-title">{{ tour.name }}</h5>
+					<p class="card-text">{{ tour.description }}</p>
+				</div>
+			</div>
+		</div>
+		<h2 v-else>No Tours found</h2>
+	</div>
 </template>
   
-<script>
-const API_ENDPOINT =
-  "http://localhost:8080/magnoliaAuthor/.rest/delivery/tours";
+<script setup>
+import { onMounted, reactive, defineProps } from 'vue';
 
-export default {
-  name: "TourList",
-  props: ["headline"],
-  data() {
-    return {
-      tours: [],
-      imageBase: "http://localhost:8080"
-    };
-  },
-  created() {
-    this.fetchTours();
-  },
-  methods: {
-    async fetchTours() {
-      let response = await fetch(API_ENDPOINT);
-      let data = await response.json();
-      this.tours = data.results;
-    }
-  }
+const API_ENDPOINT =
+	'http://localhost:8080/magnoliaAuthor/.rest/delivery/tours';
+
+defineProps({
+  headline: String
+});
+
+const state = reactive({
+  tours: [],
+  imageBase: 'http://localhost:8080'
+});
+
+
+const fetchTours = async () => {
+  let response = await fetch(API_ENDPOINT);
+  let data = await response.json();
+  state.tours = data.results;
 };
+
+onMounted(() => {
+  fetchTours();
+});
 </script>
 
 
@@ -48,6 +49,7 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+
 		.card {
 			max-width: 150px;
 			margin-right: 15px;
@@ -56,14 +58,16 @@ export default {
 			transition: transform 0.4s ease-in-out;
 			cursor: pointer;
 
-      &:hover {
+			&:hover {
 				transform: scale3d(1.5, 1.5, 1.5);
 				transform-origin: center;
 				background-color: $tours-background-color;
+
 				.card-body {
 					.card-text {
 						opacity: 1;
 					}
+
 					.card-title {
 						color: $tours-title-color;
 					}
@@ -73,8 +77,10 @@ export default {
 			.card-img-top {
 				width: 150px;
 			}
+
 			.card-body {
 				padding: 5px;
+
 				.card-text {
 					margin: 5px;
 					opacity: 0.8;
@@ -82,6 +88,7 @@ export default {
 					font-weight: 200;
 					transition: opacity 0.8s ease-in;
 				}
+
 				.card-title {
 					margin: 0;
 					font-weight: 200;
@@ -89,5 +96,4 @@ export default {
 			}
 		}
 	}
-}
-</style>
+}</style>

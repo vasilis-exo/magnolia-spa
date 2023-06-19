@@ -8,14 +8,12 @@
   </ul>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue';
 import { EditableArea } from '@magnolia/vue-editor';
 
-export default {
-  name: 'List',
-  components: {
-    EditableArea
-  },
-  props: ['items', 'metadata']
-};
+defineProps({
+  items: Object,
+  metadata: Object
+});
 </script>

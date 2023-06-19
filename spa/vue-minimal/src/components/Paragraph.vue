@@ -2,9 +2,9 @@
   <p class="Paragraph" v-html="richText"></p>
 </template>
 
-<script>
-export default {
-  name: 'Paragraph',
-  props: ['richText']
-};
+<script setup>
+import { defineProps } from 'vue';
+defineProps({
+  richText: String
+});
 </script>
